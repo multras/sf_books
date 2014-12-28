@@ -1,0 +1,29 @@
+plugin.tx_sfbooks_pi1._CSS_DEFAULT_STYLE (
+.tx-sfbooks-pi1 .singleview {
+	overflow: hidden;
+	width: 600px;
+}
+
+	.tx-sfbooks-pi1 .cover { float: right; }
+
+	.tx-sfbooks-pi1 .singleview dl {
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		width: 380px;
+	}
+
+	.tx-sfbooks-pi1 .singleview dt {
+		clear: left;
+		float: left;
+		width: 150px;
+	}
+
+	.tx-sfbooks-pi1 .singleview dd {
+		clear: right;
+		float: left;
+		width: 230px;
+	}
+
+.tx-comments-pi1 { clear: both; }
+)
