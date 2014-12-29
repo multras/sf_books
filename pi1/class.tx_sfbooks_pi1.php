@@ -77,6 +77,7 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 	 * initialization of the class
 	 *
 	 * @param		array		$conf
+	 * @return		void
 	 */
 	protected function init($conf) {
 		$this->conf = $conf;		// Setting the TypoScript passed to this function in $this->conf
@@ -128,15 +129,17 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 				$this->lConf['limit'],
 				0,
 				1000,
-				3);
+				3
+			);
 				// The maximum number of 'pages' in the browse-box: 'Page 1', 'Page 2', etc.
 			$this->internal['maxPages'] = t3lib_div::intInRange(
 				$this->lConf['maxPages'],
 				0,
 				1000,
-				10);
+				10
+			);
 			$this->internal['searchFieldList'] = 'title,author,isbn,description';
-			$this->internal['orderByList'] = 'number,title,author,isbn';
+			$this->internal['orderByList'] = 'number,title,author,isbn,category';
 			$this->internal['currentTable'] = 'tx_sfbooks_books';
 
 				// Get number of records:
@@ -314,9 +317,9 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 		$markContentArray['###EXTRAS###'] = $this->getFieldHeader('extras');
 		$markContentArray['###CATEGORY###'] = $this->getFieldHeaderSortlink('category');
 		$markContentArray['###INFOS###'] = $this->getFieldHeader('infos');
-		$markContentArray['###LOCATION1###'] = $this->getFieldHeader('location1');
-		$markContentArray['###LOCATION2###'] = $this->getFieldHeader('location2');
-		$markContentArray['###LOCATION3###'] = $this->getFieldHeader('location3');
+		$markContentArray['###LOCATION1###'] = $this->getFieldContent('location1');
+		$markContentArray['###LOCATION2###'] = $this->getFieldContent('location2');
+		$markContentArray['###LOCATION3###'] = $this->getFieldContent('location3');
 
 		$out =  $this->cObj->substituteMarkerArrayCached(
 			$dataHeaderContent,
