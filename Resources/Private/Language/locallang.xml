@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'tx_sfbooks_pi1'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pagination_first"><![CDATA[< First]]></label>
+			<label index="pagination_previous"><![CDATA[< Previous]]></label>
+			<label index="pagination_page">Page </label>
+			<label index="pagination_next"><![CDATA[Next >]]></label>
+			<label index="pagination_last"><![CDATA[Last >]]></label>
+			<label index="isbn">ISBN</label>
+			<label index="released_at_rv">released at the Rombach Verlag these books:</label>
+			<label index="search">search</label>
+			<label index="search_in_book">In Book by</label>
+			<label index="search_in_author">In Author by</label>
+			<label index="backlink">Back to the overview</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="pagination_first"><![CDATA[< Erste]]></label>
+			<label index="pagination_previous"><![CDATA[< Vorige]]></label>
+			<label index="pagination_page">Seite </label>
+			<label index="pagination_next"><![CDATA[Nächste >]]></label>
+			<label index="pagination_last"><![CDATA[Letzte >]]></label>
+			<label index="isbn">ISBN</label>
+			<label index="released_at_rv">hat im Rombach Verlag folgende Bücher veröffentlicht:</label>
+			<label index="search">suche</label>
+			<label index="search_in_book">In Buch nach</label>
+			<label index="search_in_author">In Autor nach</label>
+			<label index="backlink">Zurück zur Übersicht</label>
+		</languageKey>
+	</data>
+</T3locallang>

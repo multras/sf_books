@@ -1,0 +1,14 @@
+{namespace sfb=Tx_SfBooks_ViewHelpers}
+
+<f:if condition="{books.0}">
+	<f:then>
+		<sfb:widget.paginate objects="{authors}" as="paginatedAuthors" configuration="{itemsPerPage: settings.limit}">Ergebnis Ihrer Suche:<br /><br />
+			<div id="suche-ergebnis">
+				<f:for each="{paginatedAuthors}" as="author">
+					<li><f:link.action action="show" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname}, {author.firstname}</f:link.action></li>
+				</f:for>
+			</div>
+		</sfb:widget.paginate>
+	</f:then>
+	<f:else><f:translate key="no_result" arguments="{query: query}"/></f:else>
+</f:if>

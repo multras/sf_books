@@ -37,6 +37,7 @@
 
 			<label index="tx_sfbooks_category">Category</label>
 			<label index="tx_sfbooks_category.type">Type</label>
+			<label index="tx_sfbooks_category.parent">Parent</label>
 
 			<label index="tx_sfbooks_extras">Extras</label>
 			<label index="tx_sfbooks_extras.label">Label</label>

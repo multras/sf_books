@@ -1,0 +1,42 @@
+plugin.tx_sfbooks_book._CSS_DEFAULT_STYLE (
+.tx-sfbooks-pi1 .singleAction {
+	overflow: hidden;
+	width: 600px;
+}
+
+	.tx-sfbooks-pi1 .cover { float: right; }
+
+	.tx-sfbooks-pi1 .singleAction dl {
+		margin: 0;
+		padding: 0;
+		width: 380px;
+	}
+
+		.tx-sfbooks-pi1 .singleAction dt {
+			clear: left;
+			float: left;
+			width: 140px;
+		}
+
+		.tx-sfbooks-pi1 .singleAction dt:after {
+			content: ":";
+		}
+
+		.tx-sfbooks-pi1 .singleAction dd {
+			margin: 0 0 0 150px;
+			padding: 0 0 0.5em 0;
+		}
+
+	.tx-sfbooks-pi1 .singleAction ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+		.tx-sfbooks-pi1 .singleAction li {
+			margin: 0;
+			padding: 0;
+		}
+
+.tx-comments-pi1 { clear: both; }
+)

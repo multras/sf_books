@@ -302,9 +302,18 @@ $TCA['tx_sfbooks_category'] = Array(
 				'eval' => 'required',
 			)
 		),
+		'parent' => Array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:sf_books/locallang_db.php:tx_sfbooks_category.parent',
+			'config' => Array(
+				'type' => 'input',
+				'size' => '30',
+				'max' => '1',
+			)
+		),
 	),
 	'types' => Array(
-		'0' => Array('showitem' => 'hidden;;1;;1-1-1, type')
+		'0' => Array('showitem' => 'hidden;;1;;1-1-1, type, parent')
 	),
 	'palettes' => Array(
 		'1' => Array('showitem' => '')

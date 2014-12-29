@@ -52,6 +52,9 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 	public function main($content, $conf) {
 		$this->init($conf);
 
+			// keep pagedata for later purpose
+		$pageData = $this->cObj->data;
+
 		switch ((string) $this->conf['code']) {
 			case 'singleView':
 				list($t) = explode(':', $this->cObj->currentRecord);
@@ -70,6 +73,9 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 				break;
 		}
 
+			// restore the page data for typoscript
+		$this->cObj->start($pageData, 'tt_content');
+
 		return $this->pi_wrapInBaseClass($out);
 	}
 
@@ -83,17 +89,27 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 		$this->conf = $conf;		// Setting the TypoScript passed to this function in $this->conf
 		$this->pi_setPiVarDefaults();
 		$this->pi_loadLL();		// Loading the LOCAL_LANG values
+		$this->pi_initPIflexForm();
 		$this->generateLanguageMarker();
 
-		if ($this->cObj->data['tx_sfbooks_template']) {
+		$templateFile = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile');
+		if (!empty($templateFile)) {
 			$this->template = $this->cObj->cObjGetSingle(
 				'FILE',
 				array(
-					'file' => 'uploads/tx_sfbooks/' . $this->cObj->data['tx_sfbooks_template']
+					'file' => 'uploads/tx_sfbooks/' . $templateFile
 				)
 			);
 		} else {
 			$this->template = $this->cObj->fileResource($this->conf['templateFile']);
+		}
+
+		$category = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'category');
+		if (!empty($category)) {
+			$this->conf['listView.']['category'] = $category;
+		}
+		if (!empty($this->conf['listView.']['category'])) {
+			$this->conf['listView.']['category'] = t3lib_div::trimExplode(',', $this->conf['listView.']['category']);
 		}
 
 		$this->conf['pidList'] = $this->conf['storagePid'];
@@ -107,8 +123,6 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 	protected function listView() {
 		$this->lConf = $this->conf['listView.'];	// Local settings for the listView function
 
-			// keep pagedata for later purpose
-		$pageData = $this->cObj->data;
 		$this->internal['currentTable'] = 'tx_sfbooks_books';
 
 		if ($this->piVars['showUid']) {	// If a single element should be displayed:
@@ -119,43 +133,28 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 
 			$out = $this->singleView();
 		} else {
-			$this->piVars['pointer'] = intval($this->piVars['pointer']);
+			$this->setInternals();
 
-				// Initializing the query parameters:
-			$this->internal['orderBy'] = $this->piVars['sort_field'];
-			$this->internal['descFlag'] = $this->piVars['sort_order'];
-				// Number of results to show in a listing.
-			$this->internal['results_at_a_time'] = t3lib_div::intInRange(
-				$this->lConf['limit'],
-				0,
-				1000,
-				3
-			);
-				// The maximum number of 'pages' in the browse-box: 'Page 1', 'Page 2', etc.
-			$this->internal['maxPages'] = t3lib_div::intInRange(
-				$this->lConf['maxPages'],
-				0,
-				1000,
-				10
-			);
-			$this->internal['searchFieldList'] = 'title,author,isbn,description';
-			$this->internal['orderByList'] = 'number,title,author,isbn,category';
-			$this->internal['currentTable'] = 'tx_sfbooks_books';
+			$addWhere = '';
+			if (is_array($this->conf['listView.']['category'])) {
+				$addWhere = array();
+				foreach ($this->conf['listView.']['category'] as $category) {
+					$addWhere[] = 'category = ' . (int) $category;
+				}
+				$addWhere = ' AND (' . implode(' OR ', $addWhere) . ')';
+			}
 
 				// Get number of records:
-			$query = $this->pi_list_query('tx_sfbooks_books', 1);
-			$res = $GLOBALS['TYPO3_DB']->sql_query($query);
+			$res = $this->pi_exec_query($this->internal['currentTable'], 1, $addWhere);
 			if ($GLOBALS['TYPO3_DB']->sql_error()) {
-				debug(array($GLOBALS['TYPO3_DB']->sql_error(), $query));
+				debug($GLOBALS['TYPO3_DB']->sql_error());
 			}
-			list($this->internal['res_count']) =
-				$GLOBALS['TYPO3_DB']->sql_fetch_row($res);
+			$this->internal['res_count'] = current($GLOBALS['TYPO3_DB']->sql_fetch_row($res));
 
 				// Make listing query, pass query to MySQL:
-			$query = $this->pi_list_query('tx_sfbooks_books');
-			$res = $GLOBALS['TYPO3_DB']->sql_query($query);
+			$res = $this->pi_exec_query($this->internal['currentTable'], 0, $addWhere);
 			if ($GLOBALS['TYPO3_DB']->sql_error()) {
-				debug(array($GLOBALS['TYPO3_DB']->sql_error(), $query));
+				debug($GLOBALS['TYPO3_DB']->sql_error());
 			}
 
 				// Adds the whole list table
@@ -170,10 +169,39 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 				);
 		}
 
-			// restore the page data for typoscript
-		$this->cObj->start($pageData, 'tt_content');
-
 		return $out;
+	}
+
+	/**
+	 * Set internal values
+	 *
+	 * @return void
+	 */
+	protected function setInternals() {
+		$this->piVars['pointer'] = intval($this->piVars['pointer']);
+
+			// Initializing the query parameters:
+		$this->internal['orderBy'] = $this->piVars['sort_field'];
+		$this->internal['descFlag'] = $this->piVars['sort_order'];
+
+		$this->internal['searchFieldList'] = 'title,author,isbn,description';
+		$this->internal['orderByList'] = 'number,title,author,isbn,category';
+		$this->internal['currentTable'] = 'tx_sfbooks_books';
+
+			// Number of results to show in a listing.
+		$this->internal['results_at_a_time'] = t3lib_div::intInRange(
+			$this->lConf['limit'],
+			0,
+			1000,
+			3
+		);
+			// The maximum number of 'pages' in the browse-box: 'Page 1', 'Page 2', etc.
+		$this->internal['maxPages'] = t3lib_div::intInRange(
+			$this->lConf['maxPages'],
+			0,
+			1000,
+			10
+		);
 	}
 
 	/**
@@ -222,17 +250,14 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 
 		$markContentArray = array_merge($this->languageMarker, $markContentArray);
 
-		$out = $this->cObj->substituteMarkerArrayCached(
+		$out = $this->cObj->substituteMarkerArray(
 			$template,
 			$markContentArray
 		);
-		$out = $this->cObj->substituteMarkerArrayCached(
+		$out = $this->cObj->substituteMarkerArray(
 			$out,
 			$markContentArray
 		);
-
-			// restore the page data for typoscript
-		$this->cObj->start($pageData, 'tt_content');
 
 		return $out;
 	}
@@ -283,7 +308,7 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 		}
 
 		$markContentArray = array_merge($this->languageMarker, $markContentArray);
-		$out = $this->cObj->substituteMarkerArrayCached(
+		$out = $this->cObj->substituteMarkerArray(
 			$dataRowContent,
 			$markContentArray
 		);
@@ -321,7 +346,7 @@ class tx_sfbooks_pi1 extends tslib_pibase {
 		$markContentArray['###LOCATION2###'] = $this->getFieldContent('location2');
 		$markContentArray['###LOCATION3###'] = $this->getFieldContent('location3');
 
-		$out =  $this->cObj->substituteMarkerArrayCached(
+		$out =  $this->cObj->substituteMarkerArray(
 			$dataHeaderContent,
 			$markContentArray
 		);

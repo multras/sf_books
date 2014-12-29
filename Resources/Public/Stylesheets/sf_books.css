@@ -1,0 +1,58 @@
+/* Accordion */
+.trigger {
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 1px 1px #fff inset;
+	box-shadow: 0 1px 1px #fff inset;
+	background: -moz-linear-gradient(center top, #e9e9e9 50%, #ddd 50%);
+	background-color: #ddd;
+	border: 1px solid #ddd;
+	color: #888;
+	cursor: pointer;
+	margin-bottom: 5px;
+	padding: 5px;
+	text-shadow: 0 1px 0 #fff;
+	width: 388px;
+}
+
+.trigger_active {
+	color: #333;
+}
+
+.toggle_container {
+	padding: 5px 10px;
+	width: 380px;
+}
+
+/* Paginator */
+.widget-paginator {
+	margin: 0;
+	overflow: auto;
+	padding: 0;
+	text-align: center;
+}
+.below .widget-paginator {
+	margin: 20px 0 0 0;
+}
+
+.widget-paginator li {
+	list-style: none;
+	display: inline-block;
+	padding: 2px 5px;
+}
+
+/* Author letter navigation */
+.tx_sfbooks_author_letters,
+.tx_sfbooks_series_letters {
+	margin: 0 0 20px 0;
+	overflow: auto;
+	padding: 0;
+}
+
+.tx_sfbooks_author_letters li,
+.tx_sfbooks_series_letters li {
+	list-style: none;
+	float: left;
+	display: block;
+	padding: 2px 5px;
+}

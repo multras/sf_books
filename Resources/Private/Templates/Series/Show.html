@@ -1,0 +1,25 @@
+<h2>{series.title}</h2>
+
+<div>
+	{series.info}
+	{series.description}
+
+	<f:for each="{series.books}" as="book">
+		<div class="book">
+			<div class="series"><f:for each="{book.author}" as="bookauthor" iteration="iteration">
+				<f:link.action action="show" pageUid="{settings.authorPageId}" arguments="{author: bookauthor}">
+					{bookauthor.lastname},
+					{bookauthor.firstname}</f:link.action>
+				<f:if condition="{iteration.total} > 1">
+					<f:if condition="{iteration.isLast}">
+						<f:then> </f:then>
+						<f:else>/</f:else>
+					</f:if>
+				</f:if>
+			</f:for>
+			</div>
+			<h3><f:link.action action="show" controller="Book" pageUid="{settings.bookPageId}" arguments="{book: book}" pluginName="category">{book.title}</f:link.action></h3>
+		</div>
+	</f:for>
+	<f:link.page pageUid="{settings.seriesPageId}" class="backlink"><f:translate key="backlink"/></f:link.page>
+</div>

@@ -1,0 +1,89 @@
+plugin.tx_sfbooks {
+	_LOCAL_LANG.de {
+		search_in_author = Autor
+		search_in_title = Buchtitel
+		search_in_isbn = ISBN
+		no_result = Für den Suchbegriff '%s' liegt kein Ergebnis vor
+	}
+}
+
+
+
+plugin.tx_sfbooks_book {
+	settings {
+		bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+		authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+
+		searchFields = title, subtitle, description, isbn, author
+	}
+
+	persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
+}
+
+
+
+plugin.tx_sfbooks_author {
+	settings {
+		bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+		authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+
+		searchFields = lastname, firstname, description
+	}
+
+	persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
+}
+
+
+
+plugin.tx_sfbooks_category {
+	settings {
+		bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+		authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+		excludeCategories = {$plugin.tx_sfbooks_book.excludeCategories}
+	}
+
+	persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
+}
+
+
+
+plugin.tx_sfbooks_series {
+	settings {
+		bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+		authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+		seriesPageId = {$plugin.tx_sfbooks_book.seriesPageId}
+	}
+
+	persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
+}
+
+
+
+plugin.tx_sfbooks_search {
+	settings {
+		bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+		authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+
+		bookSearchFields < plugin.tx_sfbooks_book.settings.searchFields
+		authorSearchFields < plugin.tx_sfbooks_author.settings.searchFields
+	}
+
+	persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
+}
+
+
+
+plugin.tx_comments_pi1 {
+	showUidMap.tx_sfbooks_book = book
+	prefixToTableMap.tx_sfbooks_book = tx_sfbooks_domain_model_book
+}
+
+
+
+page.includeJSlibs {
+	jQuery = EXT:sf_books/Resources/Public/Javascript/jquery-1.7.min.js
+	sf_books = EXT:sf_books/Resources/Public/Javascript/sf_books.js
+}
+page.includeCSS {
+	sf_books = EXT:sf_books/Resources/Public/Stylesheets/sf_books.css
+}

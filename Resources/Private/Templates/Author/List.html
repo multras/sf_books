@@ -1,0 +1,16 @@
+<ul class="tx_sfbooks_author_letters">
+<f:for each="{authorGroups}" as="authors" key="letter">
+	<li><a href="#authorsWith{letter}">{letter}</a></li>
+</f:for>
+</ul>
+
+<f:for each="{authorGroups}" as="authorgroup" key="letter">
+<div class="authorgroup">
+	<h2 class="trigger" id="authorsWith{letter}">{letter}</h2>
+	<ul class="toggle_container">
+		<f:for each="{authorgroup}" as="author">
+			<li><f:link.action action="show" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname}, {author.firstname}</f:link.action></li>
+		</f:for>
+	</ul>
+</div>
+</f:for>

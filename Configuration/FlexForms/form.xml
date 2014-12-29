@@ -1,0 +1,75 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.sheet_general</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.limit>
+						<TCEforms>
+							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.limit</label>
+							<config>
+								<type>input</type>
+								<eval>int</eval>
+							</config>
+						</TCEforms>
+					</settings.limit>
+					<settings.category>
+						<TCEforms>
+							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.category</label>
+							<config>
+								<type>select</type>
+								<foreign_table>tx_sfbooks_domain_model_category</foreign_table>
+								<foreign_table_where>ORDER BY tx_sfbooks_domain_model_category.title</foreign_table_where>
+								<exclusiveKeys>-1</exclusiveKeys>
+								<default>-1</default>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.category.allCategories</numIndex>
+										<numIndex index="1">-1</numIndex>
+									</numIndex>
+								</items>
+								<maxitems>200</maxitems>
+								<size>7</size>
+								<renderMode>tree</renderMode>
+								<treeConfig type="array">
+									<appearance type="array">
+										<expandAll>1</expandAll>
+										<showHeader>1</showHeader>
+									</appearance>
+									<parentField>parent</parentField>
+								</treeConfig>
+							</config>
+						</TCEforms>
+					</settings.category>
+					<settings.templatePath>
+						<TCEforms>
+							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.templatePath</label>
+							<config>
+								<type>input</type>
+								<eval>trim</eval>
+								<wizards>
+									<link>
+										<icon>link_popup.gif</icon>
+										<type>popup</type>
+										<title>Templatepath</title>
+										<script>browse_links.php?mode=wizard</script>
+										<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+										<params type="array">
+											<blindLinkOptions>mail,page,url,file</blindLinkOptions>
+										</params>
+									</link>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.templatePath>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

@@ -1,0 +1,13 @@
+{namespace sfb=Tx_SfBooks_ViewHelpers}
+
+<sfb:widget.paginate objects="{books}" as="paginatedBook" configuration="{itemsPerPage: settings.limit}">
+	<f:for each="{paginatedBook}" as="book">
+		<f:for each="{book.author}" as="author">
+			<f:link.action action="show" controller="author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action>
+		</f:for>
+		<h2>
+			<f:link.action action="show" pageUid="{settings.bookPageId}" arguments="{book: book}">{book.title}</f:link.action>
+		</h2>
+		<div>{book.subtitle}</div>
+	</f:for>
+</sfb:widget.paginate>

@@ -1,0 +1,67 @@
+<table cellspacing="0" cellpadding="1" width="600" border="0">
+	<tr>
+		<td width="30">&nbsp;</td>
+		<td width="350">&nbsp;</td>
+		<td width="220">&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td class="normal">
+			<f:for each="{book.author}" as="author">
+				<f:link.action action="show" pageUid="{settings.authorPageId}"  arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action>
+			</f:for>
+		</td>
+		<td rowspan="9" align="center" valign="top"><a href="#" onClick="window.open('{f:uri.image(src: 'uploads/tx_sfbooks/{book.cover}', maxWidth: 400, maxHeight: 600)}', '{f:translate(key: 'cover')}', 'width=360,height=600,left=20,top=60');">
+			<f:image src="uploads/tx_sfbooks/{book.cover}" maxWidth="200" alt="{book.title}"/>
+			<br><br><span class="normal">{f:translate(key: 'cover_large')}</span></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td class="gross">
+			{book.title}
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td class="normal">
+			{book.subtitle}
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td class="normal">
+			{book.number}
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td class="normal">
+			480 S., geb. 16,5 x 24 cm
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td class="normal">
+			&euro; 48,00
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td class="normal">
+			{f:translate(key: 'isbn')} {book.isbn}
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<!--Erscheinungsjahr-->
+		<td class="normal">2012</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td class="normal">
+			<span class="highlight">{f:translate(key: 'description')}</span><br/><br/>
+			<f:format.html parseFuncTSPath="">{book.description}</f:format.html>
+		</td>
+	</tr>
+</table>
+<f:link.page pageUid="{settings.bookPageId}" class="backlink"><f:translate key="backlink"/></f:link.page>

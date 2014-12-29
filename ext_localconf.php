@@ -1,20 +1,54 @@
 <?php
-if (!defined ("TYPO3_MODE")) 	die ("Access denied.");
-t3lib_extMgm::addUserTSConfig('
-	options.saveDocNew.tx_sfbooks_books=1
-');
+if (!defined('TYPO3_MODE')) {
+	die('Access denied.');
+}
 
-  ## Extending TypoScript from static template uid=43 to set up userdefined tag:
-t3lib_extMgm::addTypoScript($_EXTKEY,"editorcfg","
-	tt_content.CSS_editor.ch.tx_sfbooks_pi1 = < plugin.tx_sfbooks_pi1.CSS_editor
-",43);
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
+	'Book',
+	array(
+		'Book' => 'list, show',
+		'Category' => 'list, show',
+	)
+);
 
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
+	'Author',
+	array(
+		'Author' => 'list, show',
+	)
+);
 
-t3lib_extMgm::addPItoST43($_EXTKEY,"pi1/class.tx_sfbooks_pi1.php","_pi1","list_type",1);
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
+	'Category',
+	array(
+		'Category' => 'list, show',
+		'Book' => 'list, show',
+	)
+);
 
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
+	'Series',
+	array(
+		'Series' => 'list, show',
+		'Book' => 'list, show',
+	)
+);
 
-t3lib_extMgm::addTypoScript($_EXTKEY,"setup","
-	tt_content.shortcut.20.0.conf.tx_sfbooks_books = < plugin.".t3lib_extMgm::getCN($_EXTKEY)."_pi1
-	tt_content.shortcut.20.0.conf.tx_sfbooks_books.CMD = singleView
-",43);
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
+	'Search',
+	array(
+		'Search' => 'search, startSearch',
+		'Book' => 'search',
+		'Author' => 'search',
+	),
+	array(
+		'Search' => 'search, startSearch',
+	)
+);
+
 ?>

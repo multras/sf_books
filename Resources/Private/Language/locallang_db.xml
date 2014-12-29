@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'sf_books'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.list_type_book">Book Management - Book</label>
+			<label index="tt_content.list_type_author">Book Management - Author</label>
+			<label index="tt_content.list_type_category">Book Management - Category</label>
+			<label index="tt_content.list_type_search">Book Management - Search</label>
+			<label index="tt_content.list_type_series">Book Management - Series</label>
+
+			<label index="tx_sfbooks_domain_model_book">Books</label>
+			<label index="tx_sfbooks_domain_model_book.title">Title</label>
+			<label index="tx_sfbooks_domain_model_book.subtitle">Subtitle</label>
+			<label index="tx_sfbooks_domain_model_book.author">Author</label>
+			<label index="tx_sfbooks_domain_model_book.isbn">ISBN</label>
+			<label index="tx_sfbooks_domain_model_book.serie">Book Series</label>
+			<label index="tx_sfbooks_domain_model_book.number">Number</label>
+			<label index="tx_sfbooks_domain_model_book.category">Category</label>
+			<label index="tx_sfbooks_domain_model_book.location1">Room</label>
+			<label index="tx_sfbooks_domain_model_book.location1.I.0">no selected</label>
+			<label index="tx_sfbooks_domain_model_book.location1.I.1">Room 01</label>
+			<label index="tx_sfbooks_domain_model_book.location2">Shelf</label>
+			<label index="tx_sfbooks_domain_model_book.location2.I.0">no selected</label>
+			<label index="tx_sfbooks_domain_model_book.location2.I.1">Shelf 01</label>
+			<label index="tx_sfbooks_domain_model_book.location3">Board</label>
+			<label index="tx_sfbooks_domain_model_book.location3.I.0">no selected</label>
+			<label index="tx_sfbooks_domain_model_book.location3.I.1">Board 01</label>
+			<label index="tx_sfbooks_domain_model_book.year">Year</label>
+			<label index="tx_sfbooks_domain_model_book.description">Description</label>
+			<label index="tx_sfbooks_domain_model_book.extras">Extras</label>
+			<label index="tx_sfbooks_domain_model_book.cover">Cover</label>
+			<label index="tx_sfbooks_domain_model_book.div_common">Common</label>
+			<label index="tx_sfbooks_domain_model_book.div_formal">Formal</label>
+			<label index="tx_sfbooks_domain_model_book.div_content">Content</label>
+
+			<label index="tx_sfbooks_domain_model_author">Author</label>
+			<label index="tx_sfbooks_domain_model_author.lastname">Last name</label>
+			<label index="tx_sfbooks_domain_model_author.firstname">First name</label>
+			<label index="tx_sfbooks_domain_model_author.description">Description</label>
+			<label index="tx_sfbooks_domain_model_author.books">Books</label>
+
+			<label index="tx_sfbooks_domain_model_series">Series</label>
+			<label index="tx_sfbooks_domain_model_series.title">Title</label>
+			<label index="tx_sfbooks_domain_model_series.info">Copyright Infos</label>
+			<label index="tx_sfbooks_domain_model_series.description">Description</label>
+
+			<label index="tx_sfbooks_domain_model_category">Category</label>
+			<label index="tx_sfbooks_domain_model_category.title">Title</label>
+			<label index="tx_sfbooks_domain_model_category.parent">Parent</label>
+			<label index="tx_sfbooks_domain_model_category.parent.I.0">Root</label>
+
+			<label index="tx_sfbooks_domain_model_extras">Extras</label>
+			<label index="tx_sfbooks_domain_model_extras.label">Label</label>
+			<label index="tx_sfbooks_domain_model_extras.content">Content</label>
+
+			<label index="tx_sfbooks_domain_model_extraslabels">Extras Labels</label>
+			<label index="tx_sfbooks_domain_model_extraslabels.label">Label</label>
+
+			<label index="flexform.sheet_general">General Settings</label>
+			<label index="flexform.settings.limit">Amount of items in list</label>
+			<label index="flexform.settings.category">Category</label>
+			<label index="flexform.settings.category.allCategories">all Categories</label>
+			<label index="flexform.settings.templateFile">Template file</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tt_content.list_type_book">Bücher Verwaltung - Bücher</label>
+			<label index="tt_content.list_type_author">Bücher Verwaltung - Autoren</label>
+			<label index="tt_content.list_type_category">Bücher Verwaltung - Kategorien</label>
+			<label index="tt_content.list_type_search">Bücher Verwaltung - Suche</label>
+			<label index="tt_content.list_type_series">Bücher Verwaltung - Buchreihen</label>
+
+			<label index="tx_sfbooks_domain_model_book">Bücher</label>
+			<label index="tx_sfbooks_domain_model_book.title">Titel</label>
+			<label index="tx_sfbooks_domain_model_book.subtitle">Untertitel</label>
+			<label index="tx_sfbooks_domain_model_book.author">Autor</label>
+			<label index="tx_sfbooks_domain_model_book.isbn">ISBN</label>
+			<label index="tx_sfbooks_domain_model_book.serie">Buchreihe</label>
+			<label index="tx_sfbooks_domain_model_book.number">Nummer</label>
+			<label index="tx_sfbooks_domain_model_book.category">Kategorie</label>
+			<label index="tx_sfbooks_domain_model_book.year">Jahr</label>
+			<label index="tx_sfbooks_domain_model_book.description">Beschreibung</label>
+			<label index="tx_sfbooks_domain_model_book.extras">Extras</label>
+			<label index="tx_sfbooks_domain_model_book.cover">Cover</label>
+			<label index="tx_sfbooks_domain_model_book.div_common">Allgemein</label>
+			<label index="tx_sfbooks_domain_model_book.div_formal">Formal</label>
+			<label index="tx_sfbooks_domain_model_book.div_content">Inhalt</label>
+
+			<label index="tx_sfbooks_domain_model_author">Autor</label>
+			<label index="tx_sfbooks_domain_model_author.lastname">Nachname</label>
+			<label index="tx_sfbooks_domain_model_author.firstname">Vorname</label>
+			<label index="tx_sfbooks_domain_model_author.description">Beschreibung</label>
+			<label index="tx_sfbooks_domain_model_author.books">Bücher</label>
+
+			<label index="tx_sfbooks_domain_model_series">Serien</label>
+			<label index="tx_sfbooks_domain_model_series.title">Titel</label>
+			<label index="tx_sfbooks_domain_model_series.info">Copyright Infos</label>
+			<label index="tx_sfbooks_domain_model_series.description">Beschreibung</label>
+
+			<label index="tx_sfbooks_domain_model_category">Kategorie</label>
+			<label index="tx_sfbooks_domain_model_category.title">Titel</label>
+			<label index="tx_sfbooks_domain_model_category.parent">Elternkategorie</label>
+			<label index="tx_sfbooks_domain_model_category.parent.I.0">Wurzel</label>
+
+			<label index="tx_sfbooks_domain_model_extras">Extras</label>
+			<label index="tx_sfbooks_domain_model_extras.label">Beschriftung</label>
+			<label index="tx_sfbooks_domain_model_extras.content">Inhalt</label>
+
+			<label index="tx_sfbooks_domain_model_extraslabels">Extras Beschriftungen</label>
+			<label index="tx_sfbooks_domain_model_extraslabels.label">Beschriftung</label>
+
+			<label index="flexform.sheet_general">Allgemeine Einstellungen</label>
+			<label index="flexform.settings.limit">Amount of items in list</label>
+			<label index="flexform.settings.category">Kategorie</label>
+			<label index="flexform.settings.category.allCategories">alle Kategorien</label>
+			<label index="flexform.settings.templateFile">Template Datei</label>
+		</languageKey>
+	</data>
+</T3locallang>
