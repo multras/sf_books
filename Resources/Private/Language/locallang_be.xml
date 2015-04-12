@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'tx_sfbooks_pi1'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pi1_title">Book Library</label>
+			<label index="pi1_plus_wiz_description">Book Library</label>
+
+			<label index="flexform.sheet_general">General Settings</label>
+			<label index="flexform.category">Categories</label>
+			<label index="flexform.category.allCategories">all categories</label>
+			<label index="flexform.templateFile">Template file</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="pi1_title">Bücher Bibliothek</label>
+			<label index="pi1_plus_wiz_description">Bücher Bibliothek</label>
+		</languageKey>
+		<languageKey index="fi" type="array">
+			<label index="pi1_title">Kirjasto</label>
+			<label index="pi1_plus_wiz_description">Kirjasto</label>
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="pi1_title">Bibliothèque de livres</label>
+			<label index="pi1_plus_wiz_description">Bibliothèque de livres</label>
+		</languageKey>
+		<languageKey index="lt" type="array">
+			<label index="pi1_title">Knygų biblioteka</label>
+			<label index="pi1_plus_wiz_description">Knygų biblioteka</label>
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="pi1_title">Библиотека книг</label>
+			<label index="pi1_plus_wiz_description">Библиотека книг</label>
+		</languageKey>
+	</data>
+</T3locallang>
