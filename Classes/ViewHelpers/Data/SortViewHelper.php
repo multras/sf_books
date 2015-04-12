@@ -1,38 +1,31 @@
 <?php
-/***************************************************************
-*  Copyright notice
-*
-*  (c) 2010 Claus Due <claus@wildside.dk>, Wildside A/S
-*
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 2 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+namespace Evoweb\SfBooks\ViewHelpers\Data;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
 /**
+ * Sort viewhelper
  *
  * @author Claus Due, Wildside A/S
  * @package Fed
  * @subpackage ViewHelpers\Data
  */
-class Tx_SfBooks_ViewHelpers_Data_SortViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractTagBasedViewHelper {
+class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper {
 
 	/**
 	 * Initialize arguments
+	 *
+	 * @return void
 	 */
 	public function initializeArguments() {
 		$this->registerArgument('as', 'string', 'Which variable to update in the TemplateVariableContainer. If left out, returns sorted data instead of updating the varialbe (i.e. reference or copy)');
@@ -44,11 +37,11 @@ class Tx_SfBooks_ViewHelpers_Data_SortViewHelper extends Tx_Fluid_Core_ViewHelpe
 	}
 
 	/**
-	 * "Render" method - sorts a target list-type target. Either $array or $objectStorage must be specified. If both are,
-	 * ObjectStorage takes precedence.
+	 * "Render" method - sorts a target list-type target. Either $array or
+	 * $objectStorage must be specified. If both are, ObjectStorage takes precedence.
 	 *
-	 * @param array|object An array, Iterator, ObjectStorage, LazyObjectStorage or QueryResult to sort
-	 * @throws Exception
+	 * @param array|object array, Iterator, ObjectStorage, LazyObjectStorage, QueryResult to sort
+	 * @throws \Exception
 	 * @return mixed
 	 */
 	public function render($subject = NULL) {
@@ -65,22 +58,25 @@ class Tx_SfBooks_ViewHelpers_Data_SortViewHelper extends Tx_Fluid_Core_ViewHelpe
 		if (is_array($subject) === TRUE) {
 			$sorted = $this->sortArray($subject);
 		} else {
-			if ($subject instanceof Tx_Extbase_Persistence_ObjectStorage || $subject instanceof Tx_Extbase_Persistence_LazyObjectStorage) {
+			if (
+				$subject instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage ||
+				$subject instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage
+			) {
 				$sorted = $this->sortObjectStorage($subject);
-			} elseif ($subject instanceof Iterator) {
-				/** @var Iterator $subject */
+			} elseif ($subject instanceof \Iterator) {
+				/** @var \Iterator $subject */
 				$array = array();
 				foreach ($subject as $index => $item) {
 					$array[$index] = $item;
 				}
 				$sorted = $this->sortArray($array);
-			} elseif ($subject instanceof Tx_Extbase_Persistence_QueryResultInterface) {
-				/** @var Tx_Extbase_Persistence_QueryResultInterface $subject */
+			} elseif ($subject instanceof \TYPO3\CMS\Extbase\Persistence\QueryResultInterface) {
+				/** @var \TYPO3\CMS\Extbase\Persistence\QueryResultInterface $subject */
 				$sorted = $this->sortArray($subject->toArray());
 			}
 		}
 		if ($sorted === NULL) {
-			throw new Exception('Nothing to sort, SortViewHelper has no purpose in life, performing LATE term self-abortion');
+			throw new \Exception('Nothing to sort, SortViewHelper has no purpose in life, performing LATE term self-abortion');
 		}
 		if ($this->arguments['as']) {
 			if ($this->templateVariableContainer->exists($this->arguments['as'])) {
@@ -88,9 +84,8 @@ class Tx_SfBooks_ViewHelpers_Data_SortViewHelper extends Tx_Fluid_Core_ViewHelpe
 			}
 			$this->templateVariableContainer->add($this->arguments['as'], $sorted);
 			return $this->renderChildren();
-		} else {
-			return $sorted;
 		}
+		return $sorted;
 	}
 
 	/**
@@ -121,17 +116,18 @@ class Tx_SfBooks_ViewHelpers_Data_SortViewHelper extends Tx_Fluid_Core_ViewHelpe
 	/**
 	 * Sort a Tx_Extbase_Persistence_ObjectStorage instance
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage $storage
-	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage|\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage $storage
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
 	 */
 	protected function sortObjectStorage($storage) {
-		/** @var Tx_Extbase_Object_ObjectManager $objectManager */
-		$objectManager = t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager');
-		/** @var Tx_Extbase_Persistence_ObjectStorage $temp */
-		$temp = $objectManager->get('Tx_Extbase_Persistence_ObjectStorage');
+		/** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
+		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+		/** @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage $temp */
+		$temp = $objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage');
 		foreach ($storage as $item) {
 			$temp->attach($item);
 		}
+
 		$sorted = array();
 		foreach ($storage as $index => $item) {
 			if ($this->arguments['sortBy']) {
@@ -142,12 +138,15 @@ class Tx_SfBooks_ViewHelpers_Data_SortViewHelper extends Tx_Fluid_Core_ViewHelpe
 			}
 			$sorted[$index] = $item;
 		}
+
 		if ($this->arguments['order'] === 'ASC') {
 			ksort($sorted);
 		} else {
 			krsort($sorted);
 		}
-		$storage = $objectManager->get('Tx_Extbase_Persistence_ObjectStorage');
+
+		/** @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage $storage */
+		$storage = $objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage');
 		foreach ($sorted as $item) {
 			$storage->attach($item);
 		}
@@ -162,10 +161,10 @@ class Tx_SfBooks_ViewHelpers_Data_SortViewHelper extends Tx_Fluid_Core_ViewHelpe
 	 */
 	protected function getSortValue($object) {
 		$field = $this->arguments['sortBy'];
-		$value = Tx_Extbase_Reflection_ObjectAccess::getProperty($object, $field);
-		if ($value instanceof DateTime) {
+		$value = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getProperty($object, $field);
+		if ($value instanceof \DateTime) {
 			$value = $value->format('U');
-		} elseif ($value instanceof Tx_Extbase_Persistence_ObjectStorage) {
+		} elseif ($value instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage) {
 			$value = $value->count();
 		} elseif (is_array($value)) {
 			$value = count($value);
@@ -173,5 +172,3 @@ class Tx_SfBooks_ViewHelpers_Data_SortViewHelper extends Tx_Fluid_Core_ViewHelpe
 		return $value;
 	}
 }
-
-?>

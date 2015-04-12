@@ -1,43 +1,38 @@
 <?php
-/***************************************************************
- *  Copyright notice
+namespace Evoweb\SfBooks\ViewHelpers\Widget\Controller;
+/**
+ * This file is part of the TYPO3 CMS project.
  *
- *  (c) 2011 Armin Ruediger Vieweg <info@professorweb.de>
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
  *
- *  All rights reserved
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
  *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+ * The TYPO3 project - inspiring people to share!
+ */
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 /**
  * This view helper uses the technology of paginate widget but works with arrays
  * and the assigned objects don't need the QueryResultInterface.
  *
- * @package    Typo3
+ * @package TYPO3
  *
- * @author     Armin RÃ¼diger Vieweg <info@professorweb.de>
- * @author     Benjamin Schulte <benjamin.schulte@diemedialen.de>
- * @license    http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * @author Armin Rüdiger Vieweg <info@professorweb.de>
+ * @author Benjamin Schulte <benjamin.schulte@diemedialen.de>
  */
-class Tx_SfBooks_ViewHelpers_Widget_Controller_PaginateController extends Tx_Fluid_Core_Widget_AbstractWidgetController {
+class PaginateController extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetController {
 	/**
 	 * @var array
 	 */
-	protected $configuration = array('itemsPerPage' => 5, 'insertAbove' => FALSE, 'insertBelow' => TRUE, 'maximumVisiblePages' => 7);
+	protected $configuration = array(
+		'itemsPerPage' => 5,
+		'insertAbove' => FALSE,
+		'insertBelow' => TRUE,
+		'maximumVisiblePages' => 7
+	);
 
 	/**
 	 * @var array
@@ -66,7 +61,11 @@ class Tx_SfBooks_ViewHelpers_Widget_Controller_PaginateController extends Tx_Flu
 	 */
 	public function initializeAction() {
 		$this->objects = $this->widgetConfiguration['objects'];
-		$this->configuration = t3lib_div::array_merge_recursive_overrule($this->configuration, $this->widgetConfiguration['configuration'], TRUE);
+		ArrayUtility::mergeRecursiveWithOverrule(
+			$this->configuration,
+			$this->widgetConfiguration['configuration'],
+			TRUE
+		);
 	}
 
 	/**
@@ -139,10 +138,10 @@ class Tx_SfBooks_ViewHelpers_Widget_Controller_PaginateController extends Tx_Flu
 	}
 
 	/**
-	 * Returns all visible objects within a range, depending on itemsPerPage and the currentPage.
+	 * Returns all visible objects within a range,
+	 * depending on itemsPerPage and the currentPage.
 	 *
-	 * @param Tx_Extbase_Persistence_QueryResult|array $objects the list of objects
-	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult|array $objects the list of objects
 	 * @return array<mixed> the list of visible objects
 	 */
 	public function getVisibleObjects($objects) {
@@ -183,7 +182,8 @@ class Tx_SfBooks_ViewHelpers_Widget_Controller_PaginateController extends Tx_Flu
 	}
 
 	/**
-	 * Returns an array with the keys "pages", "current", "numberOfPages", "nextPage" & "previousPage"
+	 * Returns an array with the keys "pages", "current",
+	 * "numberOfPages", "nextPage" & "previousPage"
 	 *
 	 * @return array
 	 */
@@ -236,4 +236,3 @@ class Tx_SfBooks_ViewHelpers_Widget_Controller_PaginateController extends Tx_Flu
 		return $pagination;
 	}
 }
-?>

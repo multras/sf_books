@@ -1,6 +1,24 @@
 <?php
+namespace Evoweb\SfBooks\Domain\Model;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
-class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntity {
+/**
+ * Class Book
+ *
+ * @package Evoweb\SfBooks\Domain\Model
+ */
+class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @var string
 	 */
@@ -17,7 +35,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $subtitle;
 
 	/**
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_SfBooks_Domain_Model_Author>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Author>
 	 * @lazy
 	 */
 	protected $author;
@@ -28,12 +46,12 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $isbn;
 
 	/**
-	 * @var Tx_SfBooks_Domain_Model_Series
+	 * @var \Evoweb\SfBooks\Domain\Model\Series
 	 */
 	protected $serie;
 
 	/**
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_SfBooks_Domain_Model_Category>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Category>
 	 * @lazy
 	 */
 	protected $category;
@@ -49,7 +67,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $description;
 
 	/**
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_SfBooks_Domain_Model_Extras>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Extras>
 	 * @lazy
 	 */
 	protected $extras;
@@ -75,37 +93,39 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $location3;
 
 	/**
-	 *
+	 * @return self
 	 */
 	public function __construct() {
-		$this->author = new Tx_Extbase_Persistence_ObjectStorage();
-		$this->category = new Tx_Extbase_Persistence_ObjectStorage();
-		$this->extras = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->author = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->category = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->extras = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
-	 * @param \Tx_Extbase_Persistence_ObjectStorage $author
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $author
+	 * @return void
 	 */
 	public function setAuthor($author) {
 		$this->author = $author;
 	}
 
 	/**
-	 * @return \Tx_Extbase_Persistence_ObjectStorage
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
 	 */
 	public function getAuthor() {
 		return $this->author;
 	}
 
 	/**
-	 * @param \Tx_SfBooks_Domain_Model_Category $category
+	 * @param \Evoweb\SfBooks\Domain\Model\Category $category
+	 * @return void
 	 */
 	public function setCategory($category) {
 		$this->category = $category;
 	}
 
 	/**
-	 * @return \Tx_SfBooks_Domain_Model_Category
+	 * @return \Evoweb\SfBooks\Domain\Model\Category
 	 */
 	public function getCategory() {
 		return $this->category;
@@ -113,6 +133,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 
 	/**
 	 * @param string $cover
+	 * @return void
 	 */
 	public function setCover($cover) {
 		$this->cover = $cover;
@@ -127,6 +148,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 
 	/**
 	 * @param string $description
+	 * @return void
 	 */
 	public function setDescription($description) {
 		$this->description = $description;
@@ -141,6 +163,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 
 	/**
 	 * @param string $year
+	 * @return void
 	 */
 	public function setYear($year) {
 		$this->year = $year;
@@ -154,14 +177,15 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 	/**
-	 * @param \Tx_Extbase_Persistence_ObjectStorage $extras
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $extras
+	 * @return void
 	 */
 	public function setExtras($extras) {
 		$this->extras = $extras;
 	}
 
 	/**
-	 * @return \Tx_Extbase_Persistence_ObjectStorage
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
 	 */
 	public function getExtras() {
 		return $this->extras;
@@ -169,6 +193,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 
 	/**
 	 * @param string $isbn
+	 * @return void
 	 */
 	public function setIsbn($isbn) {
 		$this->isbn = $isbn;
@@ -183,6 +208,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 
 	/**
 	 * @param int $location1
+	 * @return void
 	 */
 	public function setLocation1($location1) {
 		$this->location1 = $location1;
@@ -197,6 +223,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 
 	/**
 	 * @param int $location2
+	 * @return void
 	 */
 	public function setLocation2($location2) {
 		$this->location2 = $location2;
@@ -211,6 +238,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 
 	/**
 	 * @param int $location3
+	 * @return void
 	 */
 	public function setLocation3($location3) {
 		$this->location3 = $location3;
@@ -225,6 +253,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 
 	/**
 	 * @param string $number
+	 * @return void
 	 */
 	public function setNumber($number) {
 		$this->number = $number;
@@ -238,21 +267,23 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 	/**
-	 * @param \Tx_SfBooks_Domain_Model_Series $serie
+	 * @param \Evoweb\SfBooks\Domain\Model\Series $serie
+	 * @return void
 	 */
 	public function setSerie($serie) {
 		$this->serie = $serie;
 	}
 
 	/**
-	 * @return \Tx_SfBooks_Domain_Model_Series
+	 * @return \Evoweb\SfBooks\Domain\Model\Series
 	 */
 	public function getSerie() {
 		return $this->serie;
 	}
 
 	/**
-	 * @param  $subtitle
+	 * @param string $subtitle
+	 * @return void
 	 */
 	public function setSubtitle($subtitle) {
 		$this->subtitle = $subtitle;
@@ -267,6 +298,7 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 
 	/**
 	 * @param string $title
+	 * @return void
 	 */
 	public function setTitle($title) {
 		$this->title = $title;
@@ -279,5 +311,3 @@ class Tx_SfBooks_Domain_Model_Book extends Tx_Extbase_DomainObject_AbstractEntit
 		return $this->title;
 	}
 }
-
-?>

@@ -1,10 +1,9 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-	die('Access denied.');
-}
+defined('TYPO3_MODE') or die('Access denied.');
 
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Evoweb.sf_books',
 	'Book',
 	array(
 		'Book' => 'list, show',
@@ -12,16 +11,16 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	)
 );
 
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Evoweb.sf_books',
 	'Author',
 	array(
 		'Author' => 'list, show',
 	)
 );
 
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Evoweb.sf_books',
 	'Category',
 	array(
 		'Category' => 'list, show',
@@ -29,8 +28,8 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	)
 );
 
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Evoweb.sf_books',
 	'Series',
 	array(
 		'Series' => 'list, show',
@@ -38,8 +37,8 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	)
 );
 
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Evoweb.sf_books',
 	'Search',
 	array(
 		'Search' => 'search, startSearch',
@@ -50,5 +49,3 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Search' => 'search, startSearch',
 	)
 );
-
-?>

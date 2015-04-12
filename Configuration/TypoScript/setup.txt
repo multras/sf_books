@@ -81,7 +81,7 @@ plugin.tx_comments_pi1 {
 
 
 page.includeJSlibs {
-	jQuery = EXT:sf_books/Resources/Public/Javascript/jquery-1.7.min.js
+	jQuery = EXT:sf_books/Resources/Public/Javascript/jquery-2.1.3.min.js
 	sf_books = EXT:sf_books/Resources/Public/Javascript/sf_books.js
 }
 page.includeCSS {

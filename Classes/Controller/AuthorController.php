@@ -1,40 +1,31 @@
 <?php
-/***************************************************************
- *  Copyright notice
+namespace Evoweb\SfBooks\Controller;
+/**
+ * This file is part of the TYPO3 CMS project.
  *
- *  (c) 2003 Sebastian Fischer <typo3@evoweb.de>
- *  All rights reserved
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
  *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
  *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+ * The TYPO3 project - inspiring people to share!
+ */
 
 /**
  * Plugin 'Book Library - Author' for the 'sf_books' extension.
  *
  * @author Sebastian Fischer <typo3@evoweb.de>
  */
-class Tx_SfBooks_Controller_AuthorController extends Tx_SfBooks_Controller_AbstractController {
+class AuthorController extends AbstractController {
 	/**
 	 * @var array
 	 */
 	protected $allowedOrderBy = array('title');
 
 	/**
-	 * @var Tx_SfBooks_Domain_Repository_AuthorRepository
+	 * @var \Evoweb\SfBooks\Domain\Repository\AuthorRepository
 	 */
 	protected $repository;
 
@@ -42,14 +33,8 @@ class Tx_SfBooks_Controller_AuthorController extends Tx_SfBooks_Controller_Abstr
 	 * @return void
 	 */
 	protected function initializeAction() {
-		$this->repository = $this->objectManager->get('Tx_SfBooks_Domain_Repository_AuthorRepository');
+		$this->repository = $this->objectManager->get('Evoweb\\SfBooks\\Domain\\Repository\\AuthorRepository');
 		$this->setDefaultOrderings();
-	}
-
-	/**
-	 * @return void
-	 */
-	protected function initializeListAction() {
 	}
 
 	/**
@@ -62,26 +47,17 @@ class Tx_SfBooks_Controller_AuthorController extends Tx_SfBooks_Controller_Abstr
 	}
 
 	/**
+	 * @param \Evoweb\SfBooks\Domain\Model\Author $author
 	 * @return void
 	 */
-	protected function initializeShowAction() {
-	}
-
-	/**
-	 * @param Tx_SfBooks_Domain_Model_Author $author
-	 * @return void
-	 */
-	protected function showAction(Tx_SfBooks_Domain_Model_Author $author = NULL) {
-		/** @var $frontend tslib_fe */
-		$frontend = & $GLOBALS['TSFE'];
-
+	protected function showAction(\Evoweb\SfBooks\Domain\Model\Author $author = NULL) {
 		if ($author == NULL) {
-			$frontend->pageNotFoundAndExit('Author not found');
+			$this->getTypoScriptFrontendController()->pageNotFoundAndExit('Author not found');
 		}
 
 			// This sets the title of the page for use in indexed search results:
 		if ($author->getLastname()) {
-			$frontend->indexedDocTitle = $author->getLastname() . ', ' . $author->getFirstname();
+			$this->getTypoScriptFrontendController()->indexedDocTitle = $author->getLastname() . ', ' . $author->getFirstname();
 		}
 
 		$this->view->assign('author', $author);
@@ -90,6 +66,7 @@ class Tx_SfBooks_Controller_AuthorController extends Tx_SfBooks_Controller_Abstr
 	/**
 	 * @param string $query
 	 * @param string $searchBy
+	 * @return void
 	 */
 	protected function searchAction($query, $searchBy = '') {
 		if (!$searchBy) {
@@ -101,29 +78,4 @@ class Tx_SfBooks_Controller_AuthorController extends Tx_SfBooks_Controller_Abstr
 		$this->view->assign('query', $query);
 		$this->view->assign('authors', $authors);
 	}
-
-
-	/**
-	 * Initializes the view before invoking an action method.
-	 *
-	 * Override this method to solve assign variables common for all actions
-	 * or prepare the view in another way before the action is called.
-	 *
-	 * @param Tx_Extbase_MVC_View_ViewInterface $view The view to be initialized
-	 * @return void
-	 */
-	protected function initializeView(Tx_Extbase_MVC_View_ViewInterface $view) {
-		if (isset($this->settings['templatePath']) && !empty($this->settings['templatePath'])) {
-			/** @var $view Tx_Fluid_View_TemplateView */
-			$view->setTemplateRootPath(array_shift(explode(' ', $this->settings['templatePath'])));
-		}
-	}
 }
-
-
-
-if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/sf_books/Classes/Controller/AuthorController.php']) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/sf_books/Classes/Controller/AuthorController.php']);
-}
-
-?>

@@ -1,9 +1,27 @@
 <?php
+namespace Evoweb\SfBooks\Domain\Repository;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
-class Tx_SfBooks_Domain_Repository_BookRepository extends Tx_Extbase_Persistence_Repository {
+/**
+ * Class BookRepository
+ *
+ * @package Evoweb\SfBooks\Domain\Repository
+ */
+class BookRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	/**
 	 * @param array $categories
-	 * @return Tx_Extbase_Persistence_QueryResult
+	 * @return \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult
 	 */
 	public function findByCategory($categories) {
 		$query = $this->createQuery();
@@ -21,12 +39,12 @@ class Tx_SfBooks_Domain_Repository_BookRepository extends Tx_Extbase_Persistence
 
 	/**
 	 * @param string $searchString
-	 * @param string $searchFields
-	 * @return Tx_Extbase_Persistence_QueryResult
+	 * @param string|array $searchFields
+	 * @return \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult
 	 */
 	public function findBySearch($searchString, $searchFields) {
 		if (!is_array($searchFields)) {
-			$searchFields = t3lib_div::trimExplode(',', $searchFields, TRUE);
+			$searchFields = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $searchFields, TRUE);
 		}
 
 		$query = $this->createQuery();
@@ -41,5 +59,3 @@ class Tx_SfBooks_Domain_Repository_BookRepository extends Tx_Extbase_Persistence
 		return $query->execute();
 	}
 }
-
-?>

@@ -1,6 +1,24 @@
 <?php
+namespace Evoweb\SfBooks\Domain\Model;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
-class Tx_SfBooks_Domain_Model_Author extends Tx_Extbase_DomainObject_AbstractEntity {
+/**
+ * Class Author
+ *
+ * @package Evoweb\SfBooks\Domain\Model
+ */
+class Author extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @var string
 	 */
@@ -22,20 +40,21 @@ class Tx_SfBooks_Domain_Model_Author extends Tx_Extbase_DomainObject_AbstractEnt
 	protected $description;
 
 	/**
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_SfBooks_Domain_Model_Book>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
 	 * @lazy
 	 */
 	protected $books;
 
 	/**
-	 * @param \Tx_Extbase_Persistence_ObjectStorage $books
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $books
+	 * @return void
 	 */
 	public function setBooks($books) {
 		$this->books = $books;
 	}
 
 	/**
-	 * @return \Tx_Extbase_Persistence_ObjectStorage
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
 	 */
 	public function getBooks() {
 		return $this->books;
@@ -50,6 +69,7 @@ class Tx_SfBooks_Domain_Model_Author extends Tx_Extbase_DomainObject_AbstractEnt
 
 	/**
 	 * @param string $firstname
+	 * @return void
 	 */
 	public function setFirstname($firstname) {
 		$this->firstname = $firstname;
@@ -64,6 +84,7 @@ class Tx_SfBooks_Domain_Model_Author extends Tx_Extbase_DomainObject_AbstractEnt
 
 	/**
 	 * @param string $lastname
+	 * @return void
 	 */
 	public function setLastname($lastname) {
 		$this->lastname = $lastname;
@@ -78,6 +99,7 @@ class Tx_SfBooks_Domain_Model_Author extends Tx_Extbase_DomainObject_AbstractEnt
 
 	/**
 	 * @param string $description
+	 * @return void
 	 */
 	public function setDescription($description) {
 		$this->description = $description;
@@ -90,5 +112,3 @@ class Tx_SfBooks_Domain_Model_Author extends Tx_Extbase_DomainObject_AbstractEnt
 		return $this->description;
 	}
 }
-
-?>

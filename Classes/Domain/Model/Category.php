@@ -1,32 +1,51 @@
 <?php
+namespace Evoweb\SfBooks\Domain\Model;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
-class Tx_SfBooks_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEntity {
+/**
+ * Class Category
+ *
+ * @package Evoweb\SfBooks\Domain\Model
+ */
+class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @var string
 	 */
 	protected $title;
 
 	/**
-	 * @var Tx_SfBooks_Domain_Model_Category
+	 * @var \Evoweb\SfBooks\Domain\Model\Category
 	 * @lazy
 	 */
 	protected $parent;
 
 	/**
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_SfBooks_Domain_Model_Book>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
 	 * @lazy
 	 */
 	protected $books;
 
 	/**
-	 * @param \Tx_SfBooks_Domain_Model_Category $parent
+	 * @param \Evoweb\SfBooks\Domain\Model\Category $parent
+	 * @return void
 	 */
 	public function setParent($parent) {
 		$this->parent = $parent;
 	}
 
 	/**
-	 * @return \Tx_SfBooks_Domain_Model_Category
+	 * @return \Evoweb\SfBooks\Domain\Model\Category
 	 */
 	public function getParent() {
 		return $this->parent;
@@ -60,5 +79,3 @@ class Tx_SfBooks_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractE
 		return $this->title;
 	}
 }
-
-?>

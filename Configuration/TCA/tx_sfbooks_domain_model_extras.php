@@ -1,15 +1,32 @@
 <?php
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_sfbooks_domain_model_extras');
+return Array(
+	'ctrl' => array(
+		'title' => 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tx_sfbooks_domain_model_extras',
+		'label' => 'content',
+		'label_alt' => 'label',
+		'label_alt_force' => TRUE,
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'default_sortby' => 'ORDER BY crdate',
+		'sortby' => 'sorting',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+		),
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('sf_books') .
+			'Resources/Public/Icons/tx_sfbooks_domain_model_extras.png',
+	),
 
-if (!defined('TYPO3_MODE')) {
-	die('Access denied.');
-}
+	'feInterface' => array(
+		'fe_admin_fieldList' => 'hidden, label, content',
+	),
 
-$GLOBALS['TCA']['tx_sfbooks_domain_model_extras'] = Array(
-	'ctrl' => $GLOBALS['TCA']['tx_sfbooks_domain_model_extras']['ctrl'],
 	'interface' => Array(
 		'showRecordFieldList' => 'hidden,label,content'
 	),
-	'feInterface' => $GLOBALS['TCA']['tx_sfbooks_domain_model_extras']['feInterface'],
+
 	'columns' => Array(
 		'hidden' => Array(
 			'exclude' => 1,
@@ -48,5 +65,3 @@ $GLOBALS['TCA']['tx_sfbooks_domain_model_extras'] = Array(
 		'1' => Array('showitem' => '')
 	)
 );
-
-?>

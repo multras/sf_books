@@ -1,25 +1,43 @@
 <?php
+namespace Evoweb\SfBooks\Domain\Repository;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
-class Tx_SfBooks_Domain_Repository_AuthorRepository extends Tx_Extbase_Persistence_Repository {
+/**
+ * Class AuthorRepository
+ *
+ * @package Evoweb\SfBooks\Domain\Repository
+ */
+class AuthorRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	/**
-	 * @return Tx_Extbase_DomainObject_AbstractEntity
+	 * @return array
 	 */
 	public function findAuthorGroupedByLetters() {
-		/** @var $query Tx_Extbase_Persistence_Query */
+		/** @var $query \TYPO3\CMS\Extbase\Persistence\Generic\Query */
 		$query = $this->createQuery();
 
-		/** @var $sys_page t3lib_pageSelect */
-		$sys_page = $GLOBALS['TSFE']->sys_page;
-		$enableFields = $sys_page->enableFields(strtolower($this->objectType));
+		/** @var $pageRepository \TYPO3\CMS\Frontend\Page\PageRepository */
+		$pageRepository = $GLOBALS['TSFE']->sys_page;
+		$enableFields = $pageRepository->enableFields(strtolower($this->objectType));
 
-		/** @var $result Tx_Extbase_Persistence_QueryResult */
+		/** @var $result \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult */
 		$result = $query->statement('
 			SELECT *, LEFT(lastname, 1) AS capital_letter
 			FROM ' . strtolower($this->objectType) . '
 			WHERE 1 ' . $enableFields . ' ORDER BY lastname, firstname
 		')->execute();
 
-		/** @var $author Tx_SfBooks_Domain_Model_Author */
+		/** @var $author \Evoweb\SfBooks\Domain\Model\Author */
 		$groupedAuthors = array();
 		foreach ($result as $author) {
 			$letter = $author->getCapitalLetter();
@@ -36,11 +54,11 @@ class Tx_SfBooks_Domain_Repository_AuthorRepository extends Tx_Extbase_Persisten
 	/**
 	 * @param string $searchString
 	 * @param string $searchFields
-	 * @return Tx_Extbase_Persistence_QueryResult
+	 * @return \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult
 	 */
 	public function findBySearch($searchString, $searchFields) {
 		if (!is_array($searchFields)) {
-			$searchFields = t3lib_div::trimExplode(',', $searchFields, TRUE);
+			$searchFields = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $searchFields, TRUE);
 		}
 
 		$query = $this->createQuery();
@@ -48,7 +66,7 @@ class Tx_SfBooks_Domain_Repository_AuthorRepository extends Tx_Extbase_Persisten
 		$searchConstrains = array();
 		foreach ($searchFields as $field) {
 			if ($field === 'firstname' || $field === 'lastname') {
-				foreach (t3lib_div::trimExplode(' ', $searchString) as $part) {
+				foreach (\TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(' ', $searchString) as $part) {
 					$searchConstrains[] = $query->like($field, '%' . $part . '%');
 				}
 			} else {
@@ -61,5 +79,3 @@ class Tx_SfBooks_Domain_Repository_AuthorRepository extends Tx_Extbase_Persisten
 		return $query->execute();
 	}
 }
-
-?>

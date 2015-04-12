@@ -1,13 +1,35 @@
 <?php
+namespace Evoweb\SfBooks\Domain\Repository;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
-class Tx_SfBooks_Domain_Repository_CategoryRepository extends Tx_Extbase_Persistence_Repository {
+/**
+ * Class CategoryRepository
+ *
+ * @package Evoweb\SfBooks\Domain\Repository
+ */
+class CategoryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+
+	/**
+	 * @var array
+	 */
 	protected $defaultOrderings = array(
-		'sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
+		'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
 	);
 
 	/**
 	 * @param array $categories
-	 * @return Tx_Extbase_DomainObject_AbstractEntity
+	 * @return \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult
 	 */
 	public function findByCategory($categories) {
 		$query = $this->createQuery();
@@ -23,5 +45,3 @@ class Tx_SfBooks_Domain_Repository_CategoryRepository extends Tx_Extbase_Persist
 		return $query->execute();
 	}
 }
-
-?>

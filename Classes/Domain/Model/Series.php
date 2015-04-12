@@ -1,6 +1,24 @@
 <?php
+namespace Evoweb\SfBooks\Domain\Model;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
-class Tx_SfBooks_Domain_Model_Series extends Tx_Extbase_DomainObject_AbstractEntity {
+/**
+ * Class Series
+ *
+ * @package Evoweb\SfBooks\Domain\Model
+ */
+class Series extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @var string
 	 */
@@ -22,13 +40,14 @@ class Tx_SfBooks_Domain_Model_Series extends Tx_Extbase_DomainObject_AbstractEnt
 	protected $description;
 
 	/**
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_SfBooks_Domain_Model_Book>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
 	 * @lazy
 	 */
 	protected $books;
 
 	/**
-	 * @param \Tx_Extbase_Persistence_ObjectStorage $books
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $books
+	 * @return void
 	 */
 	public function setBooks($books) {
 		$this->books = $books;
@@ -50,6 +69,7 @@ class Tx_SfBooks_Domain_Model_Series extends Tx_Extbase_DomainObject_AbstractEnt
 
 	/**
 	 * @param string $description
+	 * @return void
 	 */
 	public function setDescription($description) {
 		$this->description = $description;
@@ -64,6 +84,7 @@ class Tx_SfBooks_Domain_Model_Series extends Tx_Extbase_DomainObject_AbstractEnt
 
 	/**
 	 * @param string $info
+	 * @return void
 	 */
 	public function setInfo($info) {
 		$this->info = $info;
@@ -78,6 +99,7 @@ class Tx_SfBooks_Domain_Model_Series extends Tx_Extbase_DomainObject_AbstractEnt
 
 	/**
 	 * @param string $title
+	 * @return void
 	 */
 	public function setTitle($title) {
 		$this->title = $title;
@@ -90,5 +112,3 @@ class Tx_SfBooks_Domain_Model_Series extends Tx_Extbase_DomainObject_AbstractEnt
 		return $this->title;
 	}
 }
-
-?>

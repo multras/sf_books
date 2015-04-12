@@ -1,15 +1,30 @@
 <?php
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_sfbooks_domain_model_book');
+return Array(
+	'ctrl' => array(
+		'title' => 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tx_sfbooks_domain_model_book',
+		'label' => 'title',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'default_sortby' => 'ORDER BY title',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+		),
+		'dividers2tabs' => TRUE,
+		'requestUpdate' => 'location1, location2',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('sf_books') .
+			'Resources/Public/Icons/tx_sfbooks_domain_model_book.png',
+	),
 
-if (!defined('TYPO3_MODE')) {
-	die('Access denied.');
-}
+	'feInterface' => array(
+		'fe_admin_fieldList' => 'hidden, serie, category, number, title, author, isbn, description, extras, cover',
+	),
 
-$GLOBALS['TCA']['tx_sfbooks_domain_model_book'] = Array(
-	'ctrl' => $GLOBALS['TCA']['tx_sfbooks_domain_model_book']['ctrl'],
 	'interface' => Array(
 		'showRecordFieldList' => 'hidden,serie,category,number,title,author,isbn,description,extras,cover,location1,location2,location3'
 	),
-	'feInterface' => $GLOBALS['TCA']['tx_sfbooks_domain_model_book']['feInterface'],
+
 	'columns' => Array(
 		'hidden' => Array(
 			'exclude' => 1,
@@ -80,7 +95,8 @@ $GLOBALS['TCA']['tx_sfbooks_domain_model_book'] = Array(
 				),
 				'allowed' => 'tx_sfbooks_domain_model_series',
 				'foreign_table' => 'tx_sfbooks_domain_model_series',
-				'foreign_table_where' => 'AND tx_sfbooks_domain_model_series.pid=###CURRENT_PID### ORDER BY tx_sfbooks_domain_model_series.uid',
+				'foreign_table_where' => 'AND tx_sfbooks_domain_model_series.pid=###CURRENT_PID###
+					ORDER BY tx_sfbooks_domain_model_series.uid',
 				'MM' => 'tx_sfbooks_domain_model_book_series_mm',
 				'size' => 1,
 				'minitems' => 0,
@@ -251,11 +267,9 @@ $GLOBALS['TCA']['tx_sfbooks_domain_model_book'] = Array(
 			--div--;LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tx_sfbooks_domain_model_book.div_formal,
 				isbn, series, number, category, location1;;1,
 			--div--;LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tx_sfbooks_domain_model_book.div_content,
-				year, description;;;richtext[paste|bold|italic|underline|formatblock|class|orderedlist|unorderedlist|outdent|indent|link]:rte_transform[mode=ts], extras, cover')
+				year, description;;;richtext:rte_transform[flag=rte_enabled|mode=ts_css], extras, cover')
 	),
 	'palettes' => Array(
 		'1' => Array('showitem' => 'location2, location3')
 	)
 );
-
-?>
