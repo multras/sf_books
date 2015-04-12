@@ -32,7 +32,7 @@ books and to search easily information about each book.',
 	'version' => '2.4.0',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '6.2.99-7.99.99',
+			'typo3' => '6.2.0-7.99.99',
 		),
 		'conflicts' => array(
 		),

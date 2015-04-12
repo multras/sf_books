@@ -17,7 +17,7 @@
 			<label index="tx_sfbooks_domain_model_book.subtitle">Subtitle</label>
 			<label index="tx_sfbooks_domain_model_book.author">Author</label>
 			<label index="tx_sfbooks_domain_model_book.isbn">ISBN</label>
-			<label index="tx_sfbooks_domain_model_book.serie">Book Series</label>
+			<label index="tx_sfbooks_domain_model_book.series">Book Series</label>
 			<label index="tx_sfbooks_domain_model_book.number">Number</label>
 			<label index="tx_sfbooks_domain_model_book.category">Category</label>
 			<label index="tx_sfbooks_domain_model_book.location1">Room</label>
@@ -59,12 +59,6 @@
 
 			<label index="tx_sfbooks_domain_model_extraslabels">Extras Labels</label>
 			<label index="tx_sfbooks_domain_model_extraslabels.label">Label</label>
-
-			<label index="flexform.sheet_general">General Settings</label>
-			<label index="flexform.settings.limit">Amount of items in list</label>
-			<label index="flexform.settings.category">Category</label>
-			<label index="flexform.settings.category.allCategories">all Categories</label>
-			<label index="flexform.settings.templateFile">Template file</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="tt_content.list_type_book">Bücher Verwaltung - Bücher</label>
@@ -78,7 +72,7 @@
 			<label index="tx_sfbooks_domain_model_book.subtitle">Untertitel</label>
 			<label index="tx_sfbooks_domain_model_book.author">Autor</label>
 			<label index="tx_sfbooks_domain_model_book.isbn">ISBN</label>
-			<label index="tx_sfbooks_domain_model_book.serie">Buchreihe</label>
+			<label index="tx_sfbooks_domain_model_book.series">Buchreihe</label>
 			<label index="tx_sfbooks_domain_model_book.number">Nummer</label>
 			<label index="tx_sfbooks_domain_model_book.category">Kategorie</label>
 			<label index="tx_sfbooks_domain_model_book.year">Jahr</label>
@@ -111,12 +105,6 @@
 
 			<label index="tx_sfbooks_domain_model_extraslabels">Extras Beschriftungen</label>
 			<label index="tx_sfbooks_domain_model_extraslabels.label">Beschriftung</label>
-
-			<label index="flexform.sheet_general">Allgemeine Einstellungen</label>
-			<label index="flexform.settings.limit">Amount of items in list</label>
-			<label index="flexform.settings.category">Kategorie</label>
-			<label index="flexform.settings.category.allCategories">alle Kategorien</label>
-			<label index="flexform.settings.templateFile">Template Datei</label>
 		</languageKey>
 	</data>
 </T3locallang>

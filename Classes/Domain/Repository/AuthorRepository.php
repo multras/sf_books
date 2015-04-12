@@ -28,12 +28,12 @@ class AuthorRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 		/** @var $pageRepository \TYPO3\CMS\Frontend\Page\PageRepository */
 		$pageRepository = $GLOBALS['TSFE']->sys_page;
-		$enableFields = $pageRepository->enableFields(strtolower($this->objectType));
+		$enableFields = $pageRepository->enableFields('tx_sfbooks_domain_model_author');
 
 		/** @var $result \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult */
 		$result = $query->statement('
 			SELECT *, LEFT(lastname, 1) AS capital_letter
-			FROM ' . strtolower($this->objectType) . '
+			FROM tx_sfbooks_domain_model_author
 			WHERE 1 ' . $enableFields . ' ORDER BY lastname, firstname
 		')->execute();
 

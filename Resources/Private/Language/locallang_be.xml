@@ -10,13 +10,20 @@
 			<label index="pi1_plus_wiz_description">Book Library</label>
 
 			<label index="flexform.sheet_general">General Settings</label>
-			<label index="flexform.category">Categories</label>
-			<label index="flexform.category.allCategories">all categories</label>
-			<label index="flexform.templateFile">Template file</label>
+			<label index="flexform.settings.limit">Amount of items in list</label>
+			<label index="flexform.settings.category">Category</label>
+			<label index="flexform.settings.category.allCategories">all Categories</label>
+			<label index="flexform.settings.templatePath">Template path</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="pi1_title">Bücher Bibliothek</label>
 			<label index="pi1_plus_wiz_description">Bücher Bibliothek</label>
+
+			<label index="flexform.sheet_general">Allgemeine Einstellungen</label>
+			<label index="flexform.settings.limit">Amount of items in list</label>
+			<label index="flexform.settings.category">Kategorie</label>
+			<label index="flexform.settings.category.allCategories">alle Kategorien</label>
+			<label index="flexform.settings.templatePath">Template Pfad</label>
 		</languageKey>
 		<languageKey index="fi" type="array">
 			<label index="pi1_title">Kirjasto</label>

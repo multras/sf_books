@@ -6,13 +6,13 @@
 		<sDEF>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.sheet_general</sheetTitle>
+					<sheetTitle>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.sheet_general</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<settings.limit>
 						<TCEforms>
-							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.limit</label>
+							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.settings.limit</label>
 							<config>
 								<type>input</type>
 								<eval>int</eval>
@@ -21,7 +21,7 @@
 					</settings.limit>
 					<settings.templatePath>
 						<TCEforms>
-							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.templatePath</label>
+							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.settings.templatePath</label>
 							<config>
 								<type>input</type>
 								<eval>trim</eval>

@@ -6,13 +6,13 @@
 		<sDEF>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.sheet_general</sheetTitle>
+					<sheetTitle>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.sheet_general</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<settings.limit>
 						<TCEforms>
-							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.limit</label>
+							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.settings.limit</label>
 							<config>
 								<type>input</type>
 								<eval>int</eval>
@@ -21,7 +21,7 @@
 					</settings.limit>
 					<settings.category>
 						<TCEforms>
-							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.category</label>
+							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.settings.category</label>
 							<config>
 								<type>select</type>
 								<foreign_table>tx_sfbooks_domain_model_category</foreign_table>
@@ -30,7 +30,7 @@
 								<default>-1</default>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.category.allCategories</numIndex>
+										<numIndex index="0">LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.settings.category.allCategories</numIndex>
 										<numIndex index="1">-1</numIndex>
 									</numIndex>
 								</items>
@@ -49,7 +49,7 @@
 					</settings.category>
 					<settings.templatePath>
 						<TCEforms>
-							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:flexform.settings.templatePath</label>
+							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.settings.templatePath</label>
 							<config>
 								<type>input</type>
 								<eval>trim</eval>
