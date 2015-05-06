@@ -6,14 +6,18 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td class="normal">
+		<td>
 			<f:for each="{book.author}" as="author">
 				<f:link.action action="show" pageUid="{settings.authorPageId}"  arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action>
 			</f:for>
 		</td>
-		<td rowspan="9" align="center" valign="top"><a href="#" onClick="window.open('{f:uri.image(src: 'uploads/tx_sfbooks/{book.cover}', maxWidth: 400, maxHeight: 600)}', '{f:translate(key: 'cover')}', 'width=360,height=600,left=20,top=60');">
+		<td rowspan="9" align="center" valign="top">
+			<f:if condition="{book.cover}">
+			<a href="#" onClick="window.open('{f:uri.image(src: 'uploads/tx_sfbooks/{book.cover}', maxWidth: 400, maxHeight: 600)}', '{f:translate(key: 'cover')}', 'width=360,height=600,left=20,top=60');">
 			<f:image src="uploads/tx_sfbooks/{book.cover}" maxWidth="200" alt="{book.title}"/>
-			<br><br><span class="normal">{f:translate(key: 'cover_large')}</span></a></td>
+			<br/><span>{f:translate(key: 'cover_large')}</span></a>
+			</f:if>
+		</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
@@ -23,42 +27,39 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td class="normal">
+		<td>
 			{book.subtitle}
 		</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td class="normal">
+		<td>
 			{book.number}
 		</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td class="normal">
-			480 S., geb. 16,5 x 24 cm
+		<td>
+			<f:for each="{book.extras}" as="extra">
+				<f:if condition="{extra.type} == 0">{extra.label.label}: {extra.content}<br/></f:if>
+				<f:if condition="{extra.type} == 1">{extra.label.label}: <f:format.html>{extra.content}</f:format.html><br/></f:if>
+			</f:for>
 		</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td class="normal">
-			&euro; 48,00
-		</td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td class="normal">
+		<td>
 			{f:translate(key: 'isbn')} {book.isbn}
 		</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<!--Erscheinungsjahr-->
-		<td class="normal">2012</td>
+		<td>{book.year}</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td class="normal">
+		<td>
 			<span class="highlight">{f:translate(key: 'description')}</span><br/><br/>
 			<f:format.html parseFuncTSPath="">{book.description}</f:format.html>
 		</td>

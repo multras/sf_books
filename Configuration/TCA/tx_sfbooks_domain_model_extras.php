@@ -12,6 +12,7 @@ return Array(
 		'default_sortby' => 'ORDER BY crdate',
 		'sortby' => 'sorting',
 		'delete' => 'deleted',
+		'type' => 'type',
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
@@ -36,8 +37,19 @@ return Array(
 				'default' => '0'
 			)
 		),
+		'type' => Array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tx_sfbooks_domain_model_extras.type',
+			'config' => Array(
+				'type' => 'select',
+				'items' => Array(
+					array('LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tx_sfbooks_domain_model_extras.type.I.0', 0),
+					array('LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tx_sfbooks_domain_model_extras.type.I.1', 1),
+				),
+			)
+		),
 		'label' => Array(
-			'exclude' => 1,
+			'exclude' => 0,
 			'label' => 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tx_sfbooks_domain_model_extras.label',
 			'config' => Array(
 				'type' => 'select',
@@ -49,7 +61,7 @@ return Array(
 			)
 		),
 		'content' => Array(
-			'exclude' => 1,
+			'exclude' => 0,
 			'label' => 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tx_sfbooks_domain_model_extras.content',
 			'config' => Array(
 				'type' => 'text',
@@ -59,9 +71,7 @@ return Array(
 		),
 	),
 	'types' => Array(
-		'0' => Array('showitem' => 'hidden;;1;;1-1-1, label, content')
+		'0' => Array('showitem' => 'hidden, type, label, content'),
+		'1' => Array('showitem' => 'hidden, type, label, content;;;richtext:rte_transform[flag=rte_enabled|mode=ts_css]'),
 	),
-	'palettes' => Array(
-		'1' => Array('showitem' => '')
-	)
 );

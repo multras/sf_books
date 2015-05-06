@@ -6,11 +6,11 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="tt_content.list_type_book">Book Management - Book</label>
-			<label index="tt_content.list_type_author">Book Management - Author</label>
-			<label index="tt_content.list_type_category">Book Management - Category</label>
-			<label index="tt_content.list_type_search">Book Management - Search</label>
-			<label index="tt_content.list_type_series">Book Management - Series</label>
+			<label index="tt_content.list_type_book">Book Library - Book</label>
+			<label index="tt_content.list_type_author">Book Library - Author</label>
+			<label index="tt_content.list_type_category">Book Library - Category</label>
+			<label index="tt_content.list_type_search">Book Library - Search</label>
+			<label index="tt_content.list_type_series">Book Library - Series</label>
 
 			<label index="tx_sfbooks_domain_model_book">Books</label>
 			<label index="tx_sfbooks_domain_model_book.title">Title</label>
@@ -54,6 +54,9 @@
 			<label index="tx_sfbooks_domain_model_category.parent.I.0">Root</label>
 
 			<label index="tx_sfbooks_domain_model_extras">Extras</label>
+			<label index="tx_sfbooks_domain_model_extras.type">Typ</label>
+			<label index="tx_sfbooks_domain_model_extras.type.I.0">Plain text content</label>
+			<label index="tx_sfbooks_domain_model_extras.type.I.1">Richtext content</label>
 			<label index="tx_sfbooks_domain_model_extras.label">Label</label>
 			<label index="tx_sfbooks_domain_model_extras.content">Content</label>
 
@@ -61,11 +64,11 @@
 			<label index="tx_sfbooks_domain_model_extraslabels.label">Label</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="tt_content.list_type_book">Bücher Verwaltung - Bücher</label>
-			<label index="tt_content.list_type_author">Bücher Verwaltung - Autoren</label>
-			<label index="tt_content.list_type_category">Bücher Verwaltung - Kategorien</label>
-			<label index="tt_content.list_type_search">Bücher Verwaltung - Suche</label>
-			<label index="tt_content.list_type_series">Bücher Verwaltung - Buchreihen</label>
+			<label index="tt_content.list_type_book">Bücher Bibliothek - Bücher</label>
+			<label index="tt_content.list_type_author">Bücher Bibliothek - Autoren</label>
+			<label index="tt_content.list_type_category">Bücher Bibliothek - Kategorien</label>
+			<label index="tt_content.list_type_search">Bücher Bibliothek - Suche</label>
+			<label index="tt_content.list_type_series">Bücher Bibliothek - Buchreihen</label>
 
 			<label index="tx_sfbooks_domain_model_book">Bücher</label>
 			<label index="tx_sfbooks_domain_model_book.title">Titel</label>
@@ -100,6 +103,9 @@
 			<label index="tx_sfbooks_domain_model_category.parent.I.0">Wurzel</label>
 
 			<label index="tx_sfbooks_domain_model_extras">Extras</label>
+			<label index="tx_sfbooks_domain_model_extras.type">Typ</label>
+			<label index="tx_sfbooks_domain_model_extras.type.I.0">Text Inhalt</label>
+			<label index="tx_sfbooks_domain_model_extras.type.I.1">Richtext Inhalt</label>
 			<label index="tx_sfbooks_domain_model_extras.label">Beschriftung</label>
 			<label index="tx_sfbooks_domain_model_extras.content">Inhalt</label>
 

@@ -20,6 +20,11 @@ namespace Evoweb\SfBooks\Domain\Model;
  */
 class Extras extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
+	 * @var int
+	 */
+	protected $type = 0;
+
+	/**
 	 * @var \Evoweb\SfBooks\Domain\Model\ExtrasLabels
 	 * @lazy
 	 */
@@ -31,18 +36,22 @@ class Extras extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $content;
 
 	/**
-	 * @param string $content
+	 * Setter
+	 *
+	 * @param int $type
 	 * @return void
 	 */
-	public function setContent($content) {
-		$this->content = $content;
+	public function setType($type) {
+		$this->type = $type;
 	}
 
 	/**
-	 * @return string
+	 * Getter
+	 *
+	 * @return int
 	 */
-	public function getContent() {
-		return $this->content;
+	public function getType() {
+		return $this->type;
 	}
 
 	/**
@@ -58,5 +67,20 @@ class Extras extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function getLabel() {
 		return $this->label;
+	}
+
+	/**
+	 * @param string $content
+	 * @return void
+	 */
+	public function setContent($content) {
+		$this->content = $content;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getContent() {
+		return $this->content;
 	}
 }
