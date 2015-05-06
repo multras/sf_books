@@ -29,7 +29,7 @@ books and to search easily information about each book.',
 	'modify_tables' => '',
 	'clearcacheonload' => 1,
 	'lockType' => '',
-	'version' => '3.0.0',
+	'version' => '3.1.0',
 	'constraints' => array(
 		'depends' => array(
 			'typo3' => '6.2.0-7.99.99',
