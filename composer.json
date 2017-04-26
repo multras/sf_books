@@ -1,0 +1,30 @@
+{
+	"name": "evoweb/sf-books",
+	"type": "typo3-cms-extension",
+	"description": "Book library for TYPO3",
+	"homepage": "https://github.com/evoWeb/sf_books/",
+	"license": ["GPL-2.0+"],
+
+	"support" : {
+		"issues" : "https://github.com/evoWeb/sf_books/issues"
+	},
+	"keywords": [
+		"books",
+		"library"
+	],
+
+	"require": {
+		"typo3/cms-core": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Evoweb\\SfBooks\\": "Classes/"
+		}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/evoWeb/sf_books.git"
+		}
+	]
+}
