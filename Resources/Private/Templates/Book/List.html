@@ -1,5 +1,5 @@
 {namespace sfb=Evoweb\SfBooks\ViewHelpers}
-<sfb:widget.paginate objects="{books}" as="paginatedBook" configuration="{itemsPerPage: settings.limit}">
+<f:widget.paginate objects="{books}" as="paginatedBook" configuration="{itemsPerPage: settings.limit}">
 	<f:for each="{paginatedBook}" as="book">
 		<f:for each="{book.author}" as="author">
 			<f:link.action action="show" controller="author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action>
@@ -9,4 +9,4 @@
 		</h2>
 		<div>{book.subtitle}</div>
 	</f:for>
-</sfb:widget.paginate>
+</f:widget.paginate>

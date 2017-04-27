@@ -73,6 +73,7 @@ plugin.tx_sfbooks_search {
 
 
 
+# Example for integration in comments
 plugin.tx_comments_pi1 {
 	showUidMap.tx_sfbooks_book = book
 	prefixToTableMap.tx_sfbooks_book = tx_sfbooks_domain_model_book
@@ -80,10 +81,10 @@ plugin.tx_comments_pi1 {
 
 
 
+# Add resources to frontend rendering
 page.includeJSlibs {
-	jQuery = EXT:sf_books/Resources/Public/Javascript/jquery-2.1.3.min.js
+	jQuery = https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
+	jQuery.external = 1
 	sf_books = EXT:sf_books/Resources/Public/Javascript/sf_books.js
 }
-page.includeCSS {
-	sf_books = EXT:sf_books/Resources/Public/Stylesheets/sf_books.css
-}
+page.includeCSS.sf_books = EXT:sf_books/Resources/Public/Stylesheets/sf_books.css

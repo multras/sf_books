@@ -1,7 +1,8 @@
 <?php
 namespace Evoweb\SfBooks\Domain\Model;
+
 /**
- * This file is part of the TYPO3 CMS project.
+ * This file is developed by evoweb.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -9,8 +10,6 @@ namespace Evoweb\SfBooks\Domain\Model;
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
  */
 
 /**
@@ -18,97 +17,111 @@ namespace Evoweb\SfBooks\Domain\Model;
  *
  * @package Evoweb\SfBooks\Domain\Model
  */
-class Author extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
-	/**
-	 * @var string
-	 */
-	protected $lastname;
+class Author extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
+    /**
+     * @var string
+     */
+    protected $lastname;
 
-	/**
-	 * @var string
-	 */
-	protected $firstname;
+    /**
+     * @var string
+     */
+    protected $firstname;
 
-	/**
-	 * @var string
-	 */
-	protected $capitalLetter;
+    /**
+     * @var string
+     */
+    protected $capitalLetter;
 
-	/**
-	 * @var string
-	 */
-	protected $description;
+    /**
+     * @var string
+     */
+    protected $description;
 
-	/**
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
-	 * @lazy
-	 */
-	protected $books;
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
+     * @lazy
+     */
+    protected $books;
 
-	/**
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $books
-	 * @return void
-	 */
-	public function setBooks($books) {
-		$this->books = $books;
-	}
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $books
+     *
+     * @return void
+     */
+    public function setBooks($books)
+    {
+        $this->books = $books;
+    }
 
-	/**
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-	 */
-	public function getBooks() {
-		return $this->books;
-	}
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getBooks()
+    {
+        return $this->books;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getCapitalLetter() {
-		return strtoupper($this->capitalLetter);
-	}
+    /**
+     * @return string
+     */
+    public function getCapitalLetter()
+    {
+        return strtoupper($this->capitalLetter);
+    }
 
-	/**
-	 * @param string $firstname
-	 * @return void
-	 */
-	public function setFirstname($firstname) {
-		$this->firstname = $firstname;
-	}
+    /**
+     * @param string $firstname
+     *
+     * @return void
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFirstname() {
-		return $this->firstname;
-	}
+    /**
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
 
-	/**
-	 * @param string $lastname
-	 * @return void
-	 */
-	public function setLastname($lastname) {
-		$this->lastname = $lastname;
-	}
+    /**
+     * @param string $lastname
+     *
+     * @return void
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getLastname() {
-		return $this->lastname;
-	}
+    /**
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
 
-	/**
-	 * @param string $description
-	 * @return void
-	 */
-	public function setDescription($description) {
-		$this->description = $description;
-	}
+    /**
+     * @param string $description
+     *
+     * @return void
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getDescription() {
-		return $this->description;
-	}
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 }

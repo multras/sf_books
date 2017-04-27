@@ -1,11 +1,49 @@
+.tx-sfbooks-pi1 .singleAction {
+	overflow: hidden;
+	width: 600px;
+}
+
+.tx-sfbooks-pi1 .cover { float: right; }
+
+.tx-sfbooks-pi1 .singleAction dl {
+	margin: 0;
+	padding: 0;
+	width: 380px;
+}
+
+.tx-sfbooks-pi1 .singleAction dt {
+	clear: left;
+	float: left;
+	width: 140px;
+}
+
+.tx-sfbooks-pi1 .singleAction dt:after {
+	content: ":";
+}
+
+.tx-sfbooks-pi1 .singleAction dd {
+	margin: 0 0 0 150px;
+	padding: 0 0 0.5em 0;
+}
+
+.tx-sfbooks-pi1 .singleAction ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tx-sfbooks-pi1 .singleAction li {
+	margin: 0;
+	padding: 0;
+}
+
 /* Accordion */
-.trigger {
+.tx-sfbooks-pi1 .trigger {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	-moz-box-shadow: 0 1px 1px #fff inset;
 	box-shadow: 0 1px 1px #fff inset;
-	background: -moz-linear-gradient(center top, #e9e9e9 50%, #ddd 50%);
-	background-color: #ddd;
+	background: #DDDDDD -moz-linear-gradient(center top, #E9E9E9 50%, #DDDDDD 50%);
 	border: 1px solid #ddd;
 	color: #888;
 	cursor: pointer;
@@ -15,27 +53,27 @@
 	width: 388px;
 }
 
-.trigger_active {
+.tx-sfbooks-pi1 .trigger_active {
 	color: #333;
 }
 
-.toggle_container {
+.tx-sfbooks-pi1 .toggle_container {
 	padding: 5px 10px;
 	width: 380px;
 }
 
 /* Paginator */
-.widget-paginator {
+.tx-sfbooks-pi1 .widget-paginator {
 	margin: 0;
 	overflow: auto;
 	padding: 0;
 	text-align: center;
 }
-.below .widget-paginator {
+.tx-sfbooks-pi1 .below .widget-paginator {
 	margin: 20px 0 0 0;
 }
 
-.widget-paginator li {
+.tx-sfbooks-pi1 .widget-paginator li {
 	list-style: none;
 	display: inline-block;
 	padding: 2px 5px;

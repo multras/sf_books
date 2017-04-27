@@ -1,7 +1,8 @@
 <?php
 namespace Evoweb\SfBooks\Controller;
+
 /**
- * This file is part of the TYPO3 CMS project.
+ * This file is developed by evoweb.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -9,73 +10,86 @@ namespace Evoweb\SfBooks\Controller;
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
  */
 
 /**
  * Plugin 'Book Library - Author' for the 'sf_books' extension.
  *
- * @author Sebastian Fischer <typo3@evoweb.de>
+ * @package Evoweb\SfBooks\Controller
  */
-class AuthorController extends AbstractController {
-	/**
-	 * @var array
-	 */
-	protected $allowedOrderBy = array('title');
+class AuthorController extends AbstractController
+{
+    /**
+     * @var array
+     */
+    protected $allowedOrderBy = ['title'];
 
-	/**
-	 * @var \Evoweb\SfBooks\Domain\Repository\AuthorRepository
-	 */
-	protected $repository;
+    /**
+     * @var \Evoweb\SfBooks\Domain\Repository\AuthorRepository
+     */
+    protected $repository;
 
-	/**
-	 * @return void
-	 */
-	protected function initializeAction() {
-		$this->repository = $this->objectManager->get('Evoweb\\SfBooks\\Domain\\Repository\\AuthorRepository');
-		$this->setDefaultOrderings();
-	}
+    /**
+     * @param \Evoweb\SfBooks\Domain\Repository\AuthorRepository $repository
+     */
+    public function injectRepository(\Evoweb\SfBooks\Domain\Repository\AuthorRepository $repository)
+    {
+        $this->repository = $repository;
+    }
 
-	/**
-	 * @return void
-	 */
-	protected function listAction() {
-		$authorGroups = $this->repository->findAuthorGroupedByLetters();
+    /**
+     * @return void
+     */
+    protected function initializeAction()
+    {
+        $this->setDefaultOrderings();
+    }
 
-		$this->view->assign('authorGroups', $authorGroups);
-	}
+    /**
+     * @return void
+     */
+    protected function listAction()
+    {
+        $authorGroups = $this->repository->findAuthorGroupedByLetters();
 
-	/**
-	 * @param \Evoweb\SfBooks\Domain\Model\Author $author
-	 * @return void
-	 */
-	protected function showAction(\Evoweb\SfBooks\Domain\Model\Author $author = NULL) {
-		if ($author == NULL) {
-			$this->getTypoScriptFrontendController()->pageNotFoundAndExit('Author not found');
-		}
+        $this->view->assign('authorGroups', $authorGroups);
+    }
 
-			// This sets the title of the page for use in indexed search results:
-		if ($author->getLastname()) {
-			$this->getTypoScriptFrontendController()->indexedDocTitle = $author->getLastname() . ', ' . $author->getFirstname();
-		}
+    /**
+     * @param \Evoweb\SfBooks\Domain\Model\Author $author
+     *
+     * @return void
+     */
+    protected function showAction(\Evoweb\SfBooks\Domain\Model\Author $author = null)
+    {
+        if ($author == null) {
+            $this->getTypoScriptFrontendController()->pageNotFoundAndExit('Author not found');
+        }
 
-		$this->view->assign('author', $author);
-	}
+        // This sets the title of the page for use in indexed search results:
+        if ($author->getLastname()) {
+            $this->getTypoScriptFrontendController()->indexedDocTitle = $author->getLastname() . ', '
+                . $author->getFirstname();
+        }
 
-	/**
-	 * @param string $query
-	 * @param string $searchBy
-	 * @return void
-	 */
-	protected function searchAction($query, $searchBy = '') {
-		if (!$searchBy) {
-			$searchBy = $this->settings['searchFields'] . ',' . $this->settings['bookSearchFields'];
-		}
+        $this->view->assign('author', $author);
+    }
 
-		$authors = $this->repository->findBySearch($query, $searchBy);
+    /**
+     * @param string $query
+     * @param string $searchBy
+     *
+     * @return void
+     */
+    protected function searchAction($query, $searchBy = '')
+    {
+        if (!$searchBy) {
+            $searchBy = $this->settings['searchFields'] . ',' . $this->settings['bookSearchFields'];
+        }
 
-		$this->view->assign('query', $query);
-		$this->view->assign('authors', $authors);
-	}
+        $authors = $this->repository->findBySearch($query, $searchBy);
+
+        $this->view->assign('query', $query);
+        $this->view->assign('authors', $authors);
+    }
 }

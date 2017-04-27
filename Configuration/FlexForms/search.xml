@@ -28,13 +28,17 @@
 								<eval>trim</eval>
 								<wizards>
 									<link>
-										<icon>link_popup.gif</icon>
 										<type>popup</type>
 										<title>Templatepath</title>
-										<script>browse_links.php?mode=wizard</script>
-										<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+										<icon>actions-wizard-link</icon>
+										<module>
+											<name>wizard_link</name>
+										</module>
+										<JSopenParams>width=800,height=600,status=0,menubar=0,scrollbars=1</JSopenParams>
 										<params type="array">
-											<blindLinkOptions>mail,page,url,file</blindLinkOptions>
+											<blindLinkOptions>mail,page,url,folder</blindLinkOptions>
+											<blindLinkFields>class, target, title, params</blindLinkFields>
+											<allowedExtensions>html</allowedExtensions>
 										</params>
 									</link>
 								</wizards>

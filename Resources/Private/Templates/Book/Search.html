@@ -2,7 +2,7 @@
 
 <f:if condition="{books.0}">
 	<f:then>
-		<sfb:widget.paginate objects="{books}" as="paginatedBooks" configuration="{itemsPerPage: settings.limit}">
+		<f:widget.paginate objects="{books}" as="paginatedBooks" configuration="{itemsPerPage: settings.limit}">
 			<f:for each="{paginatedBooks}" as="book">Ergebnis Ihrer Suche:<br /><br />
 				<div class="neuigkeiten-buch">
 					<f:for each="{book.author}" as="author">
@@ -14,7 +14,7 @@
 					<div>{book.subtitle}</div>
 				</div>
 			</f:for>
-		</sfb:widget.paginate>
+		</f:widget.paginate>
 	</f:then>
 	<f:else><f:translate key="no_result" arguments="{query: query}"/></f:else>
 </f:if>
