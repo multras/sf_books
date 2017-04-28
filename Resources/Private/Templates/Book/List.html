@@ -1,4 +1,5 @@
-{namespace sfb=Evoweb\SfBooks\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
 <f:widget.paginate objects="{books}" as="paginatedBook" configuration="{itemsPerPage: settings.limit}">
 	<f:for each="{paginatedBook}" as="book">
 		<f:for each="{book.author}" as="author">
@@ -10,3 +11,5 @@
 		<div>{book.subtitle}</div>
 	</f:for>
 </f:widget.paginate>
+
+</html>

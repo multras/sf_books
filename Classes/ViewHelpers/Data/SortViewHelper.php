@@ -33,6 +33,10 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * an Array or a QueryResult (including Lazy counterparts).
  *
  * Can be used inline, i.e.:
+ * <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+ *  xmlns:sfb="http://typo3.org/ns/Evoweb/SfBooks/ViewHelpers"
+ *  data-namespace-typo3-fluid="true">
+ *
  * <f:for each="{dataset -> vhs:iterator.sort(sortBy: 'name')}" as="item">
  *  // iterating data which is ONLY sorted while rendering this particular loop
  * </f:for>
@@ -41,7 +45,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * @package Vhs
  * @subpackage ViewHelpers\Iterator
  */
-
 class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper
 {
     /**

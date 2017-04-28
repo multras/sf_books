@@ -1,6 +1,10 @@
 plugin.tx_sfbooks_book {
+	categoryPageId =
+
 	bookPageId =
+
 	authorPageId =
+
 	seriesPageId =
 
 	excludeCategories =

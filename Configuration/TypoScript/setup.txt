@@ -39,6 +39,8 @@ plugin.tx_sfbooks_category {
 	settings {
 		bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
 		authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+		categoryPageId = {$plugin.tx_sfbooks_book.categoryPageId}
+
 		excludeCategories = {$plugin.tx_sfbooks_book.excludeCategories}
 	}
 
@@ -70,6 +72,13 @@ plugin.tx_sfbooks_search {
 
 	persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
 }
+
+
+
+[compatVersion = 8.7.0]
+	plugin.tx_sfbooks_book.settings.falImageRendering = 1
+	plugin.tx_sfbooks_category.settings.falImageRendering = 1
+[end]
 
 
 

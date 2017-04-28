@@ -1,3 +1,5 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
 <table cellspacing="0" cellpadding="1" width="600" border="0">
 	<tr>
 		<td width="30">&nbsp;</td>
@@ -8,14 +10,27 @@
 		<td>&nbsp;</td>
 		<td>
 			<f:for each="{book.author}" as="author">
-				<f:link.action action="show" pageUid="{settings.authorPageId}"  arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action>
+				<f:link.action action="show" pluginName="author" pageUid="{settings.authorPageId}"  arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action>
 			</f:for>
 		</td>
 		<td rowspan="9" align="center" valign="top">
 			<f:if condition="{book.cover}">
-			<a href="#" onClick="window.open('{f:uri.image(src: 'uploads/tx_sfbooks/{book.cover}', maxWidth: 400, maxHeight: 600)}', '{f:translate(key: 'cover')}', 'width=360,height=600,left=20,top=60');">
-			<f:image src="uploads/tx_sfbooks/{book.cover}" maxWidth="200" alt="{book.title}"/>
-			<br/><span>{f:translate(key: 'cover_large')}</span></a>
+				<f:if condition="{settings.falImageRendering}">
+					<f:then>
+						<a href="#" data-enlarge-image="{f:uri.image(image: '{book.cover}', maxWidth: '400', maxHeight: '600')}" data-enlarge-title="{f:translate(key: 'cover')}">
+							<f:image image="{book.cover}" maxWidth="200" alt="{book.title}"/>
+							<br/>
+							<span>{f:translate(key: 'cover_large')}</span>
+						</a>
+					</f:then>
+					<f:else>
+						<a href="#" data-enlarge-image="{f:uri.image(image: 'uploads/tx_sfbooks/{book.cover}', maxWidth: '400', maxHeight: '600')}" data-enlarge-title="{f:translate(key: 'cover')}">
+							<f:image src="uploads/tx_sfbooks/{book.cover}" maxWidth="200" alt="{book.title}"/>
+							<br/>
+							<span>{f:translate(key: 'cover_large')}</span>
+						</a>
+					</f:else>
+				</f:if>
 			</f:if>
 		</td>
 	</tr>
@@ -66,3 +81,5 @@
 	</tr>
 </table>
 <f:link.page pageUid="{settings.bookPageId}" class="backlink"><f:translate key="backlink"/></f:link.page>
+
+</html>
