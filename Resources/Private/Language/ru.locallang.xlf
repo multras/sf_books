@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="ru" datatype="plaintext" original="messages" date="2017-05-09T05:37:12Z" product-name="sf_books">
+		<header/>
+		<body>
+			<trans-unit id="pagination_first" xml:space="preserve" approved="yes">
+				<source>&lt; First</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="pagination_previous" xml:space="preserve" approved="yes">
+				<source>&lt; Previous</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="pagination_page" xml:space="preserve" approved="yes">
+				<source>Page </source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="pagination_next" xml:space="preserve" approved="yes">
+				<source>Next &gt;</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="pagination_last" xml:space="preserve" approved="yes">
+				<source>Last &gt;</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="isbn" xml:space="preserve" approved="yes">
+				<source>ISBN</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="released_at_rv" xml:space="preserve" approved="yes">
+				<source>released at the Rombach Verlag these books:</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="search" xml:space="preserve" approved="yes">
+				<source>search</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="search_in_book" xml:space="preserve" approved="yes">
+				<source>In Book by</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="search_in_author" xml:space="preserve" approved="yes">
+				<source>In Author by</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="backlink" xml:space="preserve" approved="yes">
+				<source>Back to the overview</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="listHeader_serie" xml:space="preserve" approved="yes">
+				<source>Book Series</source>
+				<target>Книжный ряд</target>
+			</trans-unit>
+			<trans-unit id="listHeader_category" xml:space="preserve" approved="yes">
+				<source>Category</source>
+				<target>Категория</target>
+			</trans-unit>
+			<trans-unit id="listHeader_number" xml:space="preserve" approved="yes">
+				<source>Number</source>
+				<target>Номер</target>
+			</trans-unit>
+			<trans-unit id="listHeader_title" xml:space="preserve" approved="yes">
+				<source>Title</source>
+				<target>Титул</target>
+			</trans-unit>
+			<trans-unit id="listHeader_author" xml:space="preserve" approved="yes">
+				<source>Author</source>
+				<target>Автор</target>
+			</trans-unit>
+			<trans-unit id="listHeader_isbn" xml:space="preserve" approved="yes">
+				<source>ISBN</source>
+				<target>ISBN</target>
+			</trans-unit>
+			<trans-unit id="listHeader_description" xml:space="preserve" approved="yes">
+				<source>Description</source>
+				<target>Описание</target>
+			</trans-unit>
+			<trans-unit id="listHeader_extras" xml:space="preserve" approved="yes">
+				<source>Extras</source>
+				<target>Дополнения</target>
+			</trans-unit>
+			<trans-unit id="listHeader_cover" xml:space="preserve" approved="yes">
+				<source>Cover</source>
+				<target>Покрышка</target>
+			</trans-unit>
+			<trans-unit id="back" xml:space="preserve" approved="yes">
+				<source>Back</source>
+				<target>Назад</target>
+			</trans-unit>
+			<trans-unit id="pi_list_browseresults_prev" xml:space="preserve" approved="yes">
+				<source>&lt; Previous</source>
+				<target>&lt; Предыдущая</target>
+			</trans-unit>
+			<trans-unit id="pi_list_browseresults_page" xml:space="preserve" approved="yes">
+				<source>Page</source>
+				<target>Страница</target>
+			</trans-unit>
+			<trans-unit id="pi_list_browseresults_next" xml:space="preserve" approved="yes">
+				<source>Next &gt;</source>
+				<target>Следующая &gt;</target>
+			</trans-unit>
+			<trans-unit id="pi_list_browseresults_displays" xml:space="preserve" approved="yes">
+				<source>Displaying results from ###FROM### to ###TO### out of ###OUT_OF###, page ###CURRENT_PAGE### of ###TOTAL_PAGES### pages</source>
+				<target>Результат от ###FROM### до ###TO### из ###OUT_OF###, страницы ###CURRENT_PAGE### из ###TOTAL_PAGES### страниц</target>
+			</trans-unit>
+			<trans-unit id="pi_list_searchBox_search" xml:space="preserve" approved="yes">
+				<source>Search</source>
+				<target>Поиск</target>
+			</trans-unit>
+			<trans-unit id="label_number" xml:space="preserve" approved="yes">
+				<source>Number</source>
+				<target>Том</target>
+			</trans-unit>
+			<trans-unit id="label_author" xml:space="preserve" approved="yes">
+				<source>Author</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="label_isbn" xml:space="preserve" approved="yes">
+				<source>ISBN</source>
+				<target>ISBN</target>
+			</trans-unit>
+			<trans-unit id="label_extras" xml:space="preserve" approved="yes">
+				<source>Additional Informations</source>
+				<target>Дополнительные сведения</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

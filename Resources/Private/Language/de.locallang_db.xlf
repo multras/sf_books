@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-05-09T05:37:23Z" product-name="sf_books">
+		<header/>
+		<body>
+			<trans-unit id="tt_content.list_type_book" xml:space="preserve" approved="yes">
+				<source>Book Library - Book</source>
+				<target>Bücher Bibliothek - Bücher</target>
+			</trans-unit>
+			<trans-unit id="tt_content.list_type_author" xml:space="preserve" approved="yes">
+				<source>Book Library - Author</source>
+				<target>Bücher Bibliothek - Autoren</target>
+			</trans-unit>
+			<trans-unit id="tt_content.list_type_category" xml:space="preserve" approved="yes">
+				<source>Book Library - Category</source>
+				<target>Bücher Bibliothek - Kategorien</target>
+			</trans-unit>
+			<trans-unit id="tt_content.list_type_search" xml:space="preserve" approved="yes">
+				<source>Book Library - Search</source>
+				<target>Bücher Bibliothek - Suche</target>
+			</trans-unit>
+			<trans-unit id="tt_content.list_type_series" xml:space="preserve" approved="yes">
+				<source>Book Library - Series</source>
+				<target>Bücher Bibliothek - Buchreihen</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book" xml:space="preserve" approved="yes">
+				<source>Book</source>
+				<target>Bücher</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.title" xml:space="preserve" approved="yes">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.subtitle" xml:space="preserve" approved="yes">
+				<source>Subtitle</source>
+				<target>Untertitel</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.author" xml:space="preserve" approved="yes">
+				<source>Author</source>
+				<target>Autor</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.isbn" xml:space="preserve" approved="yes">
+				<source>ISBN</source>
+				<target>ISBN</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.series" xml:space="preserve" approved="yes">
+				<source>Book Series</source>
+				<target>Buchreihe</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.number" xml:space="preserve" approved="yes">
+				<source>Number</source>
+				<target>Nummer</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.category" xml:space="preserve" approved="yes">
+				<source>Category</source>
+				<target>Kategorie</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.location1" xml:space="preserve" approved="yes">
+				<source>Room</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.location1.I.0" xml:space="preserve" approved="yes">
+				<source>no selected</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.location1.I.1" xml:space="preserve" approved="yes">
+				<source>Room 01</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.location2" xml:space="preserve" approved="yes">
+				<source>Shelf</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.location2.I.0" xml:space="preserve" approved="yes">
+				<source>no selected</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.location2.I.1" xml:space="preserve" approved="yes">
+				<source>Shelf 01</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.location3" xml:space="preserve" approved="yes">
+				<source>Board</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.location3.I.0" xml:space="preserve" approved="yes">
+				<source>no selected</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.location3.I.1" xml:space="preserve" approved="yes">
+				<source>Board 01</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.year" xml:space="preserve" approved="yes">
+				<source>Year</source>
+				<target>Jahr</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.description" xml:space="preserve" approved="yes">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.extras" xml:space="preserve" approved="yes">
+				<source>Extras</source>
+				<target>Extras</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.cover" xml:space="preserve" approved="yes">
+				<source>Cover</source>
+				<target>Cover</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.div_common" xml:space="preserve" approved="yes">
+				<source>Common</source>
+				<target>Allgemein</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.div_formal" xml:space="preserve" approved="yes">
+				<source>Formal</source>
+				<target>Formal</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.div_content" xml:space="preserve" approved="yes">
+				<source>Content</source>
+				<target>Inhalt</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_author" xml:space="preserve" approved="yes">
+				<source>Author</source>
+				<target>Autor</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_author.lastname" xml:space="preserve" approved="yes">
+				<source>Last name</source>
+				<target>Nachname</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_author.firstname" xml:space="preserve" approved="yes">
+				<source>First name</source>
+				<target>Vorname</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_author.description" xml:space="preserve" approved="yes">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_author.books" xml:space="preserve" approved="yes">
+				<source>Books</source>
+				<target>Bücher</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_series" xml:space="preserve" approved="yes">
+				<source>Serie</source>
+				<target>Serien</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_series.title" xml:space="preserve" approved="yes">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_series.info" xml:space="preserve" approved="yes">
+				<source>Copyright Infos</source>
+				<target>Copyright Infos</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_series.description" xml:space="preserve" approved="yes">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_category" xml:space="preserve" approved="yes">
+				<source>Category</source>
+				<target>Kategorie</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_category.title" xml:space="preserve" approved="yes">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_category.parent" xml:space="preserve" approved="yes">
+				<source>Parent</source>
+				<target>Elternkategorie</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_category.parent.I.0" xml:space="preserve" approved="yes">
+				<source>Root</source>
+				<target>Wurzel</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_extras" xml:space="preserve" approved="yes">
+				<source>Extra</source>
+				<target>Extras</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_extras.type" xml:space="preserve" approved="yes">
+				<source>Typ</source>
+				<target>Typ</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_extras.type.I.0" xml:space="preserve" approved="yes">
+				<source>Plain text content</source>
+				<target>Text Inhalt</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_extras.type.I.1" xml:space="preserve" approved="yes">
+				<source>Richtext content</source>
+				<target>Richtext Inhalt</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_extras.label" xml:space="preserve" approved="yes">
+				<source>Label</source>
+				<target>Beschriftung</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_extras.content" xml:space="preserve" approved="yes">
+				<source>Content</source>
+				<target>Inhalt</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_extraslabels" xml:space="preserve" approved="yes">
+				<source>Extra Label</source>
+				<target>Extras Beschriftungen</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_extraslabels.label" xml:space="preserve" approved="yes">
+				<source>Label</source>
+				<target>Beschriftung</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-05-09T05:37:12Z" product-name="sf_books">
+		<header/>
+		<body>
+			<trans-unit id="pagination_first" xml:space="preserve" approved="yes">
+				<source>&lt; First</source>
+				<target>&lt; Erste</target>
+			</trans-unit>
+			<trans-unit id="pagination_previous" xml:space="preserve" approved="yes">
+				<source>&lt; Previous</source>
+				<target>&lt; Vorige</target>
+			</trans-unit>
+			<trans-unit id="pagination_page" xml:space="preserve" approved="yes">
+				<source>Page </source>
+				<target>Seite </target>
+			</trans-unit>
+			<trans-unit id="pagination_next" xml:space="preserve" approved="yes">
+				<source>Next &gt;</source>
+				<target>Nächste &gt;</target>
+			</trans-unit>
+			<trans-unit id="pagination_last" xml:space="preserve" approved="yes">
+				<source>Last &gt;</source>
+				<target>Letzte &gt;</target>
+			</trans-unit>
+			<trans-unit id="isbn" xml:space="preserve" approved="yes">
+				<source>ISBN</source>
+				<target>ISBN</target>
+			</trans-unit>
+			<trans-unit id="released_at_rv" xml:space="preserve" approved="yes">
+				<source>released at the Rombach Verlag these books:</source>
+				<target>hat im Rombach Verlag folgende Bücher veröffentlicht:</target>
+			</trans-unit>
+			<trans-unit id="search" xml:space="preserve" approved="yes">
+				<source>search</source>
+				<target>suche</target>
+			</trans-unit>
+			<trans-unit id="search_in_book" xml:space="preserve" approved="yes">
+				<source>In Book by</source>
+				<target>In Buch nach</target>
+			</trans-unit>
+			<trans-unit id="search_in_author" xml:space="preserve" approved="yes">
+				<source>In Author by</source>
+				<target>In Autor nach</target>
+			</trans-unit>
+			<trans-unit id="backlink" xml:space="preserve" approved="yes">
+				<source>Back to the overview</source>
+				<target>Zurück zur Übersicht</target>
+			</trans-unit>
+			<trans-unit id="listHeader_serie" xml:space="preserve" approved="yes">
+				<source>Book Series</source>
+				<target>Buchreihe</target>
+			</trans-unit>
+			<trans-unit id="listHeader_category" xml:space="preserve" approved="yes">
+				<source>Category</source>
+				<target>Kategorie</target>
+			</trans-unit>
+			<trans-unit id="listHeader_number" xml:space="preserve" approved="yes">
+				<source>Number</source>
+				<target>Nummer</target>
+			</trans-unit>
+			<trans-unit id="listHeader_title" xml:space="preserve" approved="yes">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="listHeader_author" xml:space="preserve" approved="yes">
+				<source>Author</source>
+				<target>Autor</target>
+			</trans-unit>
+			<trans-unit id="listHeader_isbn" xml:space="preserve" approved="yes">
+				<source>ISBN</source>
+				<target>ISBN</target>
+			</trans-unit>
+			<trans-unit id="listHeader_description" xml:space="preserve" approved="yes">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="listHeader_extras" xml:space="preserve" approved="yes">
+				<source>Extras</source>
+				<target>Extras</target>
+			</trans-unit>
+			<trans-unit id="listHeader_cover" xml:space="preserve" approved="yes">
+				<source>Cover</source>
+				<target>Cover</target>
+			</trans-unit>
+			<trans-unit id="back" xml:space="preserve" approved="yes">
+				<source>Back</source>
+				<target>Zurück</target>
+			</trans-unit>
+			<trans-unit id="pi_list_browseresults_prev" xml:space="preserve" approved="yes">
+				<source>&lt; Previous</source>
+				<target>&lt; Vorherige</target>
+			</trans-unit>
+			<trans-unit id="pi_list_browseresults_page" xml:space="preserve" approved="yes">
+				<source>Page</source>
+				<target>Seite</target>
+			</trans-unit>
+			<trans-unit id="pi_list_browseresults_next" xml:space="preserve" approved="yes">
+				<source>Next &gt;</source>
+				<target>Nächste &gt;</target>
+			</trans-unit>
+			<trans-unit id="pi_list_browseresults_displays" xml:space="preserve" approved="yes">
+				<source>Displaying results from ###FROM### to ###TO### out of ###OUT_OF###, page ###CURRENT_PAGE### of ###TOTAL_PAGES### pages</source>
+				<target>Ergebnisse ###FROM### bis ###TO### von ###OUT_OF###, Seite ###CURRENT_PAGE### von ###TOTAL_PAGES### Seiten</target>
+			</trans-unit>
+			<trans-unit id="pi_list_searchBox_search" xml:space="preserve" approved="yes">
+				<source>Search</source>
+				<target>Suche</target>
+			</trans-unit>
+			<trans-unit id="label_number" xml:space="preserve" approved="yes">
+				<source>Number</source>
+				<target>Band</target>
+			</trans-unit>
+			<trans-unit id="label_author" xml:space="preserve" approved="yes">
+				<source>Author</source>
+				<target>Autor</target>
+			</trans-unit>
+			<trans-unit id="label_isbn" xml:space="preserve" approved="yes">
+				<source>ISBN</source>
+				<target>ISBN</target>
+			</trans-unit>
+			<trans-unit id="label_extras" xml:space="preserve" approved="yes">
+				<source>Additional Informations</source>
+				<target>Zusatzinformationen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

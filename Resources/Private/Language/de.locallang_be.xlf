@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-05-09T05:37:19Z" product-name="sf_books">
+		<header/>
+		<body>
+			<trans-unit id="pi1_title" xml:space="preserve" approved="yes">
+				<source>Book Library</source>
+				<target>Bücher Bibliothek</target>
+			</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve" approved="yes">
+				<source>Book Library</source>
+				<target>Bücher Bibliothek</target>
+			</trans-unit>
+			<trans-unit id="flexform.sheet_general" xml:space="preserve" approved="yes">
+				<source>General Settings</source>
+				<target>Allgemeine Einstellungen</target>
+			</trans-unit>
+			<trans-unit id="flexform.settings.limit" xml:space="preserve" approved="yes">
+				<source>Amount of items in list</source>
+				<target>Amount of items in list</target>
+			</trans-unit>
+			<trans-unit id="flexform.settings.category" xml:space="preserve" approved="yes">
+				<source>Category</source>
+				<target>Kategorie</target>
+			</trans-unit>
+			<trans-unit id="flexform.settings.category.allCategories" xml:space="preserve" approved="yes">
+				<source>all Categories</source>
+				<target>alle Kategorien</target>
+			</trans-unit>
+			<trans-unit id="flexform.settings.templatePath" xml:space="preserve" approved="yes">
+				<source>Template path</source>
+				<target>Template Pfad</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

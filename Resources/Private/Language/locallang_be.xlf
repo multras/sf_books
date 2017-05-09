@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-05-09T05:37:19Z" product-name="sf_books">
+		<header/>
+		<body>
+			<trans-unit id="pi1_title" xml:space="preserve">
+				<source>Book Library</source>
+			</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve">
+				<source>Book Library</source>
+			</trans-unit>
+			<trans-unit id="flexform.sheet_general" xml:space="preserve">
+				<source>General Settings</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.limit" xml:space="preserve">
+				<source>Amount of items in list</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.category" xml:space="preserve">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.category.allCategories" xml:space="preserve">
+				<source>all Categories</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.templatePath" xml:space="preserve">
+				<source>Template path</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
