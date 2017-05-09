@@ -1,7 +1,9 @@
 <?php
+
 $languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_sfbooks_domain_model_category');
+
 return [
     'ctrl' => [
         'title' => $languageFile . 'tx_sfbooks_domain_model_category',
@@ -14,6 +16,7 @@ return [
             'disabled' => 'hidden',
         ],
         'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_category.png',
+        'searchFields' => 'uid,title',
     ],
 
     'interface' => [
@@ -23,7 +26,7 @@ return [
     'columns' => [
         'hidden' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.hidden',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'default' => '0',
@@ -76,10 +79,8 @@ return [
             ],
         ],
     ],
+
     'types' => [
-        '0' => ['showitem' => 'hidden;;1;;1-1-1, title, parent, books'],
-    ],
-    'palettes' => [
-        '1' => ['showitem' => ''],
+        '0' => ['showitem' => 'hidden, title, parent, books'],
     ],
 ];

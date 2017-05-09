@@ -1,7 +1,9 @@
 <?php
+
 $languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_sfbooks_domain_model_extras');
+
 return [
     'ctrl' => [
         'title' => $languageFile . 'tx_sfbooks_domain_model_extras',
@@ -19,6 +21,7 @@ return [
             'disabled' => 'hidden',
         ],
         'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_extras.png',
+        'searchFields' => 'uid,label,content',
     ],
 
     'interface' => [
@@ -28,7 +31,7 @@ return [
     'columns' => [
         'hidden' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.hidden',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'default' => '0',
@@ -73,8 +76,21 @@ return [
             ],
         ],
     ],
+
     'types' => [
-        '0' => ['showitem' => 'hidden, type, label, content'],
-        '1' => ['showitem' => 'hidden, type, label, content;;;richtext:rte_transform[flag=rte_enabled|mode=ts_css]'],
+        '0' => [
+            'showitem' => 'hidden, type, label, content'
+        ],
+        '1' => [
+            'showitem' => 'hidden, type, label, content',
+            'columnsOverrides' => [
+                'content' => [
+                    'config' => [
+                        'enableRichtext' => true,
+                        'richtextConfiguration' => 'default'
+                    ]
+                ]
+            ]
+        ],
     ],
 ];

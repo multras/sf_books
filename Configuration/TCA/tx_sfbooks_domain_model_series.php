@@ -14,16 +14,17 @@ return [
             'disabled' => 'hidden',
         ],
         'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_series.png',
+        'searchFields' => 'uid,title,infos,description',
     ],
 
     'interface' => [
-        'showRecordFieldList' => 'hidden,title,infos,description',
+        'showRecordFieldList' => 'hidden,title,info,description',
     ],
 
     'columns' => [
         'hidden' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.hidden',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'default' => '0',
@@ -58,8 +59,14 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_series.description',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
                 'cols' => '30',
                 'rows' => '5',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
             ],
         ],
         'books' => [
@@ -70,7 +77,6 @@ return [
                 'multiple' => true,
                 'size' => 5,
                 'autoSizeMax' => 10,
-
                 'foreign_table' => 'tx_sfbooks_domain_model_book',
                 'foreign_table_where' => 'ORDER BY tx_sfbooks_domain_model_book.title',
                 'MM' => 'tx_sfbooks_domain_model_book_series_mm',
@@ -78,13 +84,10 @@ return [
             ],
         ],
     ],
+
     'types' => [
         '0' => [
-            'showitem' => 'hidden;;1;;1-1-1, title;;;;2-2-2, info;;;;3-3-3,
-            description;;;richtext:rte_transform[flag=rte_enabled|mode=ts_css], books',
+            'showitem' => 'hidden, title, info, description, books',
         ],
-    ],
-    'palettes' => [
-        '1' => ['showitem' => ''],
     ],
 ];

@@ -2,6 +2,7 @@
 $languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_sfbooks_domain_model_author');
+
 return [
     'ctrl' => [
         'title' => $languageFile . 'tx_sfbooks_domain_model_author',
@@ -17,6 +18,7 @@ return [
             'disabled' => 'hidden',
         ],
         'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_author.png',
+        'searchFields' => 'uid,lastname,firstname,description',
     ],
 
     'interface' => [
@@ -26,7 +28,7 @@ return [
     'columns' => [
         'hidden' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.hidden',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'default' => '0',
@@ -62,17 +64,12 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_author.description',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
                 'cols' => '30',
                 'rows' => '5',
-                'wizards' => [
-                    '_PADDING' => 2,
-                    'RTE' => [
-                        'notNewRecords' => 1,
-                        'RTEonly' => 1,
-                        'type' => 'script',
-                        'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
-                        'icon' => 'wizard_rte2.gif',
-                        'script' => 'wizard_rte.php',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
                     ],
                 ],
             ],
@@ -85,7 +82,6 @@ return [
                 'multiple' => true,
                 'size' => 5,
                 'autoSizeMax' => 10,
-
                 'foreign_table' => 'tx_sfbooks_domain_model_book',
                 'foreign_table_where' => 'ORDER BY tx_sfbooks_domain_model_book.title',
                 'MM' => 'tx_sfbooks_domain_model_book_author_mm',
@@ -93,10 +89,10 @@ return [
             ],
         ],
     ],
+
     'types' => [
         '0' => [
-            'showitem' => 'hidden;;;;1-1-1, lastname, firstname,
-            description;;;richtext:rte_transform[flag=rte_enabled|mode=ts_css], books',
+            'showitem' => 'hidden, lastname, firstname, description, books',
         ],
     ],
 ];

@@ -12,7 +12,7 @@
 			<label index="tt_content.list_type_search">Book Library - Search</label>
 			<label index="tt_content.list_type_series">Book Library - Series</label>
 
-			<label index="tx_sfbooks_domain_model_book">Books</label>
+			<label index="tx_sfbooks_domain_model_book">Book</label>
 			<label index="tx_sfbooks_domain_model_book.title">Title</label>
 			<label index="tx_sfbooks_domain_model_book.subtitle">Subtitle</label>
 			<label index="tx_sfbooks_domain_model_book.author">Author</label>
@@ -43,7 +43,7 @@
 			<label index="tx_sfbooks_domain_model_author.description">Description</label>
 			<label index="tx_sfbooks_domain_model_author.books">Books</label>
 
-			<label index="tx_sfbooks_domain_model_series">Series</label>
+			<label index="tx_sfbooks_domain_model_series">Serie</label>
 			<label index="tx_sfbooks_domain_model_series.title">Title</label>
 			<label index="tx_sfbooks_domain_model_series.info">Copyright Infos</label>
 			<label index="tx_sfbooks_domain_model_series.description">Description</label>
@@ -53,14 +53,14 @@
 			<label index="tx_sfbooks_domain_model_category.parent">Parent</label>
 			<label index="tx_sfbooks_domain_model_category.parent.I.0">Root</label>
 
-			<label index="tx_sfbooks_domain_model_extras">Extras</label>
+			<label index="tx_sfbooks_domain_model_extras">Extra</label>
 			<label index="tx_sfbooks_domain_model_extras.type">Typ</label>
 			<label index="tx_sfbooks_domain_model_extras.type.I.0">Plain text content</label>
 			<label index="tx_sfbooks_domain_model_extras.type.I.1">Richtext content</label>
 			<label index="tx_sfbooks_domain_model_extras.label">Label</label>
 			<label index="tx_sfbooks_domain_model_extras.content">Content</label>
 
-			<label index="tx_sfbooks_domain_model_extraslabels">Extras Labels</label>
+			<label index="tx_sfbooks_domain_model_extraslabels">Extra Label</label>
 			<label index="tx_sfbooks_domain_model_extraslabels.label">Label</label>
 		</languageKey>
 		<languageKey index="de" type="array">

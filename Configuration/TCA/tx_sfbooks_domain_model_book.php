@@ -1,5 +1,8 @@
 <?php
+
 $languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:';
+$languageFileTtc = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:';
+$languageFileTca = 'LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_sfbooks_domain_model_book');
 return [
@@ -16,6 +19,7 @@ return [
         'dividers2tabs' => true,
         'requestUpdate' => 'location1, location2',
         'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_book.png',
+        'searchFields' => 'uid,title,subtitle,isbn,description',
     ],
 
     'interface' => [
@@ -26,7 +30,7 @@ return [
     'columns' => [
         'hidden' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.hidden',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'default' => '0',
@@ -58,19 +62,18 @@ return [
                 'allowed' => 'tx_sfbooks_domain_model_author',
                 'foreign_table' => 'tx_sfbooks_domain_model_author',
                 'MM' => 'tx_sfbooks_domain_model_book_author_mm',
-                'wizards' => [
-                    '_PADDING' => 2,
-                    '_VERTICAL' => 1,
-                    'add' => [
-                        'type' => 'script',
-                        'title' => 'Create new author',
-                        'icon' => 'add.gif',
-                        'params' => [
-                            'table' => 'tx_sfbooks_domain_model_author',
-                            'pid' => '###CURRENT_PID###',
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                        'options' => [
                             'setValue' => 'prepend',
                         ],
-                        'script' => 'wizard_add.php',
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
                     ],
                 ],
             ],
@@ -94,33 +97,23 @@ return [
                 'allowed' => 'tx_sfbooks_domain_model_series',
                 'foreign_table' => 'tx_sfbooks_domain_model_series',
                 'foreign_table_where' => 'AND tx_sfbooks_domain_model_series.pid = ###CURRENT_PID###
-					ORDER BY tx_sfbooks_domain_model_series.uid',
+                    ORDER BY tx_sfbooks_domain_model_series.uid',
                 'MM' => 'tx_sfbooks_domain_model_book_series_mm',
                 'size' => 1,
                 'minitems' => 0,
                 'maxitems' => 1,
-                'wizards' => [
-                    '_PADDING' => 2,
-                    '_VERTICAL' => 1,
-                    'add' => [
-                        'type' => 'script',
-                        'title' => 'Create new series',
-                        'script' => 'wizard_add.php',
-                        'icon' => 'add.gif',
-                        'params' => [
-                            'table' => 'tx_sfbooks_domain_model_series',
-                            'pid' => '###CURRENT_PID###',
-                            'MM_opposite_field' => 'books',
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                        'options' => [
                             'setValue' => 'prepend',
                         ],
                     ],
-                    'edit' => [
-                        'type' => 'popup',
-                        'title' => 'Edit series',
-                        'script' => 'wizard_edit.php',
-                        'icon' => 'edit2.gif',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                    'listModule' => [
+                        'disabled' => false,
                     ],
                 ],
             ],
@@ -131,7 +124,6 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => '30',
-                'checkbox' => '0',
             ],
         ],
         'category' => [
@@ -204,15 +196,9 @@ return [
                 'type' => 'text',
                 'cols' => '30',
                 'rows' => '5',
-                'wizards' => [
-                    '_PADDING' => 2,
-                    'RTE' => [
-                        'notNewRecords' => 1,
-                        'RTEonly' => 1,
-                        'type' => 'script',
-                        'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
-                        'icon' => 'wizard_rte2.gif',
-                        'script' => 'wizard_rte.php',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
                     ],
                 ],
             ],
@@ -255,7 +241,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.cover',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('cover', [
                 'appearance' => [
-                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                    'createNewRelationLinkTitle' => $languageFileTtc . 'images.addFileReference'
                 ],
                 // custom configuration for displaying fields in the overlay/reference table
                 // to use the imageoverlayPalette instead of the basicoverlayPalette
@@ -263,32 +249,38 @@ return [
                     'types' => [
                         '0' => [
                             'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;' . $languageFileTca .
+                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
                             'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;' . $languageFileTca .
+                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                             'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;' . $languageFileTca .
+                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
                             'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.audioOverlayPalette;audioOverlayPalette,
+                                --palette--;' . $languageFileTca .
+                                'sys_file_reference.audioOverlayPalette;audioOverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
                             'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.videoOverlayPalette;videoOverlayPalette,
+                                --palette--;' . $languageFileTca .
+                                'sys_file_reference.videoOverlayPalette;videoOverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
                             'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;' . $languageFileTca .
+                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ]
                     ],
@@ -296,18 +288,20 @@ return [
             ], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'])
         ],
     ],
+
     'types' => [
         '0' => [
             'showitem' => '
             --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_common,
-                hidden;;;;1-1-1, title;;;;2-2-2, subtitle, author;;;;3-3-3,
+                hidden, title, subtitle, author,
             --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_formal,
-                isbn, series, number, category, location1;;1,
+                isbn, series, number, category, location1;;locations,
             --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_content,
-                year, description;;;richtext:rte_transform[flag=rte_enabled|mode=ts_css], extras, cover',
+                year, description, extras, cover',
         ],
     ],
+
     'palettes' => [
-        '1' => ['showitem' => 'location2, location3'],
+        'locations' => ['showitem' => 'location2, location3'],
     ],
 ];
