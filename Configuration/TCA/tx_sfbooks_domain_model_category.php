@@ -128,6 +128,21 @@ return [
                 ],
             ],
         ],
+        'description' => [
+            'exclude' => 1,
+            'label' => $languageFile . 'tx_sfbooks_domain_model_book.description',
+            'config' => [
+                'type' => 'text',
+                'enableRichtext' => true,
+                'cols' => '30',
+                'rows' => '5',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
         'books' => [
             'exclude' => 1,
             'label' => $languageFile . 'tx_sfbooks_domain_model_author.books',
@@ -148,7 +163,9 @@ return [
         '0' => [
             'showitem' => '
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                    title, parent, books,
+                    title, parent, description,
+                --div--;' . $languageFile . 'div.references,
+                    books,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                     --palette--;;hidden,
                     --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access

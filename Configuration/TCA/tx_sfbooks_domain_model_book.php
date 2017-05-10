@@ -136,9 +136,6 @@ return [
                             'setValue' => 'prepend',
                         ],
                     ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
                 ],
             ],
         ],
@@ -258,6 +255,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.description',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
                 'cols' => '30',
                 'rows' => '5',
                 'fieldControl' => [
@@ -357,7 +355,7 @@ return [
         '0' => [
             'showitem' => '
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_common,
-                    hidden, title, subtitle, author,
+                    title, subtitle, author,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_formal,
                     isbn, series, number, category, location1;;locations,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_content,

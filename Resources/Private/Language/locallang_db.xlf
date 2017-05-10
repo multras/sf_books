@@ -3,6 +3,9 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2017-05-09T05:37:23Z" product-name="sf_books">
 		<header/>
 		<body>
+			<trans-unit id="div.references">
+				<source>References</source>
+			</trans-unit>
 			<trans-unit id="tt_content.list_type_book" xml:space="preserve">
 				<source>Book Library - Book</source>
 			</trans-unit>
