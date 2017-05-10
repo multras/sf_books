@@ -6,11 +6,12 @@ $languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:';
 
 return [
     'ctrl' => [
-        'title' => $languageFile . 'tx_sfbooks_domain_model_extraslabels',
         'label' => 'label',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
+        'title' => $languageFile . 'tx_sfbooks_domain_model_extraslabels',
+        'delete' => 'deleted',
         'default_sortby' => 'ORDER BY crdate',
         'enablecolumns' => [
             'disabled' => 'hidden',
@@ -24,13 +25,18 @@ return [
 
     'columns' => [
         'hidden' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
-                'default' => '0',
-            ],
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
+                    ]
+                ]
+            ]
         ],
+
         'label' => [
             'exclude' => 1,
             'label' => $languageFile . 'tx_sfbooks_domain_model_extraslabels.label',
@@ -44,7 +50,20 @@ return [
 
     'types' => [
         '0' => [
-            'showitem' => 'hidden, label'
+            'showitem' => '
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+                    label,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;hidden
+            '
+        ],
+    ],
+
+    'palettes' => [
+        'hidden' => [
+            'showitem' => '
+                hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:field.default.hidden
+            ',
         ],
     ],
 ];
