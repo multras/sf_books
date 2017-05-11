@@ -104,7 +104,7 @@ class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedVi
             // expected to contain the rendering rather than the variable.
             $subject = $this->renderChildren();
         } elseif ($subject === null) {
-            $priorities = array('array', 'objectStorage', 'queryResult');
+            $priorities = ['array', 'objectStorage', 'queryResult'];
             foreach ($priorities as $argumentName) {
                 if ($this->arguments[$argumentName]) {
                     $subject = $this->arguments[$argumentName];
@@ -162,7 +162,7 @@ class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedVi
      */
     protected function sortArray($array)
     {
-        $sorted = array();
+        $sorted = [];
         foreach ($array as $index => $object) {
             if ($this->arguments['sortBy']) {
                 $index = $this->getSortValue($object);
@@ -198,7 +198,7 @@ class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedVi
             $temp->attach($item);
         }
 
-        $sorted = array();
+        $sorted = [];
         foreach ($storage as $index => $item) {
             if ($this->arguments['sortBy']) {
                 $index = $this->getSortValue($item);

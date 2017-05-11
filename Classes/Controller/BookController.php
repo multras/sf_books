@@ -22,7 +22,7 @@ class BookController extends AbstractController
     /**
      * @var array
      */
-    protected $allowedOrderBy = array('title');
+    protected $allowedOrderBy = ['title'];
 
     /**
      * @var \Evoweb\SfBooks\Domain\Repository\BookRepository
