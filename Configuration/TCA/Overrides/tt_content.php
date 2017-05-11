@@ -11,7 +11,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['sfbooks_
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Evoweb.sf_books',
     'Book',
-    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_book'
+    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_book'
 );
 
 
@@ -25,7 +25,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['sfbooks_
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Evoweb.sf_books',
     'Author',
-    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_author'
+    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_author'
 );
 
 
@@ -39,7 +39,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['sfbooks_
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Evoweb.sf_books',
     'Category',
-    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_category'
+    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_category'
 );
 
 
@@ -53,7 +53,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['sfbooks_
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Evoweb.sf_books',
     'Series',
-    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_series'
+    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_series'
 );
 
 
@@ -67,5 +67,5 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['sfbooks_
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Evoweb.sf_books',
     'Search',
-    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_search'
+    'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_search'
 );

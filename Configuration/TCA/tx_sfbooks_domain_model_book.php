@@ -1,6 +1,6 @@
 <?php
 
-$languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:';
+$languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xlf:';
 $languageFileTtc = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:';
 $languageFileTca = 'LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:';
 

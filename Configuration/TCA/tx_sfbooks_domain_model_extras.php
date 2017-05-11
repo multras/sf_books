@@ -1,6 +1,6 @@
 <?php
 
-$languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:';
+$languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xlf:';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_sfbooks_domain_model_extras');
 
