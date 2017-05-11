@@ -49,7 +49,7 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @var \Evoweb\SfBooks\Domain\Model\Series
      */
-    protected $serie;
+    protected $series;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Category>
@@ -302,21 +302,21 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \Evoweb\SfBooks\Domain\Model\Series $serie
+     * @param \Evoweb\SfBooks\Domain\Model\Series $series
      *
      * @return void
      */
-    public function setSerie($serie)
+    public function setSeries($series)
     {
-        $this->serie = $serie;
+        $this->series = $series;
     }
 
     /**
      * @return \Evoweb\SfBooks\Domain\Model\Series
      */
-    public function getSerie()
+    public function getSeries()
     {
-        return $this->serie;
+        return $this->series;
     }
 
     /**

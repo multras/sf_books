@@ -31,10 +31,31 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $parent;
 
     /**
+     * @var string
+     */
+    protected $description;
+
+    /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
      * @lazy
      */
     protected $books;
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
     /**
      * @param \Evoweb\SfBooks\Domain\Model\Category $parent
@@ -55,6 +76,24 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * @param string $description
+     *
+     * @return void
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $books
      */
     public function setBooks($books)
@@ -68,21 +107,5 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function getBooks()
     {
         return $this->books;
-    }
-
-    /**
-     * @param string $title
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
     }
 }
