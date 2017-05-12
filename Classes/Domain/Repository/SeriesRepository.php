@@ -24,20 +24,17 @@ class SeriesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      */
     public function findSeriesGroupedByLetters()
     {
+        $queryBuilder = $this->getQueryBuilderForTable('tx_sfbooks_domain_model_series');
+        $statement = $queryBuilder
+            ->select('*')
+            ->addSelectLiteral('LEFT(title, 1) AS capital_letter')
+            ->from('tx_sfbooks_domain_model_series')
+            ->orderBy('title')
+            ->getSQL();
+
         /** @var $query \TYPO3\CMS\Extbase\Persistence\Generic\Query */
         $query = $this->createQuery();
-
-        /** @var $pageRepository \TYPO3\CMS\Frontend\Page\PageRepository */
-        $pageRepository = $GLOBALS['TSFE']->sys_page;
-        $enableFields = $pageRepository->enableFields('tx_sfbooks_domain_model_series');
-
-        /** @var $result \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult */
-        $result = $query->statement('
-			SELECT *, LEFT(title, 1) AS capital_letter
-			FROM tx_sfbooks_domain_model_series
-			WHERE 1 ' . $enableFields . '
-			ORDER BY title
-		')->execute();
+        $result = $query->statement($statement)->execute();
 
         /** @var $series \Evoweb\SfBooks\Domain\Model\Series */
         $groupedSeries = [];
@@ -71,5 +68,17 @@ class SeriesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $query->matching($constraint);
 
         return $query->execute();
+    }
+
+    /**
+     * @param string $table
+     *
+     * @return \TYPO3\CMS\Core\Database\Query\QueryBuilder
+     */
+    protected function getQueryBuilderForTable($table): \TYPO3\CMS\Core\Database\Query\QueryBuilder
+    {
+        return \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+            \TYPO3\CMS\Core\Database\ConnectionPool::class
+        )->getQueryBuilderForTable($table);
     }
 }

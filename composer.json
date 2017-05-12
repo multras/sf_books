@@ -21,10 +21,9 @@
 			"Evoweb\\SfBooks\\": "Classes/"
 		}
 	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/evoWeb/sf_books.git"
+	"autoload-dev": {
+		"psr-4": {
+			"Evoweb\\SfBooks\\Tests\\": "Tests/"
 		}
-	]
+	}
 }
