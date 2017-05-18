@@ -3,7 +3,7 @@ language: php
 branches:
   only:
     - master
-    - /^testing_.*$/
+    - develop
     - /^[0-9]+\.[0-9]+\.[0-9]+$/
 
 php:
@@ -15,44 +15,40 @@ env:
   - TYPO3_VERSION=dev-master
 
 matrix:
-  allow_failures:
-    - env: TYPO3_VERSION=dev-master
+  fast_finish: true
   include:
     - php: 7.0
       env: TYPO3_VERSION=^8.7.0
     - php: 7.1
       env: TYPO3_VERSION=^8.7.0
     - php: 7.0
-      env: TYPO3_VERSION=dev-master
+      env: TYPO3_VERSION="dev-master as 8.7.0"
     - php: 7.1
-      env: TYPO3_VERSION=dev-master
-  exclude:
-    - php: 5.6
-      env: TYPO3_VERSION=^8.7.0
-    - php: 5.6
-      env: TYPO3_VERSION=dev-master
+      env: TYPO3_VERSION="dev-master as 8.7.0"
+  allow_failures:
+    - env: TYPO3_VERSION="dev-master as 8.7.0"
 
 sudo: false
-cache:
-  directories:
-    - $HOME/.composer/cache
 
 addons:
   apt:
     packages:
       - parallel
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 notifications:
   email:
     - typo3@evoweb.de
 
 before_install:
-  - phpenv config-rm xdebug.ini
   - composer self-update
   - composer --version
 
 before_script:
-  - composer require "typo3/cms:$TYPO3_VERSION"
+  - composer require typo3/cms="$TYPO3_VERSION"
   # Restore composer.json
   - git checkout composer.json
   - export TYPO3_PATH_WEB=$PWD/.Build/Web
@@ -61,7 +57,7 @@ script:
   - >
     echo;
     echo "Running php lint";
-    find typo3conf/ext/commerce/ -name \*.php ! -path "./.Build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+    find typo3conf/ext/sf_books/ -name \*.php ! -path "./.Build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
 
 after_script:
   - >
