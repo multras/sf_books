@@ -27,9 +27,9 @@
 				<source>ISBN</source>
 				<target>ISBN</target>
 			</trans-unit>
-			<trans-unit id="released_at_rv" xml:space="preserve" approved="yes">
-				<source>released at the Rombach Verlag these books:</source>
-				<target>hat im Rombach Verlag folgende Bücher veröffentlicht:</target>
+			<trans-unit id="written_books">
+				<source>Written books</source>
+				<target>Geschriebene Bücher</target>
 			</trans-unit>
 			<trans-unit id="search" xml:space="preserve" approved="yes">
 				<source>search</source>
