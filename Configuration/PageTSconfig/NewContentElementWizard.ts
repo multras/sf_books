@@ -33,8 +33,8 @@ mod.wizards {
 					}
 					sfbooks_search {
 						iconIdentifier = content-plugin-sfbooks-search
-						title = LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_series
-						description = LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_series_description
+						title = LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_search
+						description = LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_search_description
 						tt_content_defValues {
 							CType = list
 							list_type = sfbooks_search
@@ -42,8 +42,8 @@ mod.wizards {
 					}
 					sfbooks_series {
 						iconIdentifier = content-plugin-sfbooks-series
-						title = LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_search
-						description = LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_search_description
+						title = LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_series
+						description = LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xml:tt_content.list_type_series_description
 						tt_content_defValues {
 							CType = list
 							list_type = sfbooks_series
