@@ -3,15 +3,11 @@
 <h2>{author.firstname} {author.lastname}</h2>
 
 <div>
-	{author.description}
+	{author.description -> f:format.raw()}
 
-	<div>{author.firstname} {author.lastname} <f:translate key="released_at_rv"/></div>
 	<f:for each="{author.books}" as="book">
 		<div class="book">
 			<div class="author"><f:for each="{book.author}" as="bookauthor" iteration="iteration">
-				<f:link.action action="show" pageUid="{settings.authorPageId}" arguments="{author: bookauthor}">
-					{bookauthor.lastname},
-					{bookauthor.firstname}</f:link.action>
 				<f:if condition="{iteration.total} > 1">
 					<f:if condition="{iteration.isLast}">
 						<f:then/>
@@ -20,6 +16,7 @@
 				</f:if>
 			</f:for>
 			</div>
+			<strong class="written-label"><f:translate id="written_books"/></strong>
 			<h3><f:link.action action="show" controller="Book" pageUid="{settings.bookPageId}" arguments="{book: book}" pluginName="category">{book.title}</f:link.action></h3>
 		</div>
 	</f:for>
