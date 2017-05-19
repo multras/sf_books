@@ -7,6 +7,18 @@ if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(
         \Evoweb\SfBooks\Updates\ImageToFileReferenceUpdate::class;
 }
 
+
+$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+    \TYPO3\CMS\Core\Imaging\IconRegistry::class
+);
+$iconProviderClassName = \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class;
+$icon = ['source' => 'EXT:sf_books/Resources/Public/Icons/ext_icon.gif'];
+$iconRegistry->registerIcon('content-plugin-sfbooks-book', $iconProviderClassName, $icon);
+$iconRegistry->registerIcon('content-plugin-sfbooks-author', $iconProviderClassName, $icon);
+$iconRegistry->registerIcon('content-plugin-sfbooks-category', $iconProviderClassName, $icon);
+$iconRegistry->registerIcon('content-plugin-sfbooks-search', $iconProviderClassName, $icon);
+$iconRegistry->registerIcon('content-plugin-sfbooks-series', $iconProviderClassName, $icon);
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
         // add sf_books wizard config
         <INCLUDE_TYPOSCRIPT: source="FILE:EXT:sf_books/Configuration/PageTSconfig/NewContentElementWizard.ts">
