@@ -20,11 +20,6 @@ namespace Evoweb\SfBooks\Controller;
 class SeriesController extends AbstractController
 {
     /**
-     * @var array
-     */
-    protected $allowedOrderBy = ['title'];
-
-    /**
      * @var \Evoweb\SfBooks\Domain\Repository\SeriesRepository
      */
     protected $repository;
@@ -35,14 +30,6 @@ class SeriesController extends AbstractController
     public function injectRepository(\Evoweb\SfBooks\Domain\Repository\SeriesRepository $repository)
     {
         $this->repository = $repository;
-    }
-
-    /**
-     * @return void
-     */
-    protected function initializeAction()
-    {
-        $this->setDefaultOrderings();
     }
 
     /**

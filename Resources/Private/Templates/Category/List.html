@@ -4,8 +4,8 @@
 <div class="category">
 	<h2>{category.title}</h2>
 	<ul class="books">
-		<f:debug>{category.books}</f:debug>
 		<f:for each="{category.books}" as="book">
+			<li><f:link.action action="show" pageUid="{settings.categoryPageId}" arguments="{book: book.uid}">{book.title}</f:link.action></li>
 		</f:for>
 	</ul>
 </div>

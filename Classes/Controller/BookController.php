@@ -20,11 +20,6 @@ namespace Evoweb\SfBooks\Controller;
 class BookController extends AbstractController
 {
     /**
-     * @var array
-     */
-    protected $allowedOrderBy = ['title'];
-
-    /**
      * @var \Evoweb\SfBooks\Domain\Repository\BookRepository
      */
     protected $repository;
@@ -35,14 +30,6 @@ class BookController extends AbstractController
     public function injectRepository(\Evoweb\SfBooks\Domain\Repository\BookRepository $repository)
     {
         $this->repository = $repository;
-    }
-
-    /**
-     * @return void
-     */
-    protected function initializeAction()
-    {
-        $this->setDefaultOrderings();
     }
 
     /**
@@ -105,7 +92,7 @@ class BookController extends AbstractController
     protected function searchAction($query, $searchBy = '')
     {
         if (!$searchBy) {
-            $searchBy = $this->settings['searchFields'] . ',' . $this->settings['bookSearchFields'];
+            $searchBy = $this->settings['searchFields'];
         }
 
         $books = $this->repository->findBySearch($query, $searchBy);

@@ -128,6 +128,49 @@ return [
                 ],
             ],
         ],
+        'children' => [
+            'exclude' => 1,
+            'label' => $languageFile . 'tx_sfbooks_domain_model_category.children',
+            'config' => [
+                'type' => 'inline',
+                'readOnly' => true,
+                'foreign_table' => 'tx_sfbooks_domain_model_category',
+                'foreign_field' => 'parent',
+                'maxitems' => 10,
+                'appearance' => [
+                    'collapseAll' => 1,
+                    'expandSingle' => 1,
+                    'enabledControls' => [
+                        'info' => false,
+                        'new' => false,
+                        'dragdrop' => false,
+                        'sort' => false,
+                        'hide' => false,
+                        'delete' => false,
+                        'localize' => false,
+                    ]
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'title' => [
+                            'label' => $languageFile . 'tx_sfbooks_domain_model_category.title',
+                            'config' => [
+                                'type' => 'input',
+                                'readOnly' => true,
+                                'size' => '30',
+                                'max' => '100',
+                                'eval' => 'required',
+                            ],
+                        ],
+                    ],
+                    'types' => [
+                        '0' => [
+                            'showitem' => 'title',
+                        ],
+                    ],
+                ],
+            ],
+        ],
         'description' => [
             'exclude' => 1,
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.description',
@@ -163,7 +206,7 @@ return [
         '0' => [
             'showitem' => '
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                    title, parent, description,
+                    title, description, parent, children,
                 --div--;' . $languageFile . 'div.references,
                     books,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,

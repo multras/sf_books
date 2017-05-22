@@ -12,6 +12,9 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+
 /**
  * Class AbstractController
  *
@@ -32,30 +35,44 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
     /**
      * @return void
      */
+    protected function initializeAction()
+    {
+        $this->setDefaultOrderings();
+    }
+
+    /**
+     * @return void
+     */
     protected function setDefaultOrderings()
     {
+        if (isset($this->settings['allowedOrderBy'])) {
+            $this->allowedOrderBy = GeneralUtility::trimExplode(',', $this->settings['allowedOrderBy']);
+        }
+
         $orderBy = $orderDir = '';
         if ($this->request->hasArgument('orderBy')
             && in_array($this->request->getArgument('orderBy'), $this->allowedOrderBy)
         ) {
             $orderBy = $this->request->getArgument('orderBy');
+        } elseif (in_array($this->settings['orderBy'], $this->allowedOrderBy)) {
+            $orderBy = $this->settings['orderBy'];
         }
 
         if ($this->request->hasArgument('orderDir')
-            && ($this->request->getArgument('orderDir')
-                == \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
-                || $this->request->getArgument('orderDir')
-                == \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING)
+            && (
+                $this->request->getArgument('orderDir') == QueryInterface::ORDER_ASCENDING
+                || $this->request->getArgument('orderDir') == QueryInterface::ORDER_DESCENDING
+            )
         ) {
             $orderDir = $this->request->getArgument('orderDir');
-        } elseif ($this->settings['orderDir'] == \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
-            || $this->settings['orderDir'] == \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+        } elseif ($this->settings['orderDir'] == QueryInterface::ORDER_ASCENDING
+            || $this->settings['orderDir'] == QueryInterface::ORDER_DESCENDING
         ) {
             $orderDir = $this->settings['orderDir'];
         }
 
         if (empty($orderDir)) {
-            $orderDir = \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING;
+            $orderDir = QueryInterface::ORDER_ASCENDING;
         }
 
         if ($orderBy) {

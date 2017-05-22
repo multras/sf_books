@@ -31,6 +31,12 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $parent;
 
     /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Category>
+     * @lazy
+     */
+    protected $children;
+
+    /**
      * @var string
      */
     protected $description;
@@ -73,6 +79,22 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Category> $children
+     */
+    public function setChildren($children)
+    {
+        $this->children = $children;
     }
 
     /**
