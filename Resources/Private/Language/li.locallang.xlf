@@ -83,26 +83,6 @@
 				<source>Back</source>
 				<target>Atgal</target>
 			</trans-unit>
-			<trans-unit id="pi_list_browseresults_prev" xml:space="preserve" approved="yes">
-				<source>&lt; Previous</source>
-				<target>&lt; Prieš tai einantis</target>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_page" xml:space="preserve" approved="yes">
-				<source>Page</source>
-				<target>Puslapis</target>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_next" xml:space="preserve" approved="yes">
-				<source>Next &gt;</source>
-				<target>Sekantis &gt;</target>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_displays" xml:space="preserve" approved="yes">
-				<source>Displaying results from ###FROM### to ###TO### out of ###OUT_OF###, page ###CURRENT_PAGE### of ###TOTAL_PAGES### pages</source>
-				<target>Knygos ###FROM### iki ###TO### iš ###OUT_OF###, puslapiai ###CURRENT_PAGE### iš ###TOTAL_PAGES### puslapių</target>
-			</trans-unit>
-			<trans-unit id="pi_list_searchBox_search" xml:space="preserve" approved="yes">
-				<source>Search</source>
-				<target>Ieškoti</target>
-			</trans-unit>
 			<trans-unit id="label_number" xml:space="preserve" approved="yes">
 				<source>Number</source>
 				<target>Leidinys</target>

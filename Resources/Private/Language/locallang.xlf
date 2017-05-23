@@ -69,21 +69,6 @@
 			<trans-unit id="back" xml:space="preserve">
 				<source>Back</source>
 			</trans-unit>
-			<trans-unit id="pi_list_browseresults_prev" xml:space="preserve">
-				<source>&lt; Previous</source>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_page" xml:space="preserve">
-				<source>Page</source>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_next" xml:space="preserve">
-				<source>Next &gt;</source>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_displays" xml:space="preserve">
-				<source>Displaying results from ###FROM### to ###TO### out of ###OUT_OF###, page ###CURRENT_PAGE### of ###TOTAL_PAGES### pages</source>
-			</trans-unit>
-			<trans-unit id="pi_list_searchBox_search" xml:space="preserve">
-				<source>Search</source>
-			</trans-unit>
 			<trans-unit id="label_number" xml:space="preserve">
 				<source>Number</source>
 			</trans-unit>
@@ -95,6 +80,9 @@
 			</trans-unit>
 			<trans-unit id="label_extras" xml:space="preserve">
 				<source>Additional Informations</source>
+			</trans-unit>
+			<trans-unit id="result_search">
+				<source>Result of your search</source>
 			</trans-unit>
 		</body>
 	</file>

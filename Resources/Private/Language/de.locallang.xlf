@@ -87,26 +87,6 @@
 				<source>Back</source>
 				<target>Zurück</target>
 			</trans-unit>
-			<trans-unit id="pi_list_browseresults_prev" xml:space="preserve" approved="yes">
-				<source>&lt; Previous</source>
-				<target>&lt; Vorherige</target>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_page" xml:space="preserve" approved="yes">
-				<source>Page</source>
-				<target>Seite</target>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_next" xml:space="preserve" approved="yes">
-				<source>Next &gt;</source>
-				<target>Nächste &gt;</target>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_displays" xml:space="preserve" approved="yes">
-				<source>Displaying results from ###FROM### to ###TO### out of ###OUT_OF###, page ###CURRENT_PAGE### of ###TOTAL_PAGES### pages</source>
-				<target>Ergebnisse ###FROM### bis ###TO### von ###OUT_OF###, Seite ###CURRENT_PAGE### von ###TOTAL_PAGES### Seiten</target>
-			</trans-unit>
-			<trans-unit id="pi_list_searchBox_search" xml:space="preserve" approved="yes">
-				<source>Search</source>
-				<target>Suche</target>
-			</trans-unit>
 			<trans-unit id="label_number" xml:space="preserve" approved="yes">
 				<source>Number</source>
 				<target>Band</target>
@@ -122,6 +102,10 @@
 			<trans-unit id="label_extras" xml:space="preserve" approved="yes">
 				<source>Additional Informations</source>
 				<target>Zusatzinformationen</target>
+			</trans-unit>
+			<trans-unit id="result_search">
+				<source>Result of your search</source>
+				<target>Ergebnis Ihrer Suche</target>
 			</trans-unit>
 		</body>
 	</file>

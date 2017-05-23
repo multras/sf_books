@@ -5,11 +5,11 @@
 		<body>
 			<trans-unit id="pagination_first" xml:space="preserve" approved="yes">
 				<source>&lt; First</source>
-				<target></target>
+				<target>&lt; </target>
 			</trans-unit>
 			<trans-unit id="pagination_previous" xml:space="preserve" approved="yes">
 				<source>&lt; Previous</source>
-				<target></target>
+				<target>&lt; </target>
 			</trans-unit>
 			<trans-unit id="pagination_page" xml:space="preserve" approved="yes">
 				<source>Page </source>
@@ -17,15 +17,15 @@
 			</trans-unit>
 			<trans-unit id="pagination_next" xml:space="preserve" approved="yes">
 				<source>Next &gt;</source>
-				<target></target>
+				<target> &gt;</target>
 			</trans-unit>
 			<trans-unit id="pagination_last" xml:space="preserve" approved="yes">
 				<source>Last &gt;</source>
-				<target></target>
+				<target> &gt;</target>
 			</trans-unit>
 			<trans-unit id="isbn" xml:space="preserve" approved="yes">
 				<source>ISBN</source>
-				<target></target>
+				<target>ISBN</target>
 			</trans-unit>
 			<trans-unit id="search" xml:space="preserve" approved="yes">
 				<source>search</source>
@@ -83,33 +83,13 @@
 				<source>Back</source>
 				<target>Назад</target>
 			</trans-unit>
-			<trans-unit id="pi_list_browseresults_prev" xml:space="preserve" approved="yes">
-				<source>&lt; Previous</source>
-				<target>&lt; Предыдущая</target>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_page" xml:space="preserve" approved="yes">
-				<source>Page</source>
-				<target>Страница</target>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_next" xml:space="preserve" approved="yes">
-				<source>Next &gt;</source>
-				<target>Следующая &gt;</target>
-			</trans-unit>
-			<trans-unit id="pi_list_browseresults_displays" xml:space="preserve" approved="yes">
-				<source>Displaying results from ###FROM### to ###TO### out of ###OUT_OF###, page ###CURRENT_PAGE### of ###TOTAL_PAGES### pages</source>
-				<target>Результат от ###FROM### до ###TO### из ###OUT_OF###, страницы ###CURRENT_PAGE### из ###TOTAL_PAGES### страниц</target>
-			</trans-unit>
-			<trans-unit id="pi_list_searchBox_search" xml:space="preserve" approved="yes">
-				<source>Search</source>
-				<target>Поиск</target>
-			</trans-unit>
 			<trans-unit id="label_number" xml:space="preserve" approved="yes">
 				<source>Number</source>
 				<target>Том</target>
 			</trans-unit>
 			<trans-unit id="label_author" xml:space="preserve" approved="yes">
 				<source>Author</source>
-				<target></target>
+				<target>автор</target>
 			</trans-unit>
 			<trans-unit id="label_isbn" xml:space="preserve" approved="yes">
 				<source>ISBN</source>
