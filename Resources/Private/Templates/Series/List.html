@@ -6,11 +6,11 @@
 </f:for>
 </ul>
 
-<f:for each="{seriesGroups}" as="seriesGroup" key="letter">
+<f:for each="{seriesGroups}" as="series" key="letter">
 <div class="seriesGroup">
 	<h2 class="trigger" id="authorsWith{letter}">{letter}</h2>
 	<ul class="toggle_container">
-		<f:for each="{seriesGroup}" as="series">
+		<f:for each="{series}" as="series">
 			<li><f:link.action action="show" arguments="{series: series.uid}">{series.title}</f:link.action></li>
 		</f:for>
 	</ul>
