@@ -3,12 +3,12 @@
 <h2>{series.title}</h2>
 
 <div>
-	{series.info}
-	{series.description}
+	<div>{series.info}</div>
+	<f:format.raw>{series.description}</f:format.raw>
 
 	<f:for each="{series.books}" as="book">
 		<div class="book">
-			<div class="series"><f:for each="{book.author}" as="bookauthor" iteration="iteration">
+			<div class="author"><f:for each="{book.author}" as="bookauthor" iteration="iteration">
 				<f:link.action action="show" pageUid="{settings.authorPageId}" arguments="{author: bookauthor}">
 					{bookauthor.lastname},
 					{bookauthor.firstname}</f:link.action>
