@@ -1,0 +1,19 @@
+<li>
+	<h2>{category.title}</h2>
+	<f:if condition="{category.children}">
+		<ul class="categories">
+			<f:for each="{category.children}" as="childCategory">
+				<f:render partial="Category" arguments="{category: childCategory}"/>
+			</f:for>
+		</ul>
+	</f:if>
+
+	<f:if condition="{category.books}">
+		<ul class="books">
+			<f:for each="{category.books}" as="book">
+				<li><f:link.action action="show" pageUid="{settings.bookPageId}" arguments="{book: book.uid}">{book.title}</f:link.action></li>
+			</f:for>
+		</ul>
+	</f:if>
+
+</div>

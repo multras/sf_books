@@ -42,6 +42,9 @@
 			<trans-unit id="listHeader_category" xml:space="preserve">
 				<source>Category</source>
 			</trans-unit>
+			<trans-unit id="subcategories" xml:space="preserve">
+				<source>Subcategories</source>
+			</trans-unit>
 			<trans-unit id="listHeader_number" xml:space="preserve">
 				<source>Number</source>
 			</trans-unit>
