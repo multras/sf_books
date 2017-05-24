@@ -43,6 +43,14 @@
 				<source>Back to the overview</source>
 				<target></target>
 			</trans-unit>
+			<trans-unit id="empty_result">
+				<source>Empty result</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="back_to_search">
+				<source>Back to search</source>
+				<target></target>
+			</trans-unit>
 			<trans-unit id="listHeader_serie" xml:space="preserve" approved="yes">
 				<source>Book Series</source>
 				<target>Knygų serija</target>

@@ -33,15 +33,23 @@
 			</trans-unit>
 			<trans-unit id="search_in_book" xml:space="preserve" approved="yes">
 				<source>In Book by</source>
-				<target></target>
+				<target>Kirjasta</target>
 			</trans-unit>
 			<trans-unit id="search_in_author" xml:space="preserve" approved="yes">
 				<source>In Author by</source>
-				<target></target>
+				<target>Tekijänä</target>
 			</trans-unit>
 			<trans-unit id="backlink" xml:space="preserve" approved="yes">
 				<source>Back to the overview</source>
 				<target>Takaisin yleiskatsaukseen</target>
+			</trans-unit>
+			<trans-unit id="empty_result">
+				<source>Empty result</source>
+				<target>Tyhjä tulos</target>
+			</trans-unit>
+			<trans-unit id="back_to_search">
+				<source>Back to search</source>
+				<target>Takaisin hakuun</target>
 			</trans-unit>
 			<trans-unit id="listHeader_serie" xml:space="preserve" approved="yes">
 				<source>Book Series</source>
