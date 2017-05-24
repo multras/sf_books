@@ -8,7 +8,7 @@
 				<f:for each="{paginatedBooks}" as="book">
 					<li>
 						<f:link.action action="show" pageUid="{settings.bookPageId}" arguments="{book: book}" pluginName="category">{book.title}</f:link.action>
-						<div>{book.subtitle}</div>
+						<div>{book.isbn} - {book.subtitle}</div>
 
 						<f:for each="{book.author}" as="author">
 							<div class="autor"><f:link.action action="show" controller="Author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action></div>
@@ -20,8 +20,8 @@
 	</f:then>
 	<f:else>
 		<div><f:translate id="empty_result" arguments="{query: query}"/></div>
-		<f:link.page pageUid="{settings.searchPageId}"><f:translate id="back_to_search"/></f:link.page>
 	</f:else>
 </f:if>
+<f:link.page pageUid="{settings.searchPageId}"><f:translate id="back_to_search"/></f:link.page>
 
 </html>
