@@ -15,22 +15,11 @@
 		</td>
 		<td rowspan="9" align="center" valign="top">
 			<f:if condition="{book.cover}">
-				<f:if condition="{settings.falImageRendering}">
-					<f:then>
-						<a href="#" data-enlarge-image="{f:uri.image(image: '{book.cover}', maxWidth: '400', maxHeight: '600')}" data-enlarge-title="{f:translate(key: 'cover')}">
-							<f:image image="{book.cover}" maxWidth="200" alt="{book.title}"/>
-							<br/>
-							<span>{f:translate(key: 'cover_large')}</span>
-						</a>
-					</f:then>
-					<f:else>
-						<a href="#" data-enlarge-image="{f:uri.image(image: 'uploads/tx_sfbooks/{book.cover}', maxWidth: '400', maxHeight: '600')}" data-enlarge-title="{f:translate(key: 'cover')}">
-							<f:image src="uploads/tx_sfbooks/{book.cover}" maxWidth="200" alt="{book.title}"/>
-							<br/>
-							<span>{f:translate(key: 'cover_large')}</span>
-						</a>
-					</f:else>
-				</f:if>
+				<a href="#" data-enlarge-image="{f:uri.image(image: '{book.cover}', maxWidth: '400', maxHeight: '600')}" data-enlarge-title="{f:translate(key: 'cover')}">
+					<f:image image="{book.cover}" maxWidth="200" alt="{book.title}"/>
+					<br/>
+					<span>{f:translate(key: 'cover_large')}</span>
+				</a>
 			</f:if>
 		</td>
 	</tr>
