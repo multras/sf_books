@@ -36,6 +36,12 @@
 			<trans-unit id="backlink" xml:space="preserve">
 				<source>Back to the overview</source>
 			</trans-unit>
+			<trans-unit id="empty_result">
+				<source>Empty result</source>
+			</trans-unit>
+			<trans-unit id="back_to_search">
+				<source>Back to search</source>
+			</trans-unit>
 			<trans-unit id="listHeader_serie" xml:space="preserve">
 				<source>Book Series</source>
 			</trans-unit>

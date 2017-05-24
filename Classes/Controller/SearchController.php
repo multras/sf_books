@@ -37,12 +37,12 @@ class SearchController extends AbstractController
             if (isset($search['searchBy'])) {
                 switch ((string)$search['searchFor']) {
                     case 'author':
-                        $this->redirect('search', 'Author', null, $search);
+                        $this->forward('search', 'Author', null, $search);
                         break;
 
                     case 'book':
                     default:
-                        $this->redirect('search', 'Book', null, $search);
+                        $this->forward('search', 'Book', null, $search);
                 }
             }
         } else {

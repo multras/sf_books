@@ -7,6 +7,8 @@ plugin.tx_sfbooks_book {
 
 	seriesPageId =
 
+	searchPageId =
+
 	excludeCategories =
 
 	storagePid =

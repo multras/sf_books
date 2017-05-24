@@ -68,6 +68,7 @@ plugin.tx_sfbooks_series {
 
 plugin.tx_sfbooks_search {
 	settings {
+		searchPageId = {$plugin.tx_sfbooks_book.searchPageId}
 		bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
 		authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
 

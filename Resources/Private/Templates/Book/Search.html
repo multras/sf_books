@@ -18,7 +18,10 @@
 			</ul>
 		</f:widget.paginate>
 	</f:then>
-	<f:else><f:translate id="no_result" arguments="{query: query}"/></f:else>
+	<f:else>
+		<div><f:translate id="empty_result" arguments="{query: query}"/></div>
+		<f:link.page pageUid="{settings.searchPageId}"><f:translate id="back_to_search"/></f:link.page>
+	</f:else>
 </f:if>
 
 </html>
