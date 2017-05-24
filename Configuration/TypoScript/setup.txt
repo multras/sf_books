@@ -80,13 +80,6 @@ plugin.tx_sfbooks_search {
 
 
 
-[compatVersion = 8.7.0]
-	plugin.tx_sfbooks_book.settings.falImageRendering = 1
-	plugin.tx_sfbooks_category.settings.falImageRendering = 1
-[end]
-
-
-
 # Example for integration in comments
 plugin.tx_comments_pi1 {
 	showUidMap.tx_sfbooks_book = book
