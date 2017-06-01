@@ -10,7 +10,6 @@ books and to search easily information about each book.',
     'author_email' => 'typo3@evoweb.de',
     'author_company' => 'evoWeb',
     'state' => 'stable',
-    'uploadfolder' => 1,
     'clearcacheonload' => 1,
     'version' => '4.0.0',
     'constraints' => [
