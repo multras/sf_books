@@ -111,6 +111,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_category.parent',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_sfbooks_domain_model_category',
                 'foreign_table_where' => 'ORDER BY tx_sfbooks_domain_model_category.title',
                 'size' => 7,

@@ -138,6 +138,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_author.books',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'multiple' => true,
                 'size' => 5,
                 'autoSizeMax' => 10,

@@ -104,6 +104,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_extras.type',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     [
                         $languageFile . 'tx_sfbooks_domain_model_extras.type.I.0',
@@ -121,6 +122,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_extras.label',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_sfbooks_domain_model_extraslabels',
                 'foreign_table_where' => 'ORDER BY tx_sfbooks_domain_model_extraslabels.uid',
                 'size' => 1,

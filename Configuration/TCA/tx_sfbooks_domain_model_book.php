@@ -21,7 +21,6 @@ return [
             'endtime' => 'endtime',
             'fe_group' => 'fe_group',
         ],
-        'requestUpdate' => 'location1, location2',
         'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_book.png',
         'searchFields' => 'uid, title, subtitle, isbn, description',
     ],
@@ -152,6 +151,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.series',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['', 0],
                 ],
@@ -192,14 +192,13 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.category',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectTree',
                 'foreign_table' => 'tx_sfbooks_domain_model_category',
                 'foreign_table_where' => 'ORDER BY tx_sfbooks_domain_model_category.title',
                 'MM' => 'tx_sfbooks_domain_model_book_category_mm',
                 'minitems' => 0,
                 'maxitems' => 100,
                 'size' => 10,
-                'autoSizeMax' => 20,
-                'renderMode' => 'tree',
                 'treeConfig' => [
                     'parentField' => 'parent',
                     'appearance' => [
@@ -212,8 +211,10 @@ return [
         'location1' => [
             'exclude' => 1,
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.location1',
+            'onChange' => 'reload',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     [
                         $languageFile . 'tx_sfbooks_domain_model_book.location1.I.0',
@@ -225,9 +226,11 @@ return [
         'location2' => [
             'exclude' => 1,
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.location2',
+            'onChange' => 'reload',
             'displayCond' => 'FIELD:location1:REQ:true',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     [
                         $languageFile . 'tx_sfbooks_domain_model_book.location2.I.0',
@@ -242,6 +245,7 @@ return [
             'displayCond' => 'FIELD:location2:REQ:true',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     [
                         $languageFile . 'tx_sfbooks_domain_model_book.location3.I.0',
@@ -267,7 +271,6 @@ return [
         ],
         'extras' => [
             'exclude' => 1,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.extras',
             'config' => [
                 'type' => 'inline',
@@ -288,6 +291,9 @@ return [
                     'enabledControls' => [
                         'info' => false,
                     ],
+                ],
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true
                 ],
             ],
         ],
@@ -357,7 +363,7 @@ return [
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_common,
                     title, subtitle, author,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_formal,
-                    isbn, series, number, category, location1;;locations,
+                    isbn, series, number, category, location1, --palette--;;locations,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_content,
                     year, description, extras, cover,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
