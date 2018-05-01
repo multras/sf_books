@@ -28,8 +28,8 @@ install:
 
 script:
   - >
-    echo "Running $TYPO3_VERSION functional tests";
-    .Build/bin/phpunit --colors -c Tests/FunctionalTests.xml Tests/Functional/
+    echo "Running $TYPO3_VERSION functional tests currently disabled";
+    #if [ ! -z "$TESTING_FRAMEWORK" ]; then .Build/bin/phpunit --colors -c Tests/FunctionalTests.xml Tests/Functional/; fi;
 
 jobs:
   fast_finish: true
