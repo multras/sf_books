@@ -20,6 +20,12 @@ namespace Evoweb\SfBooks\Domain\Model;
 class Series extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $books;
+
+    /**
      * @var string
      */
     protected $title;
@@ -40,15 +46,7 @@ class Series extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $description;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
-     * @lazy
-     */
-    protected $books;
-
-    /**
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $books
-     *
-     * @return void
      */
     public function setBooks($books)
     {
@@ -63,64 +61,37 @@ class Series extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         return $this->books;
     }
 
-    /**
-     * @return string
-     */
-    public function getCapitalLetter()
+    public function getCapitalLetter(): string
     {
         return strtoupper($this->capitalLetter);
     }
 
-    /**
-     * @param string $description
-     *
-     * @return void
-     */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $info
-     *
-     * @return void
-     */
-    public function setInfo($info)
+    public function setInfo(string $info)
     {
         $this->info = $info;
     }
 
-    /**
-     * @return string
-     */
-    public function getInfo()
+    public function getInfo(): string
     {
         return $this->info;
     }
 
-    /**
-     * @param string $title
-     *
-     * @return void
-     */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }

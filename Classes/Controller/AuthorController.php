@@ -12,11 +12,6 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Plugin 'Book Library - Author' for the 'sf_books' extension.
- *
- * @package Evoweb\SfBooks\Controller
- */
 class AuthorController extends AbstractController
 {
     /**
@@ -32,9 +27,6 @@ class AuthorController extends AbstractController
         $this->repository = $repository;
     }
 
-    /**
-     * @return void
-     */
     protected function listAction()
     {
         $authorGroups = $this->repository->findAuthorGroupedByLetters();
@@ -44,19 +36,23 @@ class AuthorController extends AbstractController
 
     /**
      * @param \Evoweb\SfBooks\Domain\Model\Author $author
-     *
-     * @return void
      */
     protected function showAction(\Evoweb\SfBooks\Domain\Model\Author $author = null)
     {
         if ($author == null) {
-            $this->getTypoScriptFrontendController()->pageNotFoundAndExit('Author not found');
+            echo \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                \TYPO3\CMS\Core\Controller\ErrorPageController::class
+            )->errorAction(
+                'Page Not Found',
+                'The page did not exist or was inaccessible. Reason: Author not found'
+            );
+            die();
         }
 
         // This sets the title of the page for use in indexed search results:
         if ($author->getLastname()) {
-            $this->getTypoScriptFrontendController()->indexedDocTitle = $author->getLastname() . ', '
-                . $author->getFirstname();
+            $this->getTypoScriptFrontendController()->indexedDocTitle =
+                $author->getLastname() . ', ' . $author->getFirstname();
         }
 
         $this->view->assign('author', $author);
@@ -65,14 +61,13 @@ class AuthorController extends AbstractController
     /**
      * @param string $query
      * @param string $searchBy
-     *
-     * @return void
      */
     protected function searchAction($query, $searchBy = '')
     {
         if (!$searchBy) {
             $searchBy = $this->settings['searchFields'];
         }
+        $searchBy = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $searchBy, true);
 
         $authors = $this->repository->findBySearch($query, $searchBy);
 

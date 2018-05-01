@@ -49,8 +49,6 @@ class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedVi
 {
     /**
      * Initialize arguments
-     *
-     * @return void
      */
     public function initializeArguments()
     {
@@ -153,14 +151,7 @@ class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedVi
         return $sorted;
     }
 
-    /**
-     * Sort an array
-     *
-     * @param array $array
-     *
-     * @return array
-     */
-    protected function sortArray($array)
+    protected function sortArray(array $array): array
     {
         $sorted = [];
         foreach ($array as $index => $object) {
@@ -182,21 +173,16 @@ class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedVi
     }
 
     /**
-     * Sort a Tx_Extbase_Persistence_ObjectStorage instance
+     * Sort a \TYPO3\CMS\Extbase\Persistence\ObjectStorage instance
      *
      * @param ObjectStorage|\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage $storage
      *
      * @return ObjectStorage
      */
-    protected function sortObjectStorage($storage)
+    protected function sortObjectStorage($storage): ObjectStorage
     {
         /** @var ObjectManager $objectManager */
         $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ObjectManager::class);
-        /** @var ObjectStorage $temp */
-        $temp = $objectManager->get(ObjectStorage::class);
-        foreach ($storage as $item) {
-            $temp->attach($item);
-        }
 
         $sorted = [];
         foreach ($storage as $index => $item) {

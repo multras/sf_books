@@ -144,6 +144,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'multiple' => true,
+                'default' => 0,
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'foreign_table' => 'tx_sfbooks_domain_model_book',

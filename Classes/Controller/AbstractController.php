@@ -15,11 +15,6 @@ namespace Evoweb\SfBooks\Controller;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
-/**
- * Class AbstractController
- *
- * @package Evoweb\SfBooks\Controller
- */
 abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
@@ -32,17 +27,11 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
      */
     protected $repository;
 
-    /**
-     * @return void
-     */
     protected function initializeAction()
     {
         $this->setDefaultOrderings();
     }
 
-    /**
-     * @return void
-     */
     protected function setDefaultOrderings()
     {
         if (isset($this->settings['allowedOrderBy'])) {
@@ -87,8 +76,6 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
      * or prepare the view in another way before the action is called.
      *
      * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view The view
-     *
-     * @return void
      */
     protected function initializeView(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view)
     {
@@ -98,10 +85,7 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
         }
     }
 
-    /**
-     * @return \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
-     */
-    protected function getTypoScriptFrontendController()
+    protected function getTypoScriptFrontendController(): \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
     {
         return $GLOBALS['TSFE'];
     }

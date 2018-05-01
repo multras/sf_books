@@ -276,6 +276,7 @@ return [
                 'type' => 'inline',
                 'allowed' => 'tx_sfbooks_domain_model_extras',
                 'foreign_table' => 'tx_sfbooks_domain_model_extras',
+                'default' => 0,
                 'size' => 5,
                 'minitems' => 0,
                 'maxitems' => 10,
@@ -308,6 +309,7 @@ return [
         'cover' => [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.cover',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('cover', [
+                'default' => 0,
                 'appearance' => [
                     'createNewRelationLinkTitle' => $languageFileTtc . 'images.addFileReference'
                 ],

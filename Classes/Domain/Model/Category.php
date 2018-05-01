@@ -20,21 +20,27 @@ namespace Evoweb\SfBooks\Domain\Model;
 class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
-     * @var string
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Category>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
-    protected $title;
+    protected $children;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $books;
 
     /**
      * @var \Evoweb\SfBooks\Domain\Model\Category
-     * @lazy
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $parent;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Category>
-     * @lazy
+     * @var string
      */
-    protected $children;
+    protected $title;
 
     /**
      * @var string
@@ -42,43 +48,11 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $description;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
-     * @lazy
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $children
      */
-    protected $books;
-
-    /**
-     * @param string $title
-     */
-    public function setTitle($title)
+    public function setChildren($children)
     {
-        $this->title = $title;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param \Evoweb\SfBooks\Domain\Model\Category $parent
-     *
-     * @return void
-     */
-    public function setParent($parent)
-    {
-        $this->parent = $parent;
-    }
-
-    /**
-     * @return \Evoweb\SfBooks\Domain\Model\Category
-     */
-    public function getParent()
-    {
-        return $this->parent;
+        $this->children = $children;
     }
 
     /**
@@ -87,32 +61,6 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function getChildren()
     {
         return $this->children;
-    }
-
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Category> $children
-     */
-    public function setChildren($children)
-    {
-        $this->children = $children;
-    }
-
-    /**
-     * @param string $description
-     *
-     * @return void
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     /**
@@ -129,5 +77,41 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function getBooks()
     {
         return $this->books;
+    }
+
+    /**
+     * @param \Evoweb\SfBooks\Domain\Model\Category $parent
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * @return \Evoweb\SfBooks\Domain\Model\Category
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    public function setTitle(string $title)
+    {
+        $this->title = $title;
+    }
+
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
     }
 }

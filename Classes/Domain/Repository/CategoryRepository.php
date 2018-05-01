@@ -12,11 +12,6 @@ namespace Evoweb\SfBooks\Domain\Repository;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Class CategoryRepository
- *
- * @package Evoweb\SfBooks\Domain\Repository
- */
 class CategoryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     /**
@@ -26,12 +21,7 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
     ];
 
-    /**
-     * @param array $categories
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
-     */
-    public function findByCategory($categories)
+    public function findByCategories(array $categories): \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
     {
         $query = $this->createQuery();
 

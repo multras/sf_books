@@ -12,19 +12,9 @@ namespace Evoweb\SfBooks\Domain\Repository;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Class BookRepository
- *
- * @package Evoweb\SfBooks\Domain\Repository
- */
 class BookRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-    /**
-     * @param array $categories
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
-     */
-    public function findByCategory($categories)
+    public function findByCategories(array $categories): \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
     {
         $query = $this->createQuery();
 
@@ -39,18 +29,10 @@ class BookRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         return $query->execute();
     }
 
-    /**
-     * @param string $searchString
-     * @param string|array $searchFields
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
-     */
-    public function findBySearch($searchString, $searchFields)
-    {
-        if (!is_array($searchFields)) {
-            $searchFields = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $searchFields, true);
-        }
-
+    public function findBySearch(
+        string $searchString,
+        array $searchFields
+    ): \TYPO3\CMS\Extbase\Persistence\QueryResultInterface {
         $query = $this->createQuery();
 
         $searchConstrains = [];

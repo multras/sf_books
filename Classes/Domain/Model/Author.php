@@ -12,13 +12,14 @@ namespace Evoweb\SfBooks\Domain\Model;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Class Author
- *
- * @package Evoweb\SfBooks\Domain\Model
- */
 class Author extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $books;
+
     /**
      * @var string
      */
@@ -40,15 +41,7 @@ class Author extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $description;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Book>
-     * @lazy
-     */
-    protected $books;
-
-    /**
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $books
-     *
-     * @return void
      */
     public function setBooks($books)
     {
@@ -63,64 +56,37 @@ class Author extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         return $this->books;
     }
 
-    /**
-     * @return string
-     */
-    public function getCapitalLetter()
+    public function getCapitalLetter(): string
     {
         return strtoupper($this->capitalLetter);
     }
 
-    /**
-     * @param string $firstname
-     *
-     * @return void
-     */
-    public function setFirstname($firstname)
+    public function setFirstname(string $firstname)
     {
         $this->firstname = $firstname;
     }
 
-    /**
-     * @return string
-     */
-    public function getFirstname()
+    public function getFirstname(): string
     {
         return $this->firstname;
     }
 
-    /**
-     * @param string $lastname
-     *
-     * @return void
-     */
-    public function setLastname($lastname)
+    public function setLastname(string $lastname)
     {
         $this->lastname = $lastname;
     }
 
-    /**
-     * @return string
-     */
-    public function getLastname()
+    public function getLastname(): string
     {
         return $this->lastname;
     }
 
-    /**
-     * @param string $description
-     *
-     * @return void
-     */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
