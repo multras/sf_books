@@ -5,7 +5,7 @@ if (!defined('PHPUNIT_COMPOSER_INSTALL')) {
     define('PHPUNIT_COMPOSER_INSTALL', $_SERVER['IDE_PHPUNIT_CUSTOM_LOADER']);
 }
 
-$file = __DIR__ . '/../../../../vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTestsBootstrap.php';
+$file = __DIR__ . '/../.Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTestsBootstrap.php';
 /** @noinspection PhpIncludeInspection */
 require_once $file;
 
