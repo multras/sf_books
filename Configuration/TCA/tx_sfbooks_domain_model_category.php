@@ -113,7 +113,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_sfbooks_domain_model_category',
-                'foreign_table_where' => 'ORDER BY tx_sfbooks_domain_model_category.title',
+                'foreign_table_where' => 'tx_sfbooks_domain_model_category.uid != ###THIS_UID### ORDER BY tx_sfbooks_domain_model_category.title',
                 'size' => 7,
                 'minitems' => 0,
                 'maxitems' => 1,

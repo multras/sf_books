@@ -12,24 +12,14 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Plugin 'Book Library - Search' for the 'sf_books' extension.
- *
- * @package Evoweb\SfBooks\Controller
- */
 class SearchController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function searchAction()
     {
     }
 
     /**
      * @param array $search
-     *
-     * @return void
      */
     public function startSearchAction($search)
     {

@@ -12,11 +12,6 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Plugin 'Book Library - Book' for the 'sf_books' extension.
- *
- * @package Evoweb\SfBooks\Controller
- */
 class BookController extends AbstractController
 {
     /**
@@ -32,9 +27,6 @@ class BookController extends AbstractController
         $this->repository = $repository;
     }
 
-    /**
-     * @return void
-     */
     protected function initializeListAction()
     {
         $this->settings['category'] = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(
@@ -46,8 +38,6 @@ class BookController extends AbstractController
 
     /**
      * renders the list of books with search and pagination
-     *
-     * @return void
      */
     protected function listAction()
     {
@@ -56,7 +46,7 @@ class BookController extends AbstractController
         ) {
             $books = $this->repository->findAll();
         } else {
-            $books = $this->repository->findByCategory($this->settings['category']);
+            $books = $this->repository->findByCategories($this->settings['category']);
         }
 
         $this->view->assign('books', $books);
@@ -66,13 +56,17 @@ class BookController extends AbstractController
      * renders the content for a single book
      *
      * @param \Evoweb\SfBooks\Domain\Model\Book $book
-     *
-     * @return void
      */
     protected function showAction(\Evoweb\SfBooks\Domain\Model\Book $book = null)
     {
         if ($book == null) {
-            $this->getTypoScriptFrontendController()->pageNotFoundAndExit('Book not found');
+            echo \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                \TYPO3\CMS\Core\Controller\ErrorPageController::class
+            )->errorAction(
+                'Page Not Found',
+                'The page did not exist or was inaccessible. Reason: Book not found'
+            );
+            die();
         }
 
         // This sets the title of the page for use in indexed search results:
@@ -86,14 +80,13 @@ class BookController extends AbstractController
     /**
      * @param string $query
      * @param string $searchBy
-     *
-     * @return void
      */
     protected function searchAction($query, $searchBy = '')
     {
         if (!$searchBy) {
             $searchBy = $this->settings['searchFields'];
         }
+        $searchBy = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $searchBy, true);
 
         $books = $this->repository->findBySearch($query, $searchBy);
 

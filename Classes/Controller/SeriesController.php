@@ -12,11 +12,6 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Plugin 'Book Library - Series' for the 'sf_books' extension.
- *
- * @package Evoweb\SfBooks\Controller
- */
 class SeriesController extends AbstractController
 {
     /**
@@ -34,8 +29,6 @@ class SeriesController extends AbstractController
 
     /**
      * renders the list of books with search and pagination
-     *
-     * @return void
      */
     protected function listAction()
     {
@@ -48,8 +41,6 @@ class SeriesController extends AbstractController
      * renders the content for a single series
      *
      * @param \Evoweb\SfBooks\Domain\Model\Series $series
-     *
-     * @return void
      */
     protected function showAction(\Evoweb\SfBooks\Domain\Model\Series $series)
     {

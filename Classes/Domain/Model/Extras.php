@@ -20,75 +20,47 @@ namespace Evoweb\SfBooks\Domain\Model;
 class Extras extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
+     * @var \Evoweb\SfBooks\Domain\Model\ExtrasLabels
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $label;
+
+    /**
      * @var int
      */
     protected $type = 0;
-
-    /**
-     * @var \Evoweb\SfBooks\Domain\Model\ExtrasLabels
-     * @lazy
-     */
-    protected $label;
 
     /**
      * @var string
      */
     protected $content;
 
-    /**
-     * Setter
-     *
-     * @param int $type
-     *
-     * @return void
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * Getter
-     *
-     * @return int
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param \Evoweb\SfBooks\Domain\Model\ExtrasLabels $label
-     *
-     * @return void
-     */
-    public function setLabel($label)
+    public function setLabel(\Evoweb\SfBooks\Domain\Model\ExtrasLabels $label)
     {
         $this->label = $label;
     }
 
-    /**
-     * @return \Evoweb\SfBooks\Domain\Model\ExtrasLabels
-     */
-    public function getLabel()
+    public function getLabel(): \Evoweb\SfBooks\Domain\Model\ExtrasLabels
     {
         return $this->label;
     }
 
-    /**
-     * @param string $content
-     *
-     * @return void
-     */
-    public function setContent($content)
+    public function setType(int $type)
+    {
+        $this->type = $type;
+    }
+
+    public function getType(): int
+    {
+        return $this->type;
+    }
+
+    public function setContent(string $content)
     {
         $this->content = $content;
     }
 
-    /**
-     * @return string
-     */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }

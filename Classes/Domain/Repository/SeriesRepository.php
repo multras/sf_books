@@ -12,17 +12,9 @@ namespace Evoweb\SfBooks\Domain\Repository;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Class SeriesRepository
- *
- * @package Evoweb\SfBooks\Domain\Repository
- */
 class SeriesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-    /**
-     * @return array
-     */
-    public function findSeriesGroupedByLetters()
+    public function findSeriesGroupedByLetters(): array
     {
         $queryBuilder = $this->getQueryBuilderForTable('tx_sfbooks_domain_model_series');
         $statement = $queryBuilder
@@ -32,11 +24,11 @@ class SeriesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             ->orderBy('title')
             ->getSQL();
 
-        /** @var $query \TYPO3\CMS\Extbase\Persistence\Generic\Query */
+        /** @var \TYPO3\CMS\Extbase\Persistence\Generic\Query $query */
         $query = $this->createQuery();
         $result = $query->statement($statement)->execute();
 
-        /** @var $series \Evoweb\SfBooks\Domain\Model\Series */
+        /** @var \Evoweb\SfBooks\Domain\Model\Series $series */
         $groupedSeries = [];
         foreach ($result as $series) {
             $letter = $series->getCapitalLetter();
@@ -50,12 +42,7 @@ class SeriesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         return $groupedSeries;
     }
 
-    /**
-     * @param array $series
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
-     */
-    public function findBySeries($series)
+    public function findBySeries(array $series): \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
     {
         $query = $this->createQuery();
 
@@ -70,12 +57,7 @@ class SeriesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         return $query->execute();
     }
 
-    /**
-     * @param string $table
-     *
-     * @return \TYPO3\CMS\Core\Database\Query\QueryBuilder
-     */
-    protected function getQueryBuilderForTable($table): \TYPO3\CMS\Core\Database\Query\QueryBuilder
+    protected function getQueryBuilderForTable(string $table): \TYPO3\CMS\Core\Database\Query\QueryBuilder
     {
         return \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
             \TYPO3\CMS\Core\Database\ConnectionPool::class

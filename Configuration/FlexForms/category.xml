@@ -25,6 +25,7 @@
 							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.settings.category</label>
 							<config>
 								<type>select</type>
+								<renderType>selectTree</renderType>
 								<foreign_table>tx_sfbooks_domain_model_category</foreign_table>
 								<foreign_table_where>ORDER BY tx_sfbooks_domain_model_category.title</foreign_table_where>
 								<exclusiveKeys>-1</exclusiveKeys>
@@ -37,7 +38,6 @@
 								</items>
 								<maxitems>200</maxitems>
 								<size>7</size>
-								<renderMode>tree</renderMode>
 								<treeConfig type="array">
 									<appearance type="array">
 										<expandAll>1</expandAll>

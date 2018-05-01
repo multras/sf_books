@@ -1,5 +1,4 @@
 <?php
-
 namespace Evoweb\SfBooks\Domain\Model;
 
 /**
@@ -13,13 +12,31 @@ namespace Evoweb\SfBooks\Domain\Model;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Class Book
- *
- * @package Evoweb\SfBooks\Domain\Model
- */
 class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Author>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $author;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Category>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $category;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Extras>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $extras;
+
+    /**
+     * @var \Evoweb\SfBooks\Domain\Model\Series
+     */
+    protected $series;
+
     /**
      * @var string
      */
@@ -36,26 +53,9 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $subtitle;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Author>
-     * @lazy
-     */
-    protected $author;
-
-    /**
      * @var string
      */
     protected $isbn;
-
-    /**
-     * @var \Evoweb\SfBooks\Domain\Model\Series
-     */
-    protected $series;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Category>
-     * @lazy
-     */
-    protected $category;
 
     /**
      * @var string
@@ -66,12 +66,6 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $description;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Evoweb\SfBooks\Domain\Model\Extras>
-     * @lazy
-     */
-    protected $extras;
 
     /**
      * @var string
@@ -93,9 +87,6 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $location3;
 
-    /**
-     * Book constructor.
-     */
     public function __construct()
     {
         $this->author = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -105,8 +96,6 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $author
-     *
-     * @return void
      */
     public function setAuthor($author)
     {
@@ -123,8 +112,6 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \Evoweb\SfBooks\Domain\Model\Category $category
-     *
-     * @return void
      */
     public function setCategory($category)
     {
@@ -140,63 +127,7 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param string $cover
-     *
-     * @return void
-     */
-    public function setCover($cover)
-    {
-        $this->cover = $cover;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCover()
-    {
-        return $this->cover;
-    }
-
-    /**
-     * @param string $description
-     *
-     * @return void
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $year
-     *
-     * @return void
-     */
-    public function setYear($year)
-    {
-        $this->year = $year;
-    }
-
-    /**
-     * @return string
-     */
-    public function getYear()
-    {
-        return $this->year;
-    }
-
-    /**
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $extras
-     *
-     * @return void
      */
     public function setExtras($extras)
     {
@@ -211,146 +142,112 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         return $this->extras;
     }
 
-    /**
-     * @param string $isbn
-     *
-     * @return void
-     */
-    public function setIsbn($isbn)
-    {
-        $this->isbn = $isbn;
-    }
-
-    /**
-     * @return string
-     */
-    public function getIsbn()
-    {
-        return $this->isbn;
-    }
-
-    /**
-     * @param int $location1
-     *
-     * @return void
-     */
-    public function setLocation1($location1)
-    {
-        $this->location1 = $location1;
-    }
-
-    /**
-     * @return int
-     */
-    public function getLocation1()
-    {
-        return $this->location1;
-    }
-
-    /**
-     * @param int $location2
-     *
-     * @return void
-     */
-    public function setLocation2($location2)
-    {
-        $this->location2 = $location2;
-    }
-
-    /**
-     * @return int
-     */
-    public function getLocation2()
-    {
-        return $this->location2;
-    }
-
-    /**
-     * @param int $location3
-     *
-     * @return void
-     */
-    public function setLocation3($location3)
-    {
-        $this->location3 = $location3;
-    }
-
-    /**
-     * @return int
-     */
-    public function getLocation3()
-    {
-        return $this->location3;
-    }
-
-    /**
-     * @param string $number
-     *
-     * @return void
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
-    /**
-     * @param \Evoweb\SfBooks\Domain\Model\Series $series
-     *
-     * @return void
-     */
-    public function setSeries($series)
+    public function setSeries(\Evoweb\SfBooks\Domain\Model\Series $series)
     {
         $this->series = $series;
     }
 
-    /**
-     * @return \Evoweb\SfBooks\Domain\Model\Series
-     */
-    public function getSeries()
+    public function getSeries(): \Evoweb\SfBooks\Domain\Model\Series
     {
         return $this->series;
     }
 
-    /**
-     * @param string $subtitle
-     *
-     * @return void
-     */
-    public function setSubtitle($subtitle)
+    public function setCover(string $cover)
+    {
+        $this->cover = $cover;
+    }
+
+    public function getCover(): string
+    {
+        return $this->cover;
+    }
+
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setYear(string $year)
+    {
+        $this->year = $year;
+    }
+
+    public function getYear(): string
+    {
+        return $this->year;
+    }
+
+    public function setIsbn(string $isbn)
+    {
+        $this->isbn = $isbn;
+    }
+
+    public function getIsbn(): string
+    {
+        return $this->isbn;
+    }
+
+    public function setLocation1(int $location1)
+    {
+        $this->location1 = $location1;
+    }
+
+    public function getLocation1(): int
+    {
+        return $this->location1;
+    }
+
+    public function setLocation2(int $location2)
+    {
+        $this->location2 = $location2;
+    }
+
+    public function getLocation2(): int
+    {
+        return $this->location2;
+    }
+
+    public function setLocation3(int $location3)
+    {
+        $this->location3 = $location3;
+    }
+
+    public function getLocation3(): int
+    {
+        return $this->location3;
+    }
+
+    public function setNumber(string $number)
+    {
+        $this->number = $number;
+    }
+
+    public function getNumber(): string
+    {
+        return $this->number;
+    }
+
+    public function setSubtitle(string $subtitle)
     {
         $this->subtitle = $subtitle;
     }
 
-    /**
-     * @return string
-     */
-    public function getSubtitle()
+    public function getSubtitle(): string
     {
         return $this->subtitle;
     }
 
-    /**
-     * @param string $title
-     *
-     * @return void
-     */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }

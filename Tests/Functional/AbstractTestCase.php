@@ -45,13 +45,10 @@ abstract class AbstractTestCase extends \TYPO3\TestingFramework\Core\Functional\
      */
     protected function setUp()
     {
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['sqlDebug'] = 1;
-
         $this->testExtensionsToLoad[] = 'typo3conf/ext/sf_books';
 
         parent::setUp();
 
-        //$this->setUpBackendUserFromFixture(2);
         \TYPO3\CMS\Core\Core\Bootstrap::getInstance()->initializeLanguageObject();
 
         $this->expectedLogEntries = 0;

@@ -12,17 +12,9 @@ namespace Evoweb\SfBooks\Domain\Repository;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Class AuthorRepository
- *
- * @package Evoweb\SfBooks\Domain\Repository
- */
 class AuthorRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-    /**
-     * @return array
-     */
-    public function findAuthorGroupedByLetters()
+    public function findAuthorGroupedByLetters(): array
     {
         $queryBuilder = $this->getQueryBuilderForTable('tx_sfbooks_domain_model_author');
         $statement = $queryBuilder
@@ -51,18 +43,10 @@ class AuthorRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         return $groupedAuthors;
     }
 
-    /**
-     * @param string $searchString
-     * @param string $searchFields
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
-     */
-    public function findBySearch($searchString, $searchFields)
-    {
-        if (!is_array($searchFields)) {
-            $searchFields = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $searchFields, true);
-        }
-
+    public function findBySearch(
+        string $searchString,
+        array $searchFields
+    ): \TYPO3\CMS\Extbase\Persistence\QueryResultInterface {
         $query = $this->createQuery();
 
         $searchConstrains = [];
@@ -81,12 +65,7 @@ class AuthorRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         return $query->execute();
     }
 
-    /**
-     * @param string $table
-     *
-     * @return \TYPO3\CMS\Core\Database\Query\QueryBuilder
-     */
-    protected function getQueryBuilderForTable($table): \TYPO3\CMS\Core\Database\Query\QueryBuilder
+    protected function getQueryBuilderForTable(string $table): \TYPO3\CMS\Core\Database\Query\QueryBuilder
     {
         return \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
             \TYPO3\CMS\Core\Database\ConnectionPool::class

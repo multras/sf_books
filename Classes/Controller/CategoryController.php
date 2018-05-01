@@ -12,11 +12,6 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Plugin 'Book Library - Category' for the 'sf_books' extension.
- *
- * @package Evoweb\SfBooks\Controller
- */
 class CategoryController extends AbstractController
 {
     /**
@@ -32,9 +27,6 @@ class CategoryController extends AbstractController
         $this->repository = $repository;
     }
 
-    /**
-     * @return void
-     */
     protected function initializeListAction()
     {
         $this->settings['category'] = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(
@@ -46,8 +38,6 @@ class CategoryController extends AbstractController
 
     /**
      * renders the list of books with search and pagination
-     *
-     * @return void
      */
     protected function listAction()
     {
@@ -56,7 +46,7 @@ class CategoryController extends AbstractController
         ) {
             $categories = $this->repository->findAll();
         } else {
-            $categories = $this->repository->findByCategory($this->settings['category']);
+            $categories = $this->repository->findByCategories($this->settings['category']);
         }
 
         $categories = $this->removeExcludeCategories($categories);
@@ -90,8 +80,6 @@ class CategoryController extends AbstractController
      * renders the content for a single category
      *
      * @param \Evoweb\SfBooks\Domain\Model\Category $category
-     *
-     * @return void
      */
     protected function showAction(\Evoweb\SfBooks\Domain\Model\Category $category)
     {
