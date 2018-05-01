@@ -172,13 +172,10 @@ class ImageToFileReferenceUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpda
      *
      * @param array &$dbQueries Queries done in this update
      * @param string &$customMessage Custom message
+     *
      * @return bool TRUE on success, FALSE on error
      */
-<<<<<<< HEAD
-    public function performUpdate(array &$dbQueries, &$customMessages): bool
-=======
-    public function performUpdate(array &$dbQueries, &$customMessage)
->>>>>>> master
+    public function performUpdate(array &$dbQueries, &$customMessage): bool
     {
         $customMessage = '';
         try {
