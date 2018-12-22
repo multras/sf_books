@@ -51,7 +51,17 @@ class ImageToFileReferenceUpdate extends \TYPO3\CMS\Install\Updates\AbstractUpda
             'cover' => [
                 'sourcePath' => 'uploads/tx_sfbooks',
                 // Relative to fileadmin
-                'targetPath' => '_migrated/sf_books/book_images/',
+                'targetPath' => '_migrated/sf_books/book_cover/',
+            ],
+            'cover_large' => [
+                'sourcePath' => 'uploads/tx_sfbooks',
+                // Relative to fileadmin
+                'targetPath' => '_migrated/sf_books/book_cover_large/',
+            ],
+            'sample_pdf' => [
+                'sourcePath' => 'uploads/tx_sfbooks',
+                // Relative to fileadmin
+                'targetPath' => '_migrated/sf_books/book_sample_pdf/',
             ],
         ],
     ];
