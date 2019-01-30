@@ -15,8 +15,6 @@ plugin.tx_sfbooks_book {
     searchFields = title, subtitle, description, isbn, author
     allowedOrderBy = title, subtitle, isbn, year
   }
-
-  persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
 }
 
 
@@ -28,8 +26,6 @@ plugin.tx_sfbooks_author {
     searchFields = lastname, firstname, description
     allowedOrderBy = lastname, firstname
   }
-
-  persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
 }
 
 
@@ -42,8 +38,6 @@ plugin.tx_sfbooks_category {
     excludeCategories = {$plugin.tx_sfbooks_book.excludeCategories}
     allowedOrderBy = title, sorting
   }
-
-  persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
 }
 
 
@@ -55,8 +49,6 @@ plugin.tx_sfbooks_series {
 
     allowedOrderBy = title
   }
-
-  persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
 }
 
 
@@ -69,8 +61,6 @@ plugin.tx_sfbooks_search {
     bookSearchFields < plugin.tx_sfbooks_book.settings.searchFields
     authorSearchFields < plugin.tx_sfbooks_author.settings.searchFields
   }
-
-  persistence.storagePid = {$plugin.tx_sfbooks_book.storagePid}
 }
 
 

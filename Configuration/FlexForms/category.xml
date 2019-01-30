@@ -53,23 +53,18 @@
 							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.settings.templatePath</label>
 							<config>
 								<type>input</type>
+								<renderType>inputLink</renderType>
 								<eval>trim</eval>
-								<wizards>
-									<link>
-										<type>popup</type>
-										<title>Templatepath</title>
-										<icon>actions-wizard-link</icon>
-										<module>
-											<name>wizard_link</name>
-										</module>
-										<JSopenParams>width=800,height=600,status=0,menubar=0,scrollbars=1</JSopenParams>
-										<params type="array">
-											<blindLinkOptions>mail,page,url,folder</blindLinkOptions>
-											<blindLinkFields>class, target, title, params</blindLinkFields>
+								<fieldControl>
+									<linkPopup>
+										<options>
+											<title>Template</title>
 											<allowedExtensions>html</allowedExtensions>
-										</params>
-									</link>
-								</wizards>
+											<blindLinkFields>class, target, title, params</blindLinkFields>
+											<blindLinkOptions>mail,page,url,folder</blindLinkOptions>
+										</options>
+									</linkPopup>
+								</fieldControl>
 							</config>
 						</TCEforms>
 					</settings.templatePath>

@@ -1,15 +1,19 @@
 plugin.tx_sfbooks_book {
+  # cat=Book Library//3; type=int+; label= Category plugin page id
   categoryPageId =
 
+  # cat=Book Library//3; type=int+; label= Book plugin page id
   bookPageId =
 
+  # cat=Book Library//3; type=int+; label= Author plugin page id
   authorPageId =
 
+  # cat=Book Library//3; type=int+; label= Series plugin page id
   seriesPageId =
 
+  # cat=Book Library//3; type=int+; label= Search plugin page id
   searchPageId =
 
+  # cat=Book Library//3; type=string; label= Exclude category list
   excludeCategories =
-
-  storagePid =
 }
