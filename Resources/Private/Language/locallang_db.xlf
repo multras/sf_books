@@ -84,6 +84,12 @@
 			<trans-unit id="tx_sfbooks_domain_model_book.cover" xml:space="preserve">
 				<source>Cover</source>
 			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.cover_large" xml:space="preserve">
+				<source>Cover large</source>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.sample_pdf" xml:space="preserve">
+				<source>Reading example (PDF)</source>
+			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.div_common" xml:space="preserve">
 				<source>Common</source>
 			</trans-unit>

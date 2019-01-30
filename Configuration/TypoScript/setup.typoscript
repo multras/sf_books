@@ -1,0 +1,82 @@
+plugin.tx_sfbooks {
+  _LOCAL_LANG.de {
+    search_in_author = Autor
+    search_in_title = Buchtitel
+    search_in_isbn = ISBN
+    no_result = Für den Suchbegriff '%s' liegt kein Ergebnis vor
+  }
+}
+
+plugin.tx_sfbooks_book {
+  settings {
+    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+
+    searchFields = title, subtitle, description, isbn, author
+    allowedOrderBy = title, subtitle, isbn, year
+  }
+}
+
+
+plugin.tx_sfbooks_author {
+  settings {
+    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+
+    searchFields = lastname, firstname, description
+    allowedOrderBy = lastname, firstname
+  }
+}
+
+
+plugin.tx_sfbooks_category {
+  settings {
+    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+    categoryPageId = {$plugin.tx_sfbooks_book.categoryPageId}
+
+    excludeCategories = {$plugin.tx_sfbooks_book.excludeCategories}
+    allowedOrderBy = title, sorting
+  }
+}
+
+
+plugin.tx_sfbooks_series {
+  settings {
+    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+    seriesPageId = {$plugin.tx_sfbooks_book.seriesPageId}
+
+    allowedOrderBy = title
+  }
+}
+
+
+plugin.tx_sfbooks_search {
+  settings {
+    searchPageId = {$plugin.tx_sfbooks_book.searchPageId}
+    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+
+    bookSearchFields < plugin.tx_sfbooks_book.settings.searchFields
+    authorSearchFields < plugin.tx_sfbooks_author.settings.searchFields
+  }
+}
+
+
+# Example for integration in comments
+plugin.tx_comments_pi1 {
+  showUidMap.tx_sfbooks_book = book
+  prefixToTableMap.tx_sfbooks_book = tx_sfbooks_domain_model_book
+}
+
+
+# Add resources to frontend rendering
+page.includeJSlibs {
+  jQuery = https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+  jQuery.external = 1
+
+  sf_books = EXT:sf_books/Resources/Public/Javascript/sf_books.js
+}
+
+page.includeCSS.sf_books = EXT:sf_books/Resources/Public/Stylesheets/sf_books.css

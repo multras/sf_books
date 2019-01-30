@@ -2,6 +2,11 @@ language: php
 
 sudo: false
 
+addons:
+  apt:
+    packages:
+      - libxml2-utils
+
 branches:
   only:
     - master
@@ -16,15 +21,15 @@ notifications:
   email:
     - typo3@evoweb.de
 
+install:
+  - >
+    export TYPO3_PATH_WEB=$PWD/.Build/Web;
+    composer require typo3/minimal="$TYPO3_VERSION" $PREFER_LOWEST;
+    if [ ! -z "$TESTING_FRAMEWORK" ]; then composer require --dev typo3/testing-framework="$TESTING_FRAMEWORK"; fi;
+    git checkout composer.json;
+
 before_script:
   - phpenv config-rm xdebug.ini
-
-install:
-  - export TYPO3_PATH_WEB=$PWD/.Build/Web
-  - composer require typo3/minimal="$TYPO3_VERSION" $PREFER_LOWEST
-  - composer require --dev phpunit/phpunit="$PHPUNIT_VERSION"
-  - if [ ! -z "$TESTING_FRAMEWORK" ]; then composer require --dev typo3/testing-framework="$TESTING_FRAMEWORK"; fi;
-  - git checkout composer.json
 
 script:
   - >
@@ -35,65 +40,32 @@ jobs:
   fast_finish: true
   allow_failures:
     - env:
-        - TYPO3_VERSION="dev-master as 9.3.0"
-          TESTING_FRAMEWORK="^3.2"
-          PHPUNIT_VERSION="^6.2"
+        - TYPO3_VERSION="dev-master as 10.0.0" TESTING_FRAMEWORK="~4.10.0" PHPUNIT_VERSION=""
 
   include:
     - &lint
       stage: test
       php: 7.2
-      env: PHP Lint
+      env: TASK="PHP Lint"
       before_install: skip
       install: skip
       before_script: skip
       script:
-        - errors=$(find . -name \*.php ! -path "./.Build/*" -exec php -d display_errors=stderr -l {} 2>&1 >/dev/null \;) && echo "$errors" && test -z "$errors"
-    - <<: *lint
-      php: 7.1
-    - <<: *lint
-      php: 7.0
+        - echo "Running php lint";
+          errors=$(find . -name \*.php ! -path "./.Build/*" -exec php -d display_errors=stderr -l {} 2>&1 >/dev/null \;) && echo "$errors" && test -z "$errors"
 
     - stage: test
-      php: 5.5
+      php: 7.2
       env:
-        - TYPO3_VERSION="^7.6"
-          TESTING_FRAMEWORK=""
-          PHPUNIT_VERSION="~4.8.0"
-    - stage: test
-      php: 7.0
-      env:
-        - TYPO3_VERSION="^8.7"
-          TESTING_FRAMEWORK="~1.2.2"
-          PHPUNIT_VERSION="^6.2"
-    - stage: test
-      php: 7.1
-      env:
-        - TYPO3_VERSION="^8.7"
-          TESTING_FRAMEWORK="~1.2.2"
-          PHPUNIT_VERSION="^6.2"
+        - TYPO3_VERSION="^9.5.0" TESTING_FRAMEWORK="~4.10.0"
     - stage: test
       php: 7.2
       env:
-        - TYPO3_VERSION="^8.7"
-          TESTING_FRAMEWORK="~1.2.2"
-          PHPUNIT_VERSION="^6.2"
-    - stage: test
-      php: 7.2
-      env:
-        - TYPO3_VERSION="^9.2.0"
-          TESTING_FRAMEWORK="^3.2"
-          PHPUNIT_VERSION="^6.2"
-    - stage: test
-      php: 7.2
-      env:
-        - TYPO3_VERSION="dev-master as 9.3.0"
-          TESTING_FRAMEWORK="^3.2"
-          PHPUNIT_VERSION="^6.2"
+        - TYPO3_VERSION="dev-master as 10.0.0" TESTING_FRAMEWORK="~5.0.4"
 
     - stage: publish in ter
       if: tag IS present
-      php: 7.0
+      php: 7.1
       before_install: skip
       install: skip
       before_script: skip
@@ -103,7 +75,7 @@ jobs:
             echo -e "Preparing upload of release ${TRAVIS_TAG} to TER\n";
 
             # Install requirements
-            composer require --dev helhum/ter-client dev-master
+            composer global require helhum/ter-client dev-master
 
             # Cleanup before we upload
             git reset --hard HEAD && git clean -fx
@@ -114,5 +86,5 @@ jobs:
             # Upload
             TAG_MESSAGE=`git tag -n10 -l $TRAVIS_TAG | sed 's/^[0-9.]*[ ]*//g'`
             echo "Uploading release ${TRAVIS_TAG} to TER"
-            .Build/bin/ter-client upload sf_books . -u "$TYPO3_ORG_USERNAME" -p "$TYPO3_ORG_PASSWORD" -m "$TAG_MESSAGE"
+            $HOME/.composer/vendor/bin/ter-client upload sf_books . -u "$TYPO3_ORG_USERNAME" -p "$TYPO3_ORG_PASSWORD" -m "$TAG_MESSAGE"
           fi;

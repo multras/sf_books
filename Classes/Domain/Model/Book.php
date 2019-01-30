@@ -2,7 +2,7 @@
 namespace Evoweb\SfBooks\Domain\Model;
 
 /**
- * This file is developed by evoweb.
+ * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -71,6 +71,16 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $cover;
+
+    /**
+     * @var string
+     */
+    protected $coverLarge;
+
+    /**
+     * @var string
+     */
+    protected $samplePdf;
 
     /**
      * @var integer
@@ -250,5 +260,25 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function getTitle(): string
     {
         return $this->title;
+    }
+
+    public function setCoverLarge(string $coverLarge)
+    {
+        $this->coverLarge = $coverLarge;
+    }
+
+    public function getCoverLarge(): string
+    {
+        return $this->coverLarge;
+    }
+
+    public function setSamplePdf(string $samplePdf)
+    {
+        $this->samplePdf = $samplePdf;
+    }
+
+    public function getSamplePdf(): string
+    {
+        return $this->samplePdf;
     }
 }

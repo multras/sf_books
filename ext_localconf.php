@@ -24,14 +24,14 @@ call_user_func(function () {
         $iconRegistry->registerIcon(
             'content-plugin-sfbooks-' . $icon,
             $iconProviderClassName,
-            ['source' => 'EXT:sf_books/Resources/Public/Icons/ext_icon.gif']
+            ['source' => 'EXT:sf_books/Resources/Public/Icons/Extension.svg']
         );
     }
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
         '
         // add sf_books wizard config
-        <INCLUDE_TYPOSCRIPT: source="FILE:EXT:sf_books/Configuration/PageTSconfig/NewContentElementWizard.ts">
+        <INCLUDE_TYPOSCRIPT: source="FILE:EXT:sf_books/Configuration/TSconfig/NewContentElementWizard.ts">
 '
     );
 

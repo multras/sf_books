@@ -58,11 +58,10 @@
 								<fieldControl>
 									<linkPopup>
 										<options>
-											<title>Templatepath</title>
+											<title>Template</title>
 											<allowedExtensions>html</allowedExtensions>
 											<blindLinkFields>class, target, title, params</blindLinkFields>
 											<blindLinkOptions>mail,page,url,folder</blindLinkOptions>
-											<windowOpenParameters>width=800,height=600,status=0,menubar=0,scrollbars=1</windowOpenParameters>
 										</options>
 									</linkPopup>
 								</fieldControl>

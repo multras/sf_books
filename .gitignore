@@ -1,2 +1,6 @@
-.Build
-composer.lock
+.idea
+.Build/bin/**
+.Build/vendor/**
+.Build/Web/**
+composer.*
+!composer.json

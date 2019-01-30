@@ -11,10 +11,10 @@ books and to search easily information about each book.',
     'author_company' => 'evoWeb',
     'state' => 'stable',
     'clearCacheOnLoad' => 1,
-    'version' => '4.1.0',
+    'version' => '5.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-9.2.99',
+            'typo3' => '9.5.0-9.5.99',
         ],
         'conflicts' => [],
         'suggests' => [],

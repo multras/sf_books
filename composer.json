@@ -11,13 +11,14 @@
 	"support" : {
 		"issues" : "https://github.com/evoWeb/sf_books/issues"
 	},
+
 	"keywords": [
 		"books",
 		"library"
 	],
 
 	"require": {
-		"typo3/cms-core": "*"
+		"typo3/cms-core": "^9.5"
 	},
 
 	"autoload": {
@@ -32,7 +33,7 @@
 	},
 
 	"config": {
-		"vendor-dir": ".Build/vendor",
+		"vendor-dir": ".Build/Web/vendor",
 		"bin-dir": ".Build/bin"
 	},
 	"extra": {

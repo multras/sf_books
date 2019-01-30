@@ -24,6 +24,8 @@ CREATE TABLE tx_sfbooks_domain_model_book (
 	description text NOT NULL,
 	extras blob NOT NULL,
 	cover blob NOT NULL,
+	cover_large blob NOT NULL,
+	sample_pdf blob NOT NULL,
 	year varchar(4) DEFAULT '' NOT NULL,
 	location1 int(11) unsigned DEFAULT '0' NOT NULL,
 	location2 int(11) unsigned DEFAULT '0' NOT NULL,

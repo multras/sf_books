@@ -57,39 +57,39 @@
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.location1" xml:space="preserve" approved="yes">
 				<source>Room</source>
-				<target></target>
+				<target>Raum</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.location1.I.0" xml:space="preserve" approved="yes">
 				<source>no selected</source>
-				<target></target>
+				<target>keiner ausgewählt</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.location1.I.1" xml:space="preserve" approved="yes">
 				<source>Room 01</source>
-				<target></target>
+				<target>Raum 1</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.location2" xml:space="preserve" approved="yes">
 				<source>Shelf</source>
-				<target></target>
+				<target>Regal</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.location2.I.0" xml:space="preserve" approved="yes">
 				<source>no selected</source>
-				<target></target>
+				<target>keins ausgewählt</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.location2.I.1" xml:space="preserve" approved="yes">
 				<source>Shelf 01</source>
-				<target></target>
+				<target>Regal 1</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.location3" xml:space="preserve" approved="yes">
 				<source>Board</source>
-				<target></target>
+				<target>Stollen</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.location3.I.0" xml:space="preserve" approved="yes">
 				<source>no selected</source>
-				<target></target>
+				<target>keinen ausgewählt</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.location3.I.1" xml:space="preserve" approved="yes">
 				<source>Board 01</source>
-				<target></target>
+				<target>Stollen 1</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.year" xml:space="preserve" approved="yes">
 				<source>Year</source>
@@ -106,6 +106,14 @@
 			<trans-unit id="tx_sfbooks_domain_model_book.cover" xml:space="preserve" approved="yes">
 				<source>Cover</source>
 				<target>Cover</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.cover_large" xml:space="preserve">
+				<source>Cover large</source>
+				<target>Cover groß</target>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.sample_pdf" xml:space="preserve">
+				<source>Reading example (PDF)</source>
+				<target>Leseprobe (PDF)</target>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.div_common" xml:space="preserve" approved="yes">
 				<source>Common</source>
