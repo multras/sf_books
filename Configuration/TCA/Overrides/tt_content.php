@@ -1,5 +1,5 @@
 <?php
-defined('TYPO3_MODE') or die('Access denied.');
+defined('TYPO3_MODE') || die('Access denied.');
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['sfbooks_book'] = 'pi_flexform';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['sfbooks_book'] = 'layout,select_key';

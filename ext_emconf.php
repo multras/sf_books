@@ -14,7 +14,7 @@ books and to search easily information about each book.',
     'version' => '4.1.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-9.2.99',
+            'typo3' => '9.5.0-9.5.99',
         ],
         'conflicts' => [],
         'suggests' => [],

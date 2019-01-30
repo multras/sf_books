@@ -1,0 +1,15 @@
+plugin.tx_sfbooks_book {
+  categoryPageId =
+
+  bookPageId =
+
+  authorPageId =
+
+  seriesPageId =
+
+  searchPageId =
+
+  excludeCategories =
+
+  storagePid =
+}
