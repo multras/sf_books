@@ -12,6 +12,7 @@ namespace Evoweb\SfBooks\Updates;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -112,7 +113,25 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
      */
     public function __construct()
     {
-        $this->prepareTableField();
+        foreach ($this->tables as $table => $fields) {
+            foreach ($fields as $field => $paths) {
+                if (!$this->isWizardDone($table, $field)) {
+                    $this->table = $table;
+                    $this->field = $field;
+                    $this->sourcePath = $paths['sourcePath'];
+                    $this->targetPath = $paths['targetPath'];
+
+                    $this->description .= 'Migrate all file relations from ' . $table
+                        . '.' . $field . ' to sys_file and add sys_file_references';
+
+                    break;
+                }
+            }
+
+            if ($this->table !== '') {
+                break;
+            }
+        }
     }
 
     /**
@@ -144,7 +163,7 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
      */
     public function updateNecessary(): bool
     {
-        return !empty($this->getRecords());
+        return $this->table !== '';
     }
 
     /**
@@ -188,7 +207,6 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
         return empty($customMessage);
     }
 
-
     protected function getRegistry(): \TYPO3\CMS\Core\Registry
     {
         if ($this->registry === null) {
@@ -223,29 +241,6 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
     {
         $wizard = self::class . '/' . $table . '/' . $field;
         $this->getRegistry()->set($this->registryNamespace, $wizard, true);
-    }
-
-    protected function prepareTableField()
-    {
-        foreach ($this->tables as $table => $fields) {
-            foreach ($fields as $field => $paths) {
-                if (!$this->isWizardDone($table, $field)) {
-                    $this->table = $table;
-                    $this->field = $field;
-                    $this->sourcePath = $paths['sourcePath'];
-                    $this->targetPath = $paths['targetPath'];
-
-                    $this->description .= 'Migrate all file relations from ' . $table
-                        . '.' . $field . ' to sys_file and add sys_file_references';
-
-                    break;
-                }
-            }
-
-            if ($this->table !== '') {
-                break;
-            }
-        }
     }
 
     protected function prepareOffset()
@@ -302,7 +297,7 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
                     )
                 )
                 ->orderBy('uid')
-                ->setFirstResult($this->recordOffset[$this->table])
+                ->setFirstResult($this->recordOffset[$this->table] ?? 0)
                 ->setMaxResults(self::RECORDS_PER_QUERY);
 
             $result = $queryBuilder->execute();
@@ -336,16 +331,16 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
         $fileadminDirectory = rtrim($GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir'], '/') . '/';
         $i = 0;
 
-        if (!PATH_site) {
-            throw new \Exception('PATH_site was undefined.', 1476107387);
+        if (!Environment::getPublicPath() . '/') {
+            throw new \Exception('Public path was undefined.', 1476107387);
         }
 
         $storageUid = (int)$this->storage->getUid();
 
         foreach ($fieldItems as $item) {
             $fileUid = null;
-            $sourcePath = PATH_site . $this->sourcePath . $item;
-            $targetDirectory = PATH_site . $fileadminDirectory . $this->targetPath;
+            $sourcePath = Environment::getPublicPath() . '/' . $this->sourcePath . $item;
+            $targetDirectory = Environment::getPublicPath() . '/' . $fileadminDirectory . $this->targetPath;
             $targetPath = $targetDirectory . basename($item);
 
             // maybe the file was already moved, so check if the original file still exists
@@ -449,11 +444,7 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
         }
     }
 
-    /**
-     * @param string $table
-     *
-     * @return \TYPO3\CMS\Core\Database\Query\QueryBuilder
-     */
+
     protected function getQueryBuilderForTable($table): \TYPO3\CMS\Core\Database\Query\QueryBuilder
     {
         return GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)

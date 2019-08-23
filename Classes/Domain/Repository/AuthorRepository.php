@@ -19,7 +19,7 @@ class AuthorRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $queryBuilder = $this->getQueryBuilderForTable('tx_sfbooks_domain_model_author');
         $statement = $queryBuilder
             ->select('*')
-            ->addSelectLiteral('LEFT(lastname, 1) AS capital_letter')
+            ->addSelectLiteral('SUBSTR(lastname, 1, 1) AS capital_letter')
             ->from('tx_sfbooks_domain_model_author')
             ->orderBy('lastname')
             ->addOrderBy('firstname')

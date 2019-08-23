@@ -1,8 +1,8 @@
 <?php
 namespace Evoweb\SfBooks\Tests\Functional;
 
-/*
- * This file is part of the TYPO3 CMS project.
+/**
+ * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -10,8 +10,6 @@ namespace Evoweb\SfBooks\Tests\Functional;
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
  */
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -23,9 +21,16 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 abstract class AbstractTestCase extends \TYPO3\TestingFramework\Core\Functional\FunctionalTestCase
 {
     /**
+     * @var array
+     */
+    protected $testExtensionsToLoad = [
+        'typo3conf/ext/sf_books',
+    ];
+
+    /**
      * @var int
      */
-    protected $expectedLogEntries;
+    protected $expectedLogEntries = 0;
 
     /**
      * @var string
@@ -43,30 +48,20 @@ abstract class AbstractTestCase extends \TYPO3\TestingFramework\Core\Functional\
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->testExtensionsToLoad[] = 'typo3conf/ext/sf_books';
-
         parent::setUp();
-
-        \TYPO3\CMS\Core\Core\Bootstrap::getInstance()->initializeLanguageObject();
-
-        $this->expectedLogEntries = 0;
+        \TYPO3\CMS\Core\Core\Bootstrap::initializeLanguageObject();
     }
-
 
     /**
      * Tears down this test case.
      *
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->assertNoLogEntries();
-
-        $this->expectedLogEntries = 0;
-
-        parent::tearDown();
     }
 
 

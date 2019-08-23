@@ -19,7 +19,7 @@ class SeriesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $queryBuilder = $this->getQueryBuilderForTable('tx_sfbooks_domain_model_series');
         $statement = $queryBuilder
             ->select('*')
-            ->addSelectLiteral('LEFT(title, 1) AS capital_letter')
+            ->addSelectLiteral('SUBSTR(title, 1, 1) AS capital_letter')
             ->from('tx_sfbooks_domain_model_series')
             ->orderBy('title')
             ->getSQL();
