@@ -25,7 +25,6 @@ namespace Evoweb\SfBooks\ViewHelpers\Data;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
@@ -45,7 +44,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * @package Vhs
  * @subpackage ViewHelpers\Iterator
  */
-class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper
+class SortViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
     /**
      * Initialize arguments
@@ -61,7 +60,7 @@ class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedVi
             'as',
             'string',
             'Which variable to update in the TemplateVariableContainer. If left out, returns sorted data
-             instead of updating the varialbe (i.e. reference or copy)'
+             instead of updating the variable (i.e. reference or copy)'
         );
         $this->registerArgument(
             'sortBy',
@@ -181,8 +180,10 @@ class SortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedVi
      */
     protected function sortObjectStorage($storage): ObjectStorage
     {
-        /** @var ObjectManager $objectManager */
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ObjectManager::class);
+        /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+            \TYPO3\CMS\Extbase\Object\ObjectManager::class
+        );
 
         $sorted = [];
         foreach ($storage as $index => $item) {

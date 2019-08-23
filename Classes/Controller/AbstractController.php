@@ -71,10 +71,6 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
     }
 
     /**
-     * Initializes the view before invoking an action method.
-     * Override this method to solve assign variables common for all actions
-     * or prepare the view in another way before the action is called.
-     *
      * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view The view
      */
     protected function initializeView(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view)
