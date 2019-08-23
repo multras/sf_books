@@ -49,5 +49,8 @@ a GNU/GPL CMS/Framework available from http://typo3.org
    :titlesonly:
    :glob:
 
+   Introduction/Index
+   Installation/Index
+   Configuration/Index
    BreakingChanges/Index
    Testing/Index
