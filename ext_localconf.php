@@ -37,50 +37,50 @@ call_user_func(function () {
 
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Evoweb.sf_books',
+        'SfBooks',
         'Book',
         [
-            'Book' => 'list, show',
-            'Category' => 'list, show',
+            \Evoweb\SfBooks\Controller\BookController::class => 'list, show',
+            \Evoweb\SfBooks\Controller\CategoryController::class => 'list, show',
         ]
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Evoweb.sf_books',
+        'SfBooks',
         'Author',
         [
-            'Author' => 'list, show',
+            \Evoweb\SfBooks\Controller\AuthorController::class => 'list, show',
         ]
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Evoweb.sf_books',
+        'SfBooks',
         'Category',
         [
-            'Category' => 'list, show',
-            'Book' => 'list, show',
+            \Evoweb\SfBooks\Controller\CategoryController::class => 'list, show',
+            \Evoweb\SfBooks\Controller\BookController::class => 'list, show',
         ]
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Evoweb.sf_books',
+        'SfBooks',
         'Series',
         [
-            'Series' => 'list, show',
-            'Book' => 'list, show',
+            \Evoweb\SfBooks\Controller\SeriesController::class => 'list, show',
+            \Evoweb\SfBooks\Controller\BookController::class => 'list, show',
         ]
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Evoweb.sf_books',
+        'SfBooks',
         'Search',
         [
-            'Search' => 'search, startSearch',
-            'Book' => 'search',
-            'Author' => 'search',
+            \Evoweb\SfBooks\Controller\SearchController::class => 'search, startSearch',
+            \Evoweb\SfBooks\Controller\BookController::class => 'search',
+            \Evoweb\SfBooks\Controller\AuthorController::class => 'search',
         ],
         [
-            'Search' => 'search, startSearch',
+            \Evoweb\SfBooks\Controller\SearchController::class => 'search, startSearch',
         ]
     );
 });
