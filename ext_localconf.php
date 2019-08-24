@@ -29,10 +29,7 @@ call_user_func(function () {
     }
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        '
-        // add sf_books wizard config
-        <INCLUDE_TYPOSCRIPT: source="FILE:EXT:sf_books/Configuration/TSconfig/NewContentElementWizard.ts">
-'
+        '@import \'EXT:sf_books/Configuration/TSconfig/NewContentElementWizard.typoscript\''
     );
 
 
