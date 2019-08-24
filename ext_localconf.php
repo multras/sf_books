@@ -2,8 +2,8 @@
 defined('TYPO3_MODE') || die('Access denied.');
 
 call_user_func(function () {
-    if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_branch) >=
-        \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger('8.7.0')) {
+    if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_branch)
+        >= 8007000) {
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['migrateSfBooksCover'] =
             \Evoweb\SfBooks\Updates\ImageToFileReferenceUpdate::class;
     }
@@ -29,10 +29,7 @@ call_user_func(function () {
     }
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        '
-        // add sf_books wizard config
-        <INCLUDE_TYPOSCRIPT: source="FILE:EXT:sf_books/Configuration/TSconfig/NewContentElementWizard.ts">
-'
+        '@import \'EXT:sf_books/Configuration/TSconfig/NewContentElementWizard.typoscript\''
     );
 
 
