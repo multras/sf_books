@@ -2,11 +2,8 @@
 defined('TYPO3_MODE') || die('Access denied.');
 
 call_user_func(function () {
-    if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_branch)
-        >= 8007000) {
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['migrateSfBooksCover'] =
-            \Evoweb\SfBooks\Updates\ImageToFileReferenceUpdate::class;
-    }
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['migrateSfBooksCover'] =
+        \Evoweb\SfBooks\Updates\ImageToFileReferenceUpdate::class;
 
     $icons = [
         'book',
@@ -32,52 +29,69 @@ call_user_func(function () {
         '@import \'EXT:sf_books/Configuration/TSconfig/NewContentElementWizard.typoscript\''
     );
 
+    if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_branch)
+        < 10000000) {
+        // @todo remove once TYPO3 9.5.x support is dropped
+        $extensionName = 'Evoweb.SfBooks';
+        $authorController = 'Author';
+        $bookController = 'Book';
+        $categoryController = 'Category';
+        $searchController = 'Search';
+        $seriesController = 'Series';
+    } else {
+        $extensionName = 'SfBooks';
+        $authorController = \Evoweb\SfBooks\Controller\AuthorController::class;
+        $bookController = \Evoweb\SfBooks\Controller\BookController::class;
+        $categoryController = \Evoweb\SfBooks\Controller\CategoryController::class;
+        $searchController = \Evoweb\SfBooks\Controller\SearchController::class;
+        $seriesController = \Evoweb\SfBooks\Controller\SeriesController::class;
+    }
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'SfBooks',
+        $extensionName,
         'Book',
         [
-            \Evoweb\SfBooks\Controller\BookController::class => 'list, show',
-            \Evoweb\SfBooks\Controller\CategoryController::class => 'list, show',
+            $bookController => 'list, show',
+            $categoryController => 'list, show',
         ]
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'SfBooks',
+        $extensionName,
         'Author',
         [
-            \Evoweb\SfBooks\Controller\AuthorController::class => 'list, show',
+            $authorController => 'list, show',
         ]
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'SfBooks',
+        $extensionName,
         'Category',
         [
-            \Evoweb\SfBooks\Controller\CategoryController::class => 'list, show',
-            \Evoweb\SfBooks\Controller\BookController::class => 'list, show',
+            $bookController => 'list, show',
+            $categoryController => 'list, show',
         ]
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'SfBooks',
+        $extensionName,
         'Series',
         [
-            \Evoweb\SfBooks\Controller\SeriesController::class => 'list, show',
-            \Evoweb\SfBooks\Controller\BookController::class => 'list, show',
+            $bookController => 'list, show',
+            $seriesController => 'list, show',
         ]
     );
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'SfBooks',
+        $extensionName,
         'Search',
         [
-            \Evoweb\SfBooks\Controller\SearchController::class => 'search, startSearch',
-            \Evoweb\SfBooks\Controller\BookController::class => 'search',
-            \Evoweb\SfBooks\Controller\AuthorController::class => 'search',
+            $authorController => 'search',
+            $bookController => 'search',
+            $searchController => 'search, startSearch',
         ],
         [
-            \Evoweb\SfBooks\Controller\SearchController::class => 'search, startSearch',
+            $searchController => 'search, startSearch',
         ]
     );
 });
