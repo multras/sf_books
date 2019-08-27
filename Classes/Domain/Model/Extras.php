@@ -37,6 +37,9 @@ class Extras extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     public function getLabel():? \Evoweb\SfBooks\Domain\Model\ExtrasLabels
     {
+        if ($this->label instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->label = $this->label->_loadRealInstance();
+        }
         return $this->label;
     }
 
