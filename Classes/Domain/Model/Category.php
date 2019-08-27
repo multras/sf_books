@@ -12,11 +12,9 @@ namespace Evoweb\SfBooks\Domain\Model;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Class Category
- *
- * @package Evoweb\SfBooks\Domain\Model
- */
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
@@ -47,50 +45,38 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $description;
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $children
-     */
-    public function setChildren($children)
+    public function initializeObject()
+    {
+        $this->children = GeneralUtility::makeInstance(ObjectStorage::class);
+        $this->books = GeneralUtility::makeInstance(ObjectStorage::class);
+    }
+
+    public function setChildren(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $children)
     {
         $this->children = $children;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getChildren()
+    public function getChildren(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
     {
         return $this->children;
     }
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $books
-     */
-    public function setBooks($books)
+    public function setBooks(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $books)
     {
         $this->books = $books;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getBooks()
+    public function getBooks(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
     {
         return $this->books;
     }
 
-    /**
-     * @param \Evoweb\SfBooks\Domain\Model\Category $parent
-     */
-    public function setParent($parent)
+    public function setParent(\Evoweb\SfBooks\Domain\Model\Category $parent)
     {
         $this->parent = $parent;
     }
 
-    /**
-     * @return \Evoweb\SfBooks\Domain\Model\Category
-     */
-    public function getParent()
+    public function getParent():? \Evoweb\SfBooks\Domain\Model\Category
     {
         return $this->parent;
     }

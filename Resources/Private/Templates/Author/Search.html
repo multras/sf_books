@@ -10,7 +10,7 @@
 						<f:link.action action="show" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname}, {author.firstname}</f:link.action>
 
 						<f:for each="{author.books}" as="book">
-							<div class="book"><f:link.action action="show" pageUid="{settings.bookPageId}" arguments="{book: book}" pluginName="category">{book.title}</f:link.action></div>
+							<div class="book"><f:link.action controller="Book" action="show" pageUid="{settings.bookPageId}" arguments="{book: book}" pluginName="book">{book.title}</f:link.action></div>
 						</f:for>
 					</li>
 				</f:for>

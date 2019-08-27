@@ -15,11 +15,13 @@
 		</td>
 		<td rowspan="9" align="center" valign="top">
 			<f:if condition="{book.cover}">
-				<a href="#" data-enlarge-image="{f:uri.image(image: '{book.cover}', maxWidth: '400', maxHeight: '600')}" data-enlarge-title="{f:translate(key: 'cover')}">
-					<f:image image="{book.cover}" maxWidth="200" alt="{book.title}"/>
+				<f:for each="{book.cover}" as="cover">
+				<a href="#" data-enlarge-image="{f:uri.image(image: cover, maxWidth: '400', maxHeight: '600')}" data-enlarge-title="{f:translate(key: 'cover')}">
+					<f:image image="{cover}" maxWidth="200" alt="{book.title}"/>
 					<br/>
 					<span>{f:translate(key: 'cover_large')}</span>
 				</a>
+				</f:for>
 			</f:if>
 		</td>
 	</tr>

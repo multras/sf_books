@@ -33,14 +33,17 @@ return [
     'columns' => [
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => [
                 'type' => 'check',
+                'renderType' => 'checkboxToggle',
                 'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
                     ]
-                ]
+                ],
             ]
         ],
         'starttime' => [
@@ -49,7 +52,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'eval' => 'datetime,int',
                 'default' => 0
             ],
             'l10n_mode' => 'exclude',
@@ -61,7 +64,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'eval' => 'datetime,int',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
@@ -309,7 +312,6 @@ return [
         'cover' => [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.cover',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('cover', [
-                'default' => 0,
                 'appearance' => [
                     'createNewRelationLinkTitle' => $languageFileTtc . 'images.addFileReference'
                 ],
@@ -319,38 +321,32 @@ return [
                     'types' => [
                         '0' => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.audioOverlayPalette;audioOverlayPalette,
+                                --palette--;;audioOverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.videoOverlayPalette;videoOverlayPalette,
+                                --palette--;;videoOverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ]
                     ],
@@ -361,7 +357,6 @@ return [
             'exclude' => 1,
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.cover_large',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('cover_large', [
-                'default' => 0,
                 'appearance' => [
                     'createNewRelationLinkTitle' => $languageFileTtc . 'images.addFileReference'
                 ],
@@ -371,38 +366,32 @@ return [
                     'types' => [
                         '0' => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.audioOverlayPalette;audioOverlayPalette,
+                                --palette--;;audioOverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.videoOverlayPalette;videoOverlayPalette,
+                                --palette--;;videoOverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ]
                     ],
@@ -413,7 +402,6 @@ return [
             'exclude' => 1,
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.sample_pdf',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('sample_pdf', [
-                'default' => 0,
                 'appearance' => [
                     'createNewRelationLinkTitle' => $languageFileTtc . 'images.addFileReference'
                 ],
@@ -423,43 +411,37 @@ return [
                     'types' => [
                         '0' => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.audioOverlayPalette;audioOverlayPalette,
+                                --palette--;;audioOverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.videoOverlayPalette;videoOverlayPalette,
+                                --palette--;;videoOverlayPalette,
                                 --palette--;;filePalette'
                         ],
                         \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
                             'showitem' => '
-                                --palette--;' . $languageFileTca .
-                                'sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;imageoverlayPalette,
                                 --palette--;;filePalette'
                         ]
                     ],
                 ],
-            ], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'])
+            ], 'pdf')
         ],
     ],
 

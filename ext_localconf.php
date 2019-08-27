@@ -87,8 +87,8 @@ call_user_func(function () {
         'Search',
         [
             $searchController => 'search, startSearch',
-            $bookController => 'search',
-            $authorController => 'search',
+            $bookController => 'search, show',
+            $authorController => 'search, show',
         ],
         [
             $searchController => 'search, startSearch',

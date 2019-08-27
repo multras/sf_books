@@ -1,5 +1,8 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
 <li>
 	<h2>{category.title}</h2>
+
 	<f:if condition="{category.children}">
 		<ul class="categories">
 			<f:for each="{category.children}" as="childCategory">
@@ -15,5 +18,6 @@
 			</f:for>
 		</ul>
 	</f:if>
+</li>
 
-</div>
+</html>

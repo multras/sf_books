@@ -24,20 +24,23 @@ return [
     ],
 
     'interface' => [
-        'showRecordFieldList' => 'hidden,type',
+        'showRecordFieldList' => 'hidden, type',
     ],
 
     'columns' => [
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => [
                 'type' => 'check',
+                'renderType' => 'checkboxToggle',
                 'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
                     ]
-                ]
+                ],
             ]
         ],
         'starttime' => [
@@ -46,7 +49,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'eval' => 'datetime,int',
                 'default' => 0
             ],
             'l10n_mode' => 'exclude',
@@ -58,7 +61,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'eval' => 'datetime,int',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
@@ -102,7 +105,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'max' => 100,
+                'max' => 150,
                 'eval' => 'required',
             ],
         ],

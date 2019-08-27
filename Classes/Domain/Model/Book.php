@@ -12,6 +12,9 @@ namespace Evoweb\SfBooks\Domain\Model;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
@@ -31,6 +34,21 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $extras;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     */
+    protected $cover;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     */
+    protected $coverLarge;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     */
+    protected $samplePdf;
 
     /**
      * @var \Evoweb\SfBooks\Domain\Model\Series
@@ -68,21 +86,6 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $description;
 
     /**
-     * @var string
-     */
-    protected $cover;
-
-    /**
-     * @var string
-     */
-    protected $coverLarge;
-
-    /**
-     * @var string
-     */
-    protected $samplePdf;
-
-    /**
      * @var integer
      */
     protected $location1;
@@ -97,59 +100,71 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $location3;
 
-    public function __construct()
+    public function initializeObject()
     {
-        $this->author = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->category = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->extras = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->author = GeneralUtility::makeInstance(ObjectStorage::class);
+        $this->category = GeneralUtility::makeInstance(ObjectStorage::class);
+        $this->extras = GeneralUtility::makeInstance(ObjectStorage::class);
     }
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $author
-     */
-    public function setAuthor($author)
+    public function setAuthor(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $author)
     {
         $this->author = $author;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getAuthor()
+    public function getAuthor(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
     {
         return $this->author;
     }
 
-    /**
-     * @param \Evoweb\SfBooks\Domain\Model\Category $category
-     */
-    public function setCategory($category)
+    public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category)
     {
         $this->category = $category;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getCategory()
+    public function getCategory(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
     {
         return $this->category;
     }
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $extras
-     */
-    public function setExtras($extras)
+    public function setExtras(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $extras)
     {
         $this->extras = $extras;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getExtras()
+    public function getExtras(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
     {
         return $this->extras;
+    }
+
+    public function setCover(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $cover)
+    {
+        $this->cover = $cover;
+    }
+
+    public function getCover(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+    {
+        return $this->cover;
+    }
+
+    public function setCoverLarge(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $coverLarge)
+    {
+        $this->coverLarge = $coverLarge;
+    }
+
+    public function getCoverLarge(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+    {
+        return $this->coverLarge;
+    }
+
+    public function setSamplePdf(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $samplePdf)
+    {
+        $this->samplePdf = $samplePdf;
+    }
+
+    public function getSamplePdf(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+    {
+        return $this->samplePdf;
     }
 
     public function setSeries(\Evoweb\SfBooks\Domain\Model\Series $series)
@@ -157,19 +172,9 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->series = $series;
     }
 
-    public function getSeries(): \Evoweb\SfBooks\Domain\Model\Series
+    public function getSeries():? \Evoweb\SfBooks\Domain\Model\Series
     {
         return $this->series;
-    }
-
-    public function setCover(string $cover)
-    {
-        $this->cover = $cover;
-    }
-
-    public function getCover(): string
-    {
-        return $this->cover;
     }
 
     public function setDescription(string $description)
@@ -260,25 +265,5 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function getTitle(): string
     {
         return $this->title;
-    }
-
-    public function setCoverLarge(string $coverLarge)
-    {
-        $this->coverLarge = $coverLarge;
-    }
-
-    public function getCoverLarge(): string
-    {
-        return $this->coverLarge;
-    }
-
-    public function setSamplePdf(string $samplePdf)
-    {
-        $this->samplePdf = $samplePdf;
-    }
-
-    public function getSamplePdf(): string
-    {
-        return $this->samplePdf;
     }
 }
