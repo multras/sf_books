@@ -12,11 +12,6 @@ namespace Evoweb\SfBooks\Domain\Model;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Class Extras
- *
- * @package Evoweb\SfBooks\Domain\Model
- */
 class Extras extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
@@ -40,7 +35,7 @@ class Extras extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->label = $label;
     }
 
-    public function getLabel(): \Evoweb\SfBooks\Domain\Model\ExtrasLabels
+    public function getLabel():? \Evoweb\SfBooks\Domain\Model\ExtrasLabels
     {
         return $this->label;
     }

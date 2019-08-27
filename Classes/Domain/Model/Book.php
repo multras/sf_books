@@ -12,6 +12,9 @@ namespace Evoweb\SfBooks\Domain\Model;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
@@ -97,57 +100,39 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $location3;
 
-    public function __construct()
+    public function initializeObject()
     {
-        $this->author = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->category = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->extras = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->author = GeneralUtility::makeInstance(ObjectStorage::class);
+        $this->category = GeneralUtility::makeInstance(ObjectStorage::class);
+        $this->extras = GeneralUtility::makeInstance(ObjectStorage::class);
     }
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $author
-     */
-    public function setAuthor($author)
+    public function setAuthor(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $author)
     {
         $this->author = $author;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getAuthor()
+    public function getAuthor(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
     {
         return $this->author;
     }
 
-    /**
-     * @param \Evoweb\SfBooks\Domain\Model\Category $category
-     */
-    public function setCategory($category)
+    public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category)
     {
         $this->category = $category;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getCategory()
+    public function getCategory(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
     {
         return $this->category;
     }
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $extras
-     */
-    public function setExtras($extras)
+    public function setExtras(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $extras)
     {
         $this->extras = $extras;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getExtras()
+    public function getExtras(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
     {
         return $this->extras;
     }
@@ -157,7 +142,7 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->series = $series;
     }
 
-    public function getSeries(): \Evoweb\SfBooks\Domain\Model\Series
+    public function getSeries():? \Evoweb\SfBooks\Domain\Model\Series
     {
         return $this->series;
     }

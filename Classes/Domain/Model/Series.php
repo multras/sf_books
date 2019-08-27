@@ -12,11 +12,9 @@ namespace Evoweb\SfBooks\Domain\Model;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-/**
- * Class Series
- *
- * @package Evoweb\SfBooks\Domain\Model
- */
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 class Series extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
@@ -45,18 +43,17 @@ class Series extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $description;
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $books
-     */
-    public function setBooks($books)
+    public function initializeObject()
+    {
+        $this->books = GeneralUtility::makeInstance(ObjectStorage::class);
+    }
+
+    public function setBooks(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $books)
     {
         $this->books = $books;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getBooks()
+    public function getBooks(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
     {
         return $this->books;
     }
