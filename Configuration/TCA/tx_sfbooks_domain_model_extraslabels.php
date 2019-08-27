@@ -42,7 +42,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_extraslabels.label',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
                 'eval' => 'required',
             ],
         ],

@@ -101,8 +101,8 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_category.title',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
-                'max' => '100',
+                'size' => 30,
+                'max' => 100,
                 'eval' => 'required',
             ],
         ],
@@ -111,23 +111,20 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_category.parent',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectSingle',
+                'renderType' => 'selectTree',
                 'foreign_table' => 'tx_sfbooks_domain_model_category',
                 'foreign_table_where' => 'tx_sfbooks_domain_model_category.uid != '
                     . '###THIS_UID### ORDER BY tx_sfbooks_domain_model_category.title',
-                'size' => 7,
-                'minitems' => 0,
-                'maxitems' => 1,
-                'items' => [
-                    [
-                        $languageFile . 'tx_sfbooks_domain_model_category.parent.I.0',
-                        0,
-                    ],
-                ],
-                'renderMode' => 'tree',
                 'treeConfig' => [
                     'parentField' => 'parent',
+                    'appearance' => [
+                        'expandAll' => false,
+                        'showHeader' => false,
+                        'maxLevels' => 99,
+                    ],
                 ],
+                'size' => 7,
+                'minitems' => 0,
             ],
         ],
         'children' => [
@@ -159,8 +156,8 @@ return [
                             'config' => [
                                 'type' => 'input',
                                 'readOnly' => true,
-                                'size' => '30',
-                                'max' => '100',
+                                'size' => 30,
+                                'max' => 100,
                                 'eval' => 'required',
                             ],
                         ],
@@ -179,8 +176,8 @@ return [
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
                 'fieldControl' => [
                     'fullScreenRichtext' => [
                         'disabled' => false,

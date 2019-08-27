@@ -99,8 +99,8 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_series.title',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
-                'max' => '254',
+                'size' => 30,
+                'max' => 254,
                 'eval' => 'required',
             ],
         ],
@@ -109,8 +109,8 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_series.info',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
             ],
         ],
         'capital_letter' => [
@@ -124,8 +124,8 @@ return [
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
                 'fieldControl' => [
                     'fullScreenRichtext' => [
                         'disabled' => false,

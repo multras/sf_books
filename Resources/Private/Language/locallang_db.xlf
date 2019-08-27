@@ -135,6 +135,9 @@
 			<trans-unit id="tx_sfbooks_domain_model_category.parent" xml:space="preserve">
 				<source>Parent</source>
 			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_category.children" xml:space="preserve">
+				<source>Children</source>
+			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_category.parent.I.0" xml:space="preserve">
 				<source>Root</source>
 			</trans-unit>

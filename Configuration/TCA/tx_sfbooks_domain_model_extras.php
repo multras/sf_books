@@ -135,8 +135,8 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_extras.content',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
             ],
         ],
     ],
