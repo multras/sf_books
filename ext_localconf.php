@@ -68,8 +68,8 @@ call_user_func(function () {
         $extensionName,
         'Category',
         [
-            $bookController => 'list, show',
             $categoryController => 'list, show',
+            $bookController => 'list, show',
         ]
     );
 
@@ -77,8 +77,8 @@ call_user_func(function () {
         $extensionName,
         'Series',
         [
-            $bookController => 'list, show',
             $seriesController => 'list, show',
+            $bookController => 'list, show',
         ]
     );
 
@@ -86,9 +86,9 @@ call_user_func(function () {
         $extensionName,
         'Search',
         [
-            $authorController => 'search',
-            $bookController => 'search',
             $searchController => 'search, startSearch',
+            $bookController => 'search',
+            $authorController => 'search',
         ],
         [
             $searchController => 'search, startSearch',

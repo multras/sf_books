@@ -104,7 +104,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.title',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
                 'eval' => 'required',
             ],
         ],
@@ -113,7 +113,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.subtitle',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ],
         ],
         'author' => [
@@ -143,7 +143,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.isbn',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ],
         ],
         'series' => [
@@ -184,7 +184,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.number',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ],
         ],
         'category' => [
@@ -260,8 +260,8 @@ return [
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
                 'fieldControl' => [
                     'fullScreenRichtext' => [
                         'disabled' => false,
@@ -303,7 +303,7 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.year',
             'config' => [
                 'type' => 'input',
-                'size' => '4',
+                'size' => 4,
             ],
         ],
         'cover' => [

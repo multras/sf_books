@@ -102,8 +102,8 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_author.lastname',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
-                'max' => '254',
+                'size' => 30,
+                'max' => 254,
                 'eval' => 'trim, required',
             ],
         ],
@@ -112,8 +112,8 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_author.firstname',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
-                'max' => '254',
+                'size' => 30,
+                'max' => 254,
                 'eval' => 'trim',
             ],
         ],
@@ -128,8 +128,8 @@ return [
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
                 'fieldControl' => [
                     'fullScreenRichtext' => [
                         'disabled' => false,
@@ -141,10 +141,9 @@ return [
             'exclude' => 1,
             'label' => $languageFile . 'tx_sfbooks_domain_model_author.books',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'multiple' => true,
-                'default' => 0,
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_sfbooks_domain_model_book',
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'foreign_table' => 'tx_sfbooks_domain_model_book',
