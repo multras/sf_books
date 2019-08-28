@@ -9,7 +9,7 @@
 	<f:for each="{series.books}" as="book">
 		<div class="book">
 			<div class="author"><f:for each="{book.author}" as="bookauthor" iteration="iteration">
-				<f:link.action action="show" pageUid="{settings.authorPageId}" arguments="{author: bookauthor}">
+				<f:link.action action="show" controller="author" pluginName="author" pageUid="{settings.authorPageId}" arguments="{author: bookauthor}">
 					{bookauthor.lastname},
 					{bookauthor.firstname}</f:link.action>
 				<f:if condition="{iteration.total} > 1">

@@ -11,7 +11,7 @@
 						<div>{book.isbn} - {book.subtitle}</div>
 
 						<f:for each="{book.author}" as="author">
-							<div class="autor"><f:link.action action="show" controller="Author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action></div>
+							<div class="autor"><f:link.action action="show" controller="Author" pluginName="author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action></div>
 						</f:for>
 					</li>
 				</f:for>
