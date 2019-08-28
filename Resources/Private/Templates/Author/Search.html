@@ -7,7 +7,7 @@
 			<ul id="search-result author">
 				<f:for each="{paginatedAuthors}" as="author">
 					<li>
-						<f:link.action action="show" controller="author" pluginName="author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname}, {author.firstname}</f:link.action>
+						<f:link.action action="show" controller="Author" pluginName="author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname}, {author.firstname}</f:link.action>
 
 						<f:for each="{author.books}" as="book">
 							<div class="book"><f:link.action controller="Book" action="show" pageUid="{settings.bookPageId}" arguments="{book: book}" pluginName="book">{book.title}</f:link.action></div>
