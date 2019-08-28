@@ -105,6 +105,9 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->author = GeneralUtility::makeInstance(ObjectStorage::class);
         $this->category = GeneralUtility::makeInstance(ObjectStorage::class);
         $this->extras = GeneralUtility::makeInstance(ObjectStorage::class);
+        $this->cover = GeneralUtility::makeInstance(ObjectStorage::class);
+        $this->coverLarge = GeneralUtility::makeInstance(ObjectStorage::class);
+        $this->samplePdf = GeneralUtility::makeInstance(ObjectStorage::class);
     }
 
     public function setAuthor(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $author)
