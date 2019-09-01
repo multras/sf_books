@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
+<xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file source-language="en" target-language="fi" datatype="plaintext" original="messages" date="2017-05-09T05:37:19Z" product-name="sf_books">
 		<header/>
 		<body>
-			<trans-unit id="pi1_title" xml:space="preserve" approved="yes">
+			<trans-unit id="pi1_title">
 				<source>Book Library</source>
 				<target>Kirjasto</target>
 			</trans-unit>
-			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve" approved="yes">
+			<trans-unit id="pi1_plus_wiz_description">
 				<source>Book Library</source>
 				<target>Kirjasto</target>
 			</trans-unit>
-			<trans-unit id="flexform.sheet_general" xml:space="preserve" approved="yes">
+			<trans-unit id="flexform.sheet_general">
 				<source>General Settings</source>
-				<target></target>
+				<target/>
 			</trans-unit>
-			<trans-unit id="flexform.settings.limit" xml:space="preserve" approved="yes">
+			<trans-unit id="flexform.settings.limit">
 				<source>Amount of items in list</source>
-				<target></target>
+				<target/>
 			</trans-unit>
-			<trans-unit id="flexform.settings.category" xml:space="preserve" approved="yes">
+			<trans-unit id="flexform.settings.category">
 				<source>Category</source>
-				<target></target>
+				<target/>
 			</trans-unit>
-			<trans-unit id="flexform.settings.category.allCategories" xml:space="preserve" approved="yes">
+			<trans-unit id="flexform.settings.category.allCategories">
 				<source>all Categories</source>
-				<target></target>
+				<target/>
 			</trans-unit>
-			<trans-unit id="flexform.settings.templatePath" xml:space="preserve" approved="yes">
+			<trans-unit id="flexform.settings.templatePath">
 				<source>Template path</source>
-				<target></target>
+				<target/>
 			</trans-unit>
 		</body>
 	</file>

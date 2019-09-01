@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
+<xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file source-language="en" datatype="plaintext" original="messages" date="2017-05-09T05:37:12Z" product-name="sf_books">
 		<header/>
 		<body>
-			<trans-unit id="pagination_first" xml:space="preserve">
+			<trans-unit id="pagination_first">
 				<source>&lt; First</source>
 			</trans-unit>
-			<trans-unit id="pagination_previous" xml:space="preserve">
+			<trans-unit id="pagination_previous">
 				<source>&lt; Previous</source>
 			</trans-unit>
-			<trans-unit id="pagination_page" xml:space="preserve">
+			<trans-unit id="pagination_page">
 				<source>Page </source>
 			</trans-unit>
-			<trans-unit id="pagination_next" xml:space="preserve">
+			<trans-unit id="pagination_next">
 				<source>Next &gt;</source>
 			</trans-unit>
-			<trans-unit id="pagination_last" xml:space="preserve">
+			<trans-unit id="pagination_last">
 				<source>Last &gt;</source>
 			</trans-unit>
-			<trans-unit id="isbn" xml:space="preserve">
+			<trans-unit id="isbn">
 				<source>ISBN</source>
 			</trans-unit>
 			<trans-unit id="written_books">
 				<source>Written books</source>
 			</trans-unit>
-			<trans-unit id="search" xml:space="preserve">
+			<trans-unit id="search">
 				<source>search</source>
 			</trans-unit>
-			<trans-unit id="search_in_book" xml:space="preserve">
+			<trans-unit id="search_in_book">
 				<source>In Book by</source>
 			</trans-unit>
-			<trans-unit id="search_in_author" xml:space="preserve">
+			<trans-unit id="search_in_author">
 				<source>In Author by</source>
 			</trans-unit>
-			<trans-unit id="backlink" xml:space="preserve">
+			<trans-unit id="backlink">
 				<source>Back to the overview</source>
 			</trans-unit>
 			<trans-unit id="empty_result">
@@ -42,50 +42,50 @@
 			<trans-unit id="back_to_search">
 				<source>Back to search</source>
 			</trans-unit>
-			<trans-unit id="listHeader_serie" xml:space="preserve">
+			<trans-unit id="listHeader_serie">
 				<source>Book Series</source>
 			</trans-unit>
-			<trans-unit id="listHeader_category" xml:space="preserve">
+			<trans-unit id="listHeader_category">
 				<source>Category</source>
 			</trans-unit>
-			<trans-unit id="subcategories" xml:space="preserve">
+			<trans-unit id="subcategories">
 				<source>Subcategories</source>
 			</trans-unit>
-			<trans-unit id="listHeader_number" xml:space="preserve">
+			<trans-unit id="listHeader_number">
 				<source>Number</source>
 			</trans-unit>
-			<trans-unit id="listHeader_title" xml:space="preserve">
+			<trans-unit id="listHeader_title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="listHeader_author" xml:space="preserve">
+			<trans-unit id="listHeader_author">
 				<source>Author</source>
 			</trans-unit>
-			<trans-unit id="listHeader_isbn" xml:space="preserve">
+			<trans-unit id="listHeader_isbn">
 				<source>ISBN</source>
 			</trans-unit>
-			<trans-unit id="listHeader_description" xml:space="preserve">
+			<trans-unit id="listHeader_description">
 				<source>Description</source>
 			</trans-unit>
-			<trans-unit id="listHeader_extras" xml:space="preserve">
+			<trans-unit id="listHeader_extras">
 				<source>Extras</source>
 			</trans-unit>
-			<trans-unit id="listHeader_cover" xml:space="preserve">
+			<trans-unit id="listHeader_cover">
 				<source>Cover</source>
 			</trans-unit>
-			<trans-unit id="back" xml:space="preserve">
+			<trans-unit id="back">
 				<source>Back</source>
 			</trans-unit>
-			<trans-unit id="label_number" xml:space="preserve">
+			<trans-unit id="label_number">
 				<source>Number</source>
 			</trans-unit>
-			<trans-unit id="label_author" xml:space="preserve">
+			<trans-unit id="label_author">
 				<source>Author</source>
 			</trans-unit>
-			<trans-unit id="label_isbn" xml:space="preserve">
+			<trans-unit id="label_isbn">
 				<source>ISBN</source>
 			</trans-unit>
-			<trans-unit id="label_extras" xml:space="preserve">
-				<source>Additional Informations</source>
+			<trans-unit id="label_extras">
+				<source>Additional Information</source>
 			</trans-unit>
 			<trans-unit id="result_search">
 				<source>Result of your search</source>

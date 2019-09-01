@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
+<xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file source-language="en" target-language="fr" datatype="plaintext" original="messages" date="2017-05-09T05:37:12Z" product-name="sf_books">
 		<header/>
 		<body>
-			<trans-unit id="pagination_first" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_first">
 				<source>&lt; First</source>
 				<target>&lt; Premier</target>
 			</trans-unit>
-			<trans-unit id="pagination_previous" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_previous">
 				<source>&lt; Previous</source>
 				<target>&lt; Précédent</target>
 			</trans-unit>
-			<trans-unit id="pagination_page" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_page">
 				<source>Page </source>
 				<target>Page </target>
 			</trans-unit>
-			<trans-unit id="pagination_next" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_next">
 				<source>Next &gt;</source>
 				<target>Prochain &gt;</target>
 			</trans-unit>
-			<trans-unit id="pagination_last" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_last">
 				<source>Last &gt;</source>
 				<target>Dernier &gt;</target>
 			</trans-unit>
-			<trans-unit id="isbn" xml:space="preserve" approved="yes">
+			<trans-unit id="isbn">
 				<source>ISBN</source>
 				<target>ISBN</target>
 			</trans-unit>
-			<trans-unit id="search" xml:space="preserve" approved="yes">
+			<trans-unit id="search">
 				<source>search</source>
 				<target>chercher</target>
 			</trans-unit>
-			<trans-unit id="search_in_book" xml:space="preserve" approved="yes">
+			<trans-unit id="search_in_book">
 				<source>In Book by</source>
 				<target>Dans la livre avec</target>
 			</trans-unit>
-			<trans-unit id="search_in_author" xml:space="preserve" approved="yes">
+			<trans-unit id="search_in_author">
 				<source>In Author by</source>
 				<target>Dans l'auteur avec</target>
 			</trans-unit>
-			<trans-unit id="backlink" xml:space="preserve" approved="yes">
+			<trans-unit id="backlink">
 				<source>Back to the overview</source>
 				<target>Retour à l'aperçu</target>
 			</trans-unit>
@@ -51,60 +51,60 @@
 				<source>Back to search</source>
 				<target>Retour à la recherche</target>
 			</trans-unit>
-			<trans-unit id="listHeader_serie" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_serie">
 				<source>Book Series</source>
 				<target>Séries</target>
 			</trans-unit>
-			<trans-unit id="listHeader_category" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_category">
 				<source>Category</source>
 				<target>Categorie</target>
 			</trans-unit>
-			<trans-unit id="listHeader_number" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_number">
 				<source>Number</source>
 				<target>Numéro</target>
 			</trans-unit>
-			<trans-unit id="listHeader_title" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_title">
 				<source>Title</source>
 				<target>Titre</target>
 			</trans-unit>
-			<trans-unit id="listHeader_author" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_author">
 				<source>Author</source>
 				<target>Auteur</target>
 			</trans-unit>
-			<trans-unit id="listHeader_isbn" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_isbn">
 				<source>ISBN</source>
 				<target>ISBN</target>
 			</trans-unit>
-			<trans-unit id="listHeader_description" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_description">
 				<source>Description</source>
 				<target>Description</target>
 			</trans-unit>
-			<trans-unit id="listHeader_extras" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_extras">
 				<source>Extras</source>
 				<target>Complément d'information</target>
 			</trans-unit>
-			<trans-unit id="listHeader_cover" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_cover">
 				<source>Cover</source>
 				<target>Couverture</target>
 			</trans-unit>
-			<trans-unit id="back" xml:space="preserve" approved="yes">
+			<trans-unit id="back">
 				<source>Back</source>
 				<target>Retour</target>
 			</trans-unit>
-			<trans-unit id="label_number" xml:space="preserve" approved="yes">
+			<trans-unit id="label_number">
 				<source>Number</source>
 				<target>Numero</target>
 			</trans-unit>
-			<trans-unit id="label_author" xml:space="preserve" approved="yes">
+			<trans-unit id="label_author">
 				<source>Author</source>
 				<target>Auteur</target>
 			</trans-unit>
-			<trans-unit id="label_isbn" xml:space="preserve" approved="yes">
+			<trans-unit id="label_isbn">
 				<source>ISBN</source>
 				<target>ISBN</target>
 			</trans-unit>
-			<trans-unit id="label_extras" xml:space="preserve" approved="yes">
-				<source>Additional Informations</source>
+			<trans-unit id="label_extras">
+				<source>Additional Information</source>
 				<target>Informations supplémentaires</target>
 			</trans-unit>
 		</body>
