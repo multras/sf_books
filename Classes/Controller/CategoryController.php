@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Controller;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -12,17 +13,17 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use Evoweb\SfBooks\Domain\Repository\CategoryRepository;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+
 class CategoryController extends AbstractController
 {
     /**
-     * @var \Evoweb\SfBooks\Domain\Repository\CategoryRepository
+     * @var CategoryRepository
      */
     protected $repository;
 
-    /**
-     * @param \Evoweb\SfBooks\Domain\Repository\CategoryRepository $repository
-     */
-    public function injectRepository(\Evoweb\SfBooks\Domain\Repository\CategoryRepository $repository)
+    public function __construct(CategoryRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -36,12 +37,10 @@ class CategoryController extends AbstractController
         );
     }
 
-    /**
-     * renders the list of books with search and pagination
-     */
     protected function listAction()
     {
-        if (count($this->settings['category']) == 0
+        if (
+            count($this->settings['category']) == 0
             || (count($this->settings['category']) == 1 && reset($this->settings['category']) < 1)
         ) {
             $categories = $this->repository->findAll();
@@ -53,12 +52,7 @@ class CategoryController extends AbstractController
         $this->view->assign('categories', $categories);
     }
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\QueryResultInterface $categories
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
-     */
-    protected function removeExcludeCategories(\TYPO3\CMS\Extbase\Persistence\QueryResultInterface $categories)
+    protected function removeExcludeCategories(QueryResultInterface $categories): QueryResultInterface
     {
         $excludeCategories = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(
             ',',
@@ -76,18 +70,13 @@ class CategoryController extends AbstractController
         return $categories;
     }
 
-    /**
-     * renders the content for a single category
-     *
-     * @param \Evoweb\SfBooks\Domain\Model\Category $category
-     */
-    protected function showAction(\Evoweb\SfBooks\Domain\Model\Category $category)
+    protected function showAction(\Evoweb\SfBooks\Domain\Model\Category $category = null)
     {
-        // This sets the title of the page for use in indexed search results:
-        if ($category->getTitle()) {
-            $this->getTypoScriptFrontendController()->indexedDocTitle = $category->getTitle();
+        if ($category == null) {
+            $this->displayError('Category');
         }
 
+        $this->setPageTitle($category->getTitle());
         $this->view->assign('category', $category);
     }
 }

@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Controller;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -21,7 +22,7 @@ class SearchController extends AbstractController
     /**
      * @param array $search
      */
-    public function startSearchAction($search)
+    public function startSearchAction(array $search)
     {
         if (is_array($search) && isset($search['query']) && $search['query'] != '') {
             if (isset($search['searchBy'])) {

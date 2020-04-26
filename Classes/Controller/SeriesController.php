@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Controller;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -12,24 +13,20 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use Evoweb\SfBooks\Domain\Repository\SeriesRepository;
+
 class SeriesController extends AbstractController
 {
     /**
-     * @var \Evoweb\SfBooks\Domain\Repository\SeriesRepository
+     * @var SeriesRepository
      */
     protected $repository;
 
-    /**
-     * @param \Evoweb\SfBooks\Domain\Repository\SeriesRepository $repository
-     */
-    public function injectRepository(\Evoweb\SfBooks\Domain\Repository\SeriesRepository $repository)
+    public function __construct(SeriesRepository $repository)
     {
         $this->repository = $repository;
     }
 
-    /**
-     * renders the list of books with search and pagination
-     */
     protected function listAction()
     {
         $seriesGroups = $this->repository->findSeriesGroupedByLetters();
@@ -37,18 +34,13 @@ class SeriesController extends AbstractController
         $this->view->assign('seriesGroups', $seriesGroups);
     }
 
-    /**
-     * renders the content for a single series
-     *
-     * @param \Evoweb\SfBooks\Domain\Model\Series $series
-     */
-    protected function showAction(\Evoweb\SfBooks\Domain\Model\Series $series)
+    protected function showAction(\Evoweb\SfBooks\Domain\Model\Series $series = null)
     {
-        // This sets the title of the page for use in indexed search results:
-        if ($series->getTitle()) {
-            $this->getTypoScriptFrontendController()->indexedDocTitle = $series->getTitle();
+        if ($series == null) {
+            $this->displayError('Series');
         }
 
+        $this->setPageTitle($series->getTitle());
         $this->view->assign('series', $series);
     }
 }

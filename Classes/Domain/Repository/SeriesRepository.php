@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Domain\Repository;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -59,8 +60,10 @@ class SeriesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
     protected function getQueryBuilderForTable(string $table): \TYPO3\CMS\Core\Database\Query\QueryBuilder
     {
-        return \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        /** @var \TYPO3\CMS\Core\Database\ConnectionPool $pool */
+        $pool = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
             \TYPO3\CMS\Core\Database\ConnectionPool::class
-        )->getQueryBuilderForTable($table);
+        );
+        return $pool->getQueryBuilderForTable($table);
     }
 }

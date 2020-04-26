@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Controller;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -12,6 +13,7 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use Evoweb\SfBooks\TitleTagProvider\TitleTagProvider;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
@@ -39,7 +41,8 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
         }
 
         $orderBy = $orderDir = '';
-        if ($this->request->hasArgument('orderBy')
+        if (
+            $this->request->hasArgument('orderBy')
             && in_array($this->request->getArgument('orderBy'), $this->allowedOrderBy)
         ) {
             $orderBy = $this->request->getArgument('orderBy');
@@ -47,14 +50,16 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
             $orderBy = $this->settings['orderBy'];
         }
 
-        if ($this->request->hasArgument('orderDir')
+        if (
+            $this->request->hasArgument('orderDir')
             && (
                 $this->request->getArgument('orderDir') == QueryInterface::ORDER_ASCENDING
                 || $this->request->getArgument('orderDir') == QueryInterface::ORDER_DESCENDING
             )
         ) {
             $orderDir = $this->request->getArgument('orderDir');
-        } elseif ($this->settings['orderDir'] == QueryInterface::ORDER_ASCENDING
+        } elseif (
+            $this->settings['orderDir'] == QueryInterface::ORDER_ASCENDING
             || $this->settings['orderDir'] == QueryInterface::ORDER_DESCENDING
         ) {
             $orderDir = $this->settings['orderDir'];
@@ -70,19 +75,32 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
         }
     }
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view The view
-     */
     protected function initializeView(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view)
     {
         if (isset($this->settings['templatePath']) && !empty($this->settings['templatePath'])) {
+            $templatePath = explode(' ', $this->settings['templatePath']);
             /** @var $view \TYPO3\CMS\Fluid\View\TemplateView */
-            $view->setTemplatePathAndFilename(array_shift(explode(' ', $this->settings['templatePath'])));
+            $view->setTemplatePathAndFilename(array_shift($templatePath));
         }
     }
 
-    protected function getTypoScriptFrontendController(): \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
+    protected function setPageTitle(string $title)
     {
-        return $GLOBALS['TSFE'];
+        /** @var TitleTagProvider $provider */
+        $provider = GeneralUtility::makeInstance(TitleTagProvider::class);
+        $provider->setTitle($title);
+    }
+
+    protected function displayError(string $type)
+    {
+        /** @var \TYPO3\CMS\Core\Controller\ErrorPageController $errorController */
+        $errorController = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+            \TYPO3\CMS\Core\Controller\ErrorPageController::class
+        );
+        echo $errorController->errorAction(
+            'Page Not Found',
+            'The page did not exist or was inaccessible. Reason: ' . $type . ' not found'
+        );
+        die();
     }
 }

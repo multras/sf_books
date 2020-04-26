@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Domain\Model;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under

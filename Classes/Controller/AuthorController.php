@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Controller;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -12,17 +13,16 @@ namespace Evoweb\SfBooks\Controller;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use Evoweb\SfBooks\Domain\Repository\AuthorRepository;
+
 class AuthorController extends AbstractController
 {
     /**
-     * @var \Evoweb\SfBooks\Domain\Repository\AuthorRepository
+     * @var AuthorRepository
      */
     protected $repository;
 
-    /**
-     * @param \Evoweb\SfBooks\Domain\Repository\AuthorRepository $repository
-     */
-    public function injectRepository(\Evoweb\SfBooks\Domain\Repository\AuthorRepository $repository)
+    public function __construct(AuthorRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -34,35 +34,17 @@ class AuthorController extends AbstractController
         $this->view->assign('authorGroups', $authorGroups);
     }
 
-    /**
-     * @param \Evoweb\SfBooks\Domain\Model\Author $author
-     */
     protected function showAction(\Evoweb\SfBooks\Domain\Model\Author $author = null)
     {
         if ($author == null) {
-            echo \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                \TYPO3\CMS\Core\Controller\ErrorPageController::class
-            )->errorAction(
-                'Page Not Found',
-                'The page did not exist or was inaccessible. Reason: Author not found'
-            );
-            die();
+            $this->displayError('Author');
         }
 
-        // This sets the title of the page for use in indexed search results:
-        if ($author->getLastname()) {
-            $this->getTypoScriptFrontendController()->indexedDocTitle =
-                $author->getLastname() . ', ' . $author->getFirstname();
-        }
-
+        $this->setPageTitle($author->getLastname() . ', ' . $author->getFirstname());
         $this->view->assign('author', $author);
     }
 
-    /**
-     * @param string $query
-     * @param string $searchBy
-     */
-    protected function searchAction($query, $searchBy = '')
+    protected function searchAction(string $query, string $searchBy = '')
     {
         if (!$searchBy) {
             $searchBy = $this->settings['searchFields'];

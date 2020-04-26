@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\ViewHelpers\Data;
 
-/***************************************************************
+/*
  *  Copyright notice
  *
  *  (c) 2012 Claus Due <claus@wildside.dk>, Wildside A/S
@@ -23,7 +24,7 @@ namespace Evoweb\SfBooks\ViewHelpers\Data;
  *  GNU General Public License for more details.
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+ */
 
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -113,7 +114,8 @@ class SortViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelpe
         if (is_array($subject) === true) {
             $sorted = $this->sortArray($subject);
         } else {
-            if ($subject instanceof ObjectStorage ||
+            if (
+                $subject instanceof ObjectStorage ||
                 $subject instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage
             ) {
                 $sorted = $this->sortObjectStorage($subject);
@@ -180,11 +182,6 @@ class SortViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelpe
      */
     protected function sortObjectStorage($storage): ObjectStorage
     {
-        /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-            \TYPO3\CMS\Extbase\Object\ObjectManager::class
-        );
-
         $sorted = [];
         foreach ($storage as $index => $item) {
             if ($this->arguments['sortBy']) {
@@ -203,7 +200,7 @@ class SortViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelpe
         }
 
         /** @var ObjectStorage $storage */
-        $storage = $objectManager->get(ObjectStorage::class);
+        $storage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ObjectStorage::class);
         foreach ($sorted as $item) {
             $storage->attach($item);
         }
