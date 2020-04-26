@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Domain\Model;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -35,7 +36,7 @@ class Extras extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->label = $label;
     }
 
-    public function getLabel():? \Evoweb\SfBooks\Domain\Model\ExtrasLabels
+    public function getLabel(): ?\Evoweb\SfBooks\Domain\Model\ExtrasLabels
     {
         if ($this->label instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
             $this->label = $this->label->_loadRealInstance();

@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
+<xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file source-language="en" target-language="fi" datatype="plaintext" original="messages" date="2017-05-09T05:37:12Z" product-name="sf_books">
 		<header/>
 		<body>
-			<trans-unit id="pagination_first" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_first">
 				<source>&lt; First</source>
 				<target>&lt; Ensimmäinen</target>
 			</trans-unit>
-			<trans-unit id="pagination_previous" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_previous">
 				<source>&lt; Previous</source>
 				<target>&lt; Edellinen</target>
 			</trans-unit>
-			<trans-unit id="pagination_page" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_page">
 				<source>Page </source>
 				<target>Sivu </target>
 			</trans-unit>
-			<trans-unit id="pagination_next" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_next">
 				<source>Next &gt;</source>
 				<target>Seuraava &gt;</target>
 			</trans-unit>
-			<trans-unit id="pagination_last" xml:space="preserve" approved="yes">
+			<trans-unit id="pagination_last">
 				<source>Last &gt;</source>
 				<target>Kestää &gt;</target>
 			</trans-unit>
-			<trans-unit id="isbn" xml:space="preserve" approved="yes">
+			<trans-unit id="isbn">
 				<source>ISBN</source>
 				<target>ISBN</target>
 			</trans-unit>
-			<trans-unit id="search" xml:space="preserve" approved="yes">
+			<trans-unit id="search">
 				<source>search</source>
 				<target>haku</target>
 			</trans-unit>
-			<trans-unit id="search_in_book" xml:space="preserve" approved="yes">
+			<trans-unit id="search_in_book">
 				<source>In Book by</source>
 				<target>Kirjasta</target>
 			</trans-unit>
-			<trans-unit id="search_in_author" xml:space="preserve" approved="yes">
+			<trans-unit id="search_in_author">
 				<source>In Author by</source>
 				<target>Tekijänä</target>
 			</trans-unit>
-			<trans-unit id="backlink" xml:space="preserve" approved="yes">
+			<trans-unit id="backlink">
 				<source>Back to the overview</source>
 				<target>Takaisin yleiskatsaukseen</target>
 			</trans-unit>
@@ -51,60 +51,60 @@
 				<source>Back to search</source>
 				<target>Takaisin hakuun</target>
 			</trans-unit>
-			<trans-unit id="listHeader_serie" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_serie">
 				<source>Book Series</source>
 				<target>Kirjasarja</target>
 			</trans-unit>
-			<trans-unit id="listHeader_category" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_category">
 				<source>Category</source>
 				<target>Luokka</target>
 			</trans-unit>
-			<trans-unit id="listHeader_number" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_number">
 				<source>Number</source>
 				<target>Numero</target>
 			</trans-unit>
-			<trans-unit id="listHeader_title" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_title">
 				<source>Title</source>
 				<target>Otsikko</target>
 			</trans-unit>
-			<trans-unit id="listHeader_author" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_author">
 				<source>Author</source>
 				<target>Kirjoittaja</target>
 			</trans-unit>
-			<trans-unit id="listHeader_isbn" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_isbn">
 				<source>ISBN</source>
 				<target>ISBN</target>
 			</trans-unit>
-			<trans-unit id="listHeader_description" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_description">
 				<source>Description</source>
 				<target>Kuvaus</target>
 			</trans-unit>
-			<trans-unit id="listHeader_extras" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_extras">
 				<source>Extras</source>
 				<target>Lisät</target>
 			</trans-unit>
-			<trans-unit id="listHeader_cover" xml:space="preserve" approved="yes">
+			<trans-unit id="listHeader_cover">
 				<source>Cover</source>
 				<target>Kansi</target>
 			</trans-unit>
-			<trans-unit id="back" xml:space="preserve" approved="yes">
+			<trans-unit id="back">
 				<source>Back</source>
 				<target>Takaisin</target>
 			</trans-unit>
-			<trans-unit id="label_number" xml:space="preserve" approved="yes">
+			<trans-unit id="label_number">
 				<source>Number</source>
 				<target>Määrä</target>
 			</trans-unit>
-			<trans-unit id="label_author" xml:space="preserve" approved="yes">
+			<trans-unit id="label_author">
 				<source>Author</source>
 				<target>Kirjailija</target>
 			</trans-unit>
-			<trans-unit id="label_isbn" xml:space="preserve" approved="yes">
+			<trans-unit id="label_isbn">
 				<source>ISBN</source>
 				<target>ISBN</target>
 			</trans-unit>
-			<trans-unit id="label_extras" xml:space="preserve" approved="yes">
-				<source>Additional Informations</source>
+			<trans-unit id="label_extras">
+				<source>Additional Information</source>
 				<target>Lisätiedot</target>
 			</trans-unit>
 		</body>

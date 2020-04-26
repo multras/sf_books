@@ -1,10 +1,8 @@
 <?php
+
 defined('TYPO3_MODE') || die('Access denied.');
 
 call_user_func(function () {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['migrateSfBooksCover'] =
-        \Evoweb\SfBooks\Updates\ImageToFileReferenceUpdate::class;
-
     $icons = [
         'book',
         'author',
@@ -13,14 +11,12 @@ call_user_func(function () {
         'series',
     ];
 
-    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \TYPO3\CMS\Core\Imaging\IconRegistry::class
-    );
-    $iconProviderClassName = \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class;
+    /** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
+    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
     foreach ($icons as $icon) {
         $iconRegistry->registerIcon(
             'content-plugin-sfbooks-' . $icon,
-            $iconProviderClassName,
+            \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
             ['source' => 'EXT:sf_books/Resources/Public/Icons/Extension.svg']
         );
     }
@@ -29,8 +25,7 @@ call_user_func(function () {
         '@import \'EXT:sf_books/Configuration/TSconfig/NewContentElementWizard.typoscript\''
     );
 
-    if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_branch)
-        < 10000000) {
+    if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_branch) < 10000000) {
         // @todo remove once TYPO3 9.5.x support is dropped
         $extensionName = 'Evoweb.SfBooks';
         $authorController = 'Author';
@@ -93,5 +88,22 @@ call_user_func(function () {
         [
             $searchController => 'search, startSearch',
         ]
+    );
+
+    /**
+     * Register Title Provider
+     */
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
+        trim(
+            '
+    config.pageTitleProviders {
+        books {
+            provider = Evoweb\SfBooks\TitleTagProvider\TitleTagProvider
+            before = seo
+            after = altPageTitle
+        }
+    }
+'
+        )
     );
 });

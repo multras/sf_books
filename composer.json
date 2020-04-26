@@ -7,6 +7,7 @@
 	"license": "GPL-2.0-or-later",
 
 	"support" : {
+		"docs": "https://docs.typo3.org/p/evoweb/sf-books/master/en-us/",
 		"issues" : "https://github.com/evoWeb/sf_books/issues"
 	},
 
@@ -16,10 +17,11 @@
 	],
 
 	"require": {
-		"typo3/cms-core": "^9.5 || ^10.0"
-	},
-	"require-dev": {
-		"typo3/testing-framework": "~5.0.11"
+		"ext-pdo": "*",
+
+		"typo3/cms-core": "^9.5 || ^10.4",
+		"typo3/cms-extbase": "^9.5 || ^10.4",
+		"typo3/cms-fluid": "^9.5 || ^10.4"
 	},
 
 	"autoload": {
@@ -34,8 +36,7 @@
 	},
 
 	"config": {
-		"vendor-dir": ".Build/vendor",
-		"bin-dir": ".Build/bin"
+		"vendor-dir": ".Build/Web/vendor"
 	},
 	"extra": {
 		"typo3/cms": {

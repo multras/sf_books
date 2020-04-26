@@ -1,6 +1,6 @@
 <?php
 
-namespace Evoweb\SfBooks\Domain\Model;
+namespace Evoweb\SfBooks\TitleTagProvider;
 
 /*
  * This file is developed by evoWeb.
@@ -13,20 +13,10 @@ namespace Evoweb\SfBooks\Domain\Model;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-class ExtrasLabels extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class TitleTagProvider extends \TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider
 {
-    /**
-     * @var string
-     */
-    protected $label;
-
-    public function setLabel(string $label)
+    public function setTitle(string $title)
     {
-        $this->label = $label;
-    }
-
-    public function getLabel(): string
-    {
-        return $this->label;
+        $this->title = $title;
     }
 }

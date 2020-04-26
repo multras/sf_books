@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Domain\Model;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -175,7 +176,7 @@ class Book extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->series = $series;
     }
 
-    public function getSeries():? \Evoweb\SfBooks\Domain\Model\Series
+    public function getSeries(): ?\Evoweb\SfBooks\Domain\Model\Series
     {
         return $this->series;
     }

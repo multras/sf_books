@@ -1,7 +1,8 @@
 <?php
+
 namespace Evoweb\SfBooks\Domain\Model;
 
-/**
+/*
  * This file is developed by evoWeb.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -76,7 +77,7 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->parent = $parent;
     }
 
-    public function getParent():? \Evoweb\SfBooks\Domain\Model\Category
+    public function getParent(): ?\Evoweb\SfBooks\Domain\Model\Category
     {
         return $this->parent;
     }
