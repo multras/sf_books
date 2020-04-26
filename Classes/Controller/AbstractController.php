@@ -94,9 +94,7 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
     protected function displayError(string $type)
     {
         /** @var \TYPO3\CMS\Core\Controller\ErrorPageController $errorController */
-        $errorController = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-            \TYPO3\CMS\Core\Controller\ErrorPageController::class
-        );
+        $errorController = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Controller\ErrorPageController::class);
         echo $errorController->errorAction(
             'Page Not Found',
             'The page did not exist or was inaccessible. Reason: ' . $type . ' not found'
