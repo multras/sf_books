@@ -3,6 +3,10 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-05-09T05:37:23Z" product-name="sf_books">
 		<header/>
 		<body>
+			<trans-unit id="wizard.group.sf_books">
+				<source>Books management</source>
+				<target>Bücherverwaltung</target>
+			</trans-unit>
 			<trans-unit id="tt_content.list_type_book">
 				<source>Book Library - Book</source>
 				<target>Bücher Bibliothek - Bücher</target>

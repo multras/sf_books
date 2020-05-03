@@ -2,8 +2,8 @@
 
 <f:widget.paginate objects="{books}" as="paginatedBook" configuration="{itemsPerPage: settings.limit}">
 	<f:for each="{paginatedBook}" as="book">
-		<f:for each="{book.author}" as="author">
-			<f:link.action action="show" controller="Author" pluginName="author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action>
+		<f:for each="{book.author}" as="author" iteration="iterator">
+			<f:link.action action="show" controller="Author" pluginName="author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.firstname} {author.lastname}</f:link.action><f:if condition="!{iterator.isLast}">,</f:if>
 		</f:for>
 		<h2>
 			<f:link.action action="show" controller="Book" pluginName="book" pageUid="{settings.bookPageId}" arguments="{book: book}">{book.title}</f:link.action>

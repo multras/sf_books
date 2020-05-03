@@ -6,6 +6,9 @@
 			<trans-unit id="div.references">
 				<source>References</source>
 			</trans-unit>
+			<trans-unit id="wizard.group.sf_books">
+				<source>Books management</source>
+			</trans-unit>
 			<trans-unit id="tt_content.list_type_book">
 				<source>Book Library - Book</source>
 			</trans-unit>

@@ -1,4 +1,12 @@
 plugin.tx_sfbooks {
+  settings {
+    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
+    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
+    categoryPageId = {$plugin.tx_sfbooks_book.categoryPageId}
+    searchPageId = {$plugin.tx_sfbooks_book.searchPageId}
+    seriesPageId = {$plugin.tx_sfbooks_book.seriesPageId}
+  }
+
   _LOCAL_LANG.de {
     search_in_author = Autor
     search_in_title = Buchtitel
@@ -9,9 +17,6 @@ plugin.tx_sfbooks {
 
 plugin.tx_sfbooks_book {
   settings {
-    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
-    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
-
     searchFields = title, subtitle, description, isbn, author
     allowedOrderBy = title, subtitle, isbn, year
   }
@@ -20,9 +25,6 @@ plugin.tx_sfbooks_book {
 
 plugin.tx_sfbooks_author {
   settings {
-    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
-    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
-
     searchFields = lastname, firstname, description
     allowedOrderBy = lastname, firstname
   }
@@ -31,10 +33,6 @@ plugin.tx_sfbooks_author {
 
 plugin.tx_sfbooks_category {
   settings {
-    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
-    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
-    categoryPageId = {$plugin.tx_sfbooks_book.categoryPageId}
-
     excludeCategories = {$plugin.tx_sfbooks_book.excludeCategories}
     allowedOrderBy = title, sorting
   }
@@ -43,10 +41,6 @@ plugin.tx_sfbooks_category {
 
 plugin.tx_sfbooks_series {
   settings {
-    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
-    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
-    seriesPageId = {$plugin.tx_sfbooks_book.seriesPageId}
-
     allowedOrderBy = title
   }
 }
@@ -54,10 +48,6 @@ plugin.tx_sfbooks_series {
 
 plugin.tx_sfbooks_search {
   settings {
-    searchPageId = {$plugin.tx_sfbooks_book.searchPageId}
-    bookPageId = {$plugin.tx_sfbooks_book.bookPageId}
-    authorPageId = {$plugin.tx_sfbooks_book.authorPageId}
-
     bookSearchFields < plugin.tx_sfbooks_book.settings.searchFields
     authorSearchFields < plugin.tx_sfbooks_author.settings.searchFields
   }
