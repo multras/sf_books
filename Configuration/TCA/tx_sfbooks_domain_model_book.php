@@ -118,9 +118,10 @@ return [
                 'type' => 'slug',
                 'size' => 50,
                 'generatorOptions' => [
-                    'fields' => ['title'],
+                    'fields' => ['title', 'subtitle'],
+                    'fieldSeparator' => '-',
                     'replacements' => [
-                        '/' => ''
+                        '/' => '-'
                     ],
                 ],
                 'fallbackCharacter' => '-',
@@ -466,7 +467,7 @@ return [
         '0' => [
             'showitem' => '
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_common,
-                    title, path_segment, subtitle, author,
+                    title, subtitle, path_segment, author,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_formal,
                     isbn, series, number, category, location1, --palette--;;locations,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_content,

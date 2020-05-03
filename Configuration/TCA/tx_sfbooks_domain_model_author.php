@@ -129,8 +129,9 @@ return [
                 'size' => 50,
                 'generatorOptions' => [
                     'fields' => ['lastname', 'firstname'],
+                    'fieldSeparator' => '-',
                     'replacements' => [
-                        '/' => ''
+                        '/' => '-'
                     ],
                 ],
                 'fallbackCharacter' => '-',

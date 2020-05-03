@@ -1,0 +1,15 @@
+routeEnhancers:
+  SfBooksCategory:
+    type: Extbase
+    extension: SfBooks
+    plugin: Category
+    defaultController: 'Category::list'
+    routes:
+      - { routePath: '/', _controller: 'Category::list' }
+      - { routePath: '/{categorytitle}', _controller: 'Category::show', _arguments: { 'categorytitle': 'category' } }
+    aspects:
+      categorytitle:
+        type: PersistedPatternMapper
+        tableName: 'tx_sfbooks_domain_model_category'
+        routeFieldPattern: '^(?P<path_segment>.+)$'
+        routeFieldResult: '{path_segment}'

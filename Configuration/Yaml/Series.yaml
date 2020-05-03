@@ -1,0 +1,15 @@
+routeEnhancers:
+  SfBooksSeries:
+    type: Extbase
+    extension: SfBooks
+    plugin: Series
+    defaultController: 'Series::list'
+    routes:
+      - { routePath: '/', _controller: 'Series::list' }
+      - { routePath: '/{seriestitle}', _controller: 'Series::show', _arguments: { 'seriestitle': 'series' } }
+    aspects:
+      seriestitle:
+        type: PersistedPatternMapper
+        tableName: 'tx_sfbooks_domain_model_series'
+        routeFieldPattern: '^(?P<path_segment>.+)$'
+        routeFieldResult: '{path_segment}'
