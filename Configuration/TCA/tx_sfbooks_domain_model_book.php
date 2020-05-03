@@ -111,6 +111,23 @@ return [
                 'eval' => 'required',
             ],
         ],
+        'path_segment' => [
+            'exclude' => false,
+            'label' => $languageFile . 'tx_sfbooks_domain_model_book.path_segment',
+            'config' => [
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => ['title'],
+                    'replacements' => [
+                        '/' => ''
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => ''
+            ]
+        ],
         'subtitle' => [
             'exclude' => 1,
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.subtitle',
@@ -449,7 +466,7 @@ return [
         '0' => [
             'showitem' => '
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_common,
-                    title, subtitle, author,
+                    title, path_segment, subtitle, author,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_formal,
                     isbn, series, number, category, location1, --palette--;;locations,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_content,

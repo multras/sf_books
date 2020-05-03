@@ -8,9 +8,6 @@ plugin.tx_sfbooks {
   }
 
   _LOCAL_LANG.de {
-    search_in_author = Autor
-    search_in_title = Buchtitel
-    search_in_isbn = ISBN
     no_result = Für den Suchbegriff '%s' liegt kein Ergebnis vor
   }
 }

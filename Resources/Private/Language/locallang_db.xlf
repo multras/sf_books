@@ -30,6 +30,9 @@
 			<trans-unit id="tx_sfbooks_domain_model_book.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_book.path_segment">
+				<source>Path segment</source>
+			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_book.subtitle">
 				<source>Subtitle</source>
 			</trans-unit>
@@ -111,6 +114,9 @@
 			<trans-unit id="tx_sfbooks_domain_model_author.firstname">
 				<source>First name</source>
 			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_author.path_segment">
+				<source>Path segment</source>
+			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_author.description">
 				<source>Description</source>
 			</trans-unit>
@@ -123,6 +129,9 @@
 			<trans-unit id="tx_sfbooks_domain_model_series.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_series.path_segment">
+				<source>Path segment</source>
+			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_series.info">
 				<source>Copyright Infos</source>
 			</trans-unit>
@@ -134,6 +143,9 @@
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_category.title">
 				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_sfbooks_domain_model_category.path_segment">
+				<source>Path segment</source>
 			</trans-unit>
 			<trans-unit id="tx_sfbooks_domain_model_category.parent">
 				<source>Parent</source>
