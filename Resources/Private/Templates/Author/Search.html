@@ -10,7 +10,7 @@
 						<f:link.action action="show" controller="Author" pluginName="author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname}, {author.firstname}</f:link.action>
 
 						<f:for each="{author.books}" as="book">
-							<div class="book"><f:link.action controller="Book" action="show" pageUid="{settings.bookPageId}" arguments="{book: book}" pluginName="book">{book.title}</f:link.action></div>
+							<div class="book"><f:link.action action="show" controller="Book" pluginName="book" pageUid="{settings.bookPageId}" arguments="{book: book}">{book.title}</f:link.action></div>
 						</f:for>
 					</li>
 				</f:for>
@@ -21,6 +21,6 @@
 		<div><f:translate id="empty_result" arguments="{query: query}"/></div>
 	</f:else>
 </f:if>
-<f:link.page pageUid="{settings.searchPageId}"><f:translate id="back_to_search"/></f:link.page>
+<f:link.page pageUid="{settings.searchPageId}" class="backlink"><f:translate id="back_to_search"/></f:link.page>
 
 </html>
