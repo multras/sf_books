@@ -34,3 +34,22 @@ example and run 'composer install'.
 
 Alternatively if you have an existing project with a configured composer.json you
 can add extender with the command by running 'composer require evoweb/sf-books'.
+
+
+Include TypoScript
+------------------
+
+Include static file "Book Library" in your typoscript record or import in your
+sitepackage and modify the constants to match the page setup you have added.
+
+
+Include Routing configuration
+-----------------------------
+
+To have speaking urls you need to add the following import in your site config.
+This allows each of the plugins to render seo friendly urls.
+
+::
+
+	imports:
+		- { resource: "EXT:sf_books/Configuration/Yaml/Default.yaml" }
