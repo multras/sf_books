@@ -20,7 +20,7 @@
 							</config>
 						</TCEforms>
 					</settings.limit>
-					<settings.templatePath>
+					<view.templateRootPaths.200>
 						<TCEforms>
 							<label>LLL:EXT:sf_books/Resources/Private/Language/locallang_be.xml:flexform.settings.templatePath</label>
 							<config>
@@ -39,7 +39,7 @@
 								</fieldControl>
 							</config>
 						</TCEforms>
-					</settings.templatePath>
+					</view.templateRootPaths.200>
 				</el>
 			</ROOT>
 		</sDEF>
