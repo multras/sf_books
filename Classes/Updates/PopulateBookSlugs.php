@@ -36,19 +36,16 @@ class PopulateBookSlugs extends AbstractPopulateSlugs
     protected $fieldName = 'path_segment';
 
     /**
-     * @return string Unique identifier of this updater
+     * @var string
      */
-    public function getIdentifier(): string
-    {
-        return 'sfBooksBooksSlugs';
-    }
+    protected $identifier = 'sfBooksBooksSlugs';
 
     /**
      * @return string Title of this updater
      */
     public function getTitle(): string
     {
-        return 'Introduce URL parts ("slugs") to all existing pages';
+        return 'Introduce URL parts ("slugs") to all existing books';
     }
 
     /**

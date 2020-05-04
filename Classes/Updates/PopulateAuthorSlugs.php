@@ -36,12 +36,9 @@ class PopulateAuthorSlugs extends AbstractPopulateSlugs
     protected $fieldName = 'path_segment';
 
     /**
-     * @return string Unique identifier of this updater
+     * @var string
      */
-    public function getIdentifier(): string
-    {
-        return 'sfBooksAuthorsSlugs';
-    }
+    protected $identifier = 'sfBooksAuthorsSlugs';
 
     /**
      * @return string Title of this updater

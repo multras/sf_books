@@ -43,9 +43,17 @@ abstract class AbstractPopulateSlugs implements \TYPO3\CMS\Install\Updates\Upgra
     protected $fieldName = 'path_segment';
 
     /**
+     * @var string
+     */
+    protected $identifier = '';
+
+    /**
      * @return string Unique identifier of this updater
      */
-    abstract public function getIdentifier(): string;
+    public function getIdentifier(): string
+    {
+        return $this->identifier;
+    }
 
     /**
      * @return string Title of this updater

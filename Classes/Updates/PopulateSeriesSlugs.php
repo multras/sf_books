@@ -36,12 +36,9 @@ class PopulateSeriesSlugs extends AbstractPopulateSlugs
     protected $fieldName = 'path_segment';
 
     /**
-     * @return string Unique identifier of this updater
+     * @var string
      */
-    public function getIdentifier(): string
-    {
-        return 'sfBooksSeriesSlugs';
-    }
+    protected $identifier = 'sfBooksSeriesSlugs';
 
     /**
      * @return string Title of this updater
