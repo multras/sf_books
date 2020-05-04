@@ -22,7 +22,7 @@ return [
             'fe_group' => 'fe_group',
         ],
         'type' => 'type',
-        'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_extras.png',
+        'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_extras.svg',
         'searchFields' => 'uid,label,content',
     ],
 

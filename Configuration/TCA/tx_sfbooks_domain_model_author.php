@@ -1,4 +1,5 @@
 <?php
+
 $languageFile = 'LLL:EXT:sf_books/Resources/Private/Language/locallang_db.xlf:';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_sfbooks_domain_model_author');
@@ -20,7 +21,7 @@ return [
             'endtime' => 'endtime',
             'fe_group' => 'fe_group',
         ],
-        'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_author.png',
+        'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_author.svg',
         'searchFields' => 'uid, lastname, firstname, description',
     ],
 
@@ -120,6 +121,24 @@ return [
                 'eval' => 'trim',
             ],
         ],
+        'path_segment' => [
+            'exclude' => false,
+            'label' => $languageFile . 'tx_sfbooks_domain_model_author.path_segment',
+            'config' => [
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => ['lastname', 'firstname'],
+                    'fieldSeparator' => '-',
+                    'replacements' => [
+                        '/' => '-'
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => ''
+            ]
+        ],
         'capital_letter' => [
             'config' => [
                 'type' => 'input',
@@ -161,7 +180,7 @@ return [
         '0' => [
             'showitem' => '
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                    lastname, firstname, description,
+                    lastname, firstname, path_segment, description,
                 --div--;' . $languageFile . 'div.references,
                     books,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,

@@ -10,7 +10,7 @@
 		<td>&nbsp;</td>
 		<td>
 			<f:for each="{book.author}" as="author">
-				<f:link.action action="show" controller="Author" pluginName="author" pageUid="{settings.authorPageId}"  arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action>
+				<f:link.action action="show" controller="Author" pluginName="author" pageUid="{settings.authorPageId}" arguments="{author: author.uid}">{author.lastname} {author.firstname}</f:link.action>
 			</f:for>
 		</td>
 		<td rowspan="9" align="center" valign="top">

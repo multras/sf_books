@@ -11,7 +11,7 @@
 	<h2 class="trigger" id="authorsWith{letter}">{letter}</h2>
 	<ul class="toggle_container">
 		<f:for each="{series}" as="series">
-			<li><f:link.action action="show" arguments="{series: series.uid}">{series.title}</f:link.action></li>
+			<li><f:link.action action="show" controller="Series" pluginName="series" pageUid="{settings.seriesPageId}" arguments="{series: series.uid}">{series.title}</f:link.action></li>
 		</f:for>
 	</ul>
 </div>

@@ -17,7 +17,7 @@
 			</f:for>
 			</div>
 			<strong class="written-label"><f:translate id="written_books"/></strong>
-			<h3><f:link.action action="show" controller="Book" pageUid="{settings.bookPageId}" arguments="{book: book}" pluginName="category">{book.title}</f:link.action></h3>
+			<h3><f:link.action action="show" controller="Book" pluginName="book" pageUid="{settings.bookPageId}" arguments="{book: book}">{book.title}</f:link.action></h3>
 		</div>
 	</f:for>
 	<f:link.page pageUid="{settings.authorPageId}" class="backlink"><f:translate id="backlink"/></f:link.page>

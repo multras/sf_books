@@ -21,7 +21,7 @@ return [
             'endtime' => 'endtime',
             'fe_group' => 'fe_group',
         ],
-        'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_book.png',
+        'iconfile' => 'EXT:sf_books/Resources/Public/Icons/tx_sfbooks_domain_model_book.svg',
         'searchFields' => 'uid, title, subtitle, isbn, description',
     ],
 
@@ -110,6 +110,24 @@ return [
                 'size' => 30,
                 'eval' => 'required',
             ],
+        ],
+        'path_segment' => [
+            'exclude' => false,
+            'label' => $languageFile . 'tx_sfbooks_domain_model_book.path_segment',
+            'config' => [
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => ['title', 'subtitle'],
+                    'fieldSeparator' => '-',
+                    'replacements' => [
+                        '/' => '-'
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => ''
+            ]
         ],
         'subtitle' => [
             'exclude' => 1,
@@ -449,7 +467,7 @@ return [
         '0' => [
             'showitem' => '
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_common,
-                    title, subtitle, author,
+                    title, subtitle, path_segment, author,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_formal,
                     isbn, series, number, category, location1, --palette--;;locations,
                 --div--;' . $languageFile . 'tx_sfbooks_domain_model_book.div_content,

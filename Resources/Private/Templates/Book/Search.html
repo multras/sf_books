@@ -7,7 +7,7 @@
 			<ul id="search-result book">
 				<f:for each="{paginatedBooks}" as="book">
 					<li>
-						<f:link.action action="show" pageUid="{settings.bookPageId}" arguments="{book: book}" pluginName="category">{book.title}</f:link.action>
+						<f:link.action action="show" controller="Book" pluginName="book" pageUid="{settings.bookPageId}" arguments="{book: book}">{book.title}</f:link.action>
 						<div>{book.isbn} - {book.subtitle}</div>
 
 						<f:for each="{book.author}" as="author">
@@ -22,6 +22,6 @@
 		<div><f:translate id="empty_result" arguments="{query: query}"/></div>
 	</f:else>
 </f:if>
-<f:link.page pageUid="{settings.searchPageId}"><f:translate id="back_to_search"/></f:link.page>
+<f:link.page pageUid="{settings.searchPageId}" class="backlink"><f:translate id="back_to_search"/></f:link.page>
 
 </html>

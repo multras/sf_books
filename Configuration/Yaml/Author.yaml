@@ -1,0 +1,15 @@
+routeEnhancers:
+  SfBooksAuthor:
+    type: Extbase
+    extension: SfBooks
+    plugin: Author
+    defaultController: 'Author::list'
+    routes:
+      - { routePath: '/', _controller: 'Author::list' }
+      - { routePath: '/{bookauthor}', _controller: 'Author::show', _arguments: { 'bookauthor': 'author' } }
+    aspects:
+      bookauthor:
+        type: PersistedPatternMapper
+        tableName: 'tx_sfbooks_domain_model_author'
+        routeFieldPattern: '^(?P<path_segment>.+)$'
+        routeFieldResult: '{path_segment}'
