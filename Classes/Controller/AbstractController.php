@@ -75,15 +75,6 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
         }
     }
 
-    protected function initializeView(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view)
-    {
-        if (isset($this->settings['templatePath']) && !empty($this->settings['templatePath'])) {
-            $templatePath = explode(' ', $this->settings['templatePath']);
-            /** @var $view \TYPO3\CMS\Fluid\View\TemplateView */
-            $view->setTemplatePathAndFilename(array_shift($templatePath));
-        }
-    }
-
     protected function setPageTitle(string $title)
     {
         /** @var TitleTagProvider $provider */

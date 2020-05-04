@@ -9,6 +9,9 @@ Breaking Changes
 2020.05.03
 ''''''''''
 
+Cleanup of plugins
+------------------
+
 Due to a more restricted handling of resolving controllers and actions in links every plugin is reduced to it's main
 data models. The following plugins are modified:
 
@@ -26,6 +29,11 @@ In consequence you need to check whether your pages are still displaying all inf
 There are settings for the link generation authorPageId, bookPageId, categoryPageId, seriesPageId to compensate
 reduced flexibility. Have a look into the TypoScript constants editor.
 
+Cleanup of flexforms
+--------------------
+
+The field settings.templatePath got removed with view.templateRootPaths.200. By this no extra handling for overriding
+templates is necessary anymore. But the new field needs to be filled to get it working again.
 
 
 2017.04.27

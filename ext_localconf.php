@@ -105,4 +105,13 @@ call_user_func(function () {
 '
         )
     );
+
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['sfBooksAuthorsSlugs']
+        = \Evoweb\SfBooks\Updates\PopulateAuthorSlugs::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['sfBooksBooksSlugs']
+        = \Evoweb\SfBooks\Updates\PopulateBookSlugs::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['sfBooksCategoriesSlugs']
+        = \Evoweb\SfBooks\Updates\PopulateCategorySlugs::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['sfBooksSeriesSlugs']
+        = \Evoweb\SfBooks\Updates\PopulateSeriesSlugs::class;
 });
