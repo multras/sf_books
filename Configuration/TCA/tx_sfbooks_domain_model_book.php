@@ -172,14 +172,13 @@ return [
             'label' => $languageFile . 'tx_sfbooks_domain_model_book.series',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectSingle',
+                'renderType' => 'selectCheckBox',
                 'items' => [
                     ['', 0],
                 ],
                 'allowed' => 'tx_sfbooks_domain_model_series',
                 'foreign_table' => 'tx_sfbooks_domain_model_series',
-                'foreign_table_where' => 'AND tx_sfbooks_domain_model_series.pid = ###CURRENT_PID###
-                    ORDER BY tx_sfbooks_domain_model_series.uid',
+                'foreign_table_where' => 'ORDER BY tx_sfbooks_domain_model_series.title',
                 'MM' => 'tx_sfbooks_domain_model_book_series_mm',
                 'size' => 1,
                 'minitems' => 0,
